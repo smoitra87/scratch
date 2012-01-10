@@ -1,0 +1,9 @@
+#! /usr/bin/env python 
+
+""" Hello There I am the runner script """
+
+print __doc__
+
+import ex8
+print 'The files in $HOME are '
+ex8.foo.system("ls ~");
