@@ -4,4 +4,4 @@
 build/
 *.so
 elisa/*.png
-elisa/*.tar.gz
+elisa/*.zip
