@@ -5,3 +5,5 @@ build/
 *.so
 elisa/*.png
 elisa/*.tar.gz
+python/logging/*.log
+
