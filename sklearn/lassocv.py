@@ -24,7 +24,7 @@ X /= np.sqrt(np.sum(X**2,axis=0))
 # Perform LassoCV
 #######################################################################
 
-print "computing regularization path using LARS CV"
+print "computing regularization path using Lasso CV"
 t1 = time.time()
 model = LassoCV(cv=20).fit(X,y)
 t_lasso_cv = time.time() - t1
