@@ -26,7 +26,8 @@ from sklearn.linear_model import Lasso
 alpha = 0.1
 lasso = Lasso(alpha=alpha)
 
-y_pred_lasso = lasso.fit(X_train, y_train).predict(X_test)
+lasso_model = lasso.fit(X_train, y_train)
+y_pred_lasso = lasso_model.predict(X_test)
 print lasso
 print "r^2 on test data : %f" % (1 - np.linalg.norm(y_test - y_pred_lasso)**2
                                       / np.linalg.norm(y_test)**2)
