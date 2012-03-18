@@ -7,4 +7,5 @@ elisa/*.png
 elisa/*.zip
 elisa/*.tar.gz
 python/logging/*.log
-
+python/echonest/*.mp3
+python/echonest/*.p
