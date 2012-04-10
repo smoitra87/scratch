@@ -9,3 +9,4 @@ elisa/*.tar.gz
 python/logging/*.log
 python/echonest/*.mp3
 python/echonest/*.p
+python/sqlite/*.db
