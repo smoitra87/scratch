@@ -11,3 +11,5 @@ python/echonest/*.mp3
 python/echonest/*.p
 python/sqlite/*.db
 python/sqlite/*.sql
+python/markup/*.png
+
