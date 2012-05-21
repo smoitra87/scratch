@@ -1,0 +1,526 @@
+ASD00020000	Escherichia coli	site,211,Ser@@site,209,Phe@@site,13,Ile@@site,147,Met@@site,180,Ser@@site,10,Ile@@site,151,Gln@@site,148,Ile@@site,175,Leu@@site,7,Asp@@site,212,Val@@site,150,Pro@@site,221,Val@@site,179,Leu
+ASD00020000	Escherichia coli	
+ASD00020000	Escherichia coli	
+ASD00030000	Rattus norvegicus	
+ASD00040000	Bos taurus	
+ASD00050000	Pisum sativum	
+ASD00060000	Homo sapiens	site,157,Phe@@site,131,Arg@@site,148,Thr@@site,150,Gln@@site,76,Lys@@site,155,Leu@@site,119,Ile
+ASD00070000	Rattus norvegicus	
+ASD00070000	Bos taurus	
+ASD00080000	Rattus norvegicus	
+ASD00080000	Cavia porcellus	
+ASD00090000	Rattus norvegicus	
+ASD00100000	Rattus norvegicus	
+ASD00110000	Homo sapiens	
+ASD00120000	Mus musculus	
+ASD00120000	Rattus norvegicus	
+ASD00130000	Homo sapiens	
+ASD00130000	Mus musculus	
+ASD00140000	Homo sapiens	
+ASD00150000	Ovis aries	
+ASD00160000	Escherichia coli	
+ASD00170000	Homo sapiens	
+ASD00170000	Rattus norvegicus	
+ASD00180000	Homo sapiens	
+ASD00190000	Homo sapiens	
+ASD00200000	Bacillus stearothermophilus	
+ASD00210000	Escherichia coli	
+ASD00210000	Escherichia coli	
+ASD00230000	Homo sapiens	site,103,Tyr@@site,317,Trp@@site,105,Asp
+ASD00240000	Homo sapiens	site,176,Thr@@site,174,Asp@@site,15,Glu@@site,285,Phe@@site,111,Phe@@site,17,Trp
+ASD00240000	Trypanosoma cruzi	
+ASD00240000	Escherichia coli	
+ASD00250000	Hordeum vulgare	
+ASD00250000	Oryza sativa subsp. japonica	
+ASD00250000	Hordeum vulgare	
+ASD00250000	Oryza sativa subsp. japonica	
+ASD00260000	Rattus norvegicus	
+ASD00260000	Homo sapiens	
+ASD00270000	Rattus norvegicus	
+ASD00280000	Bacillus subtilis	site,339,Lys@@range,251,257,loop@@site,316,Lys@@site,318,Arg@@site,317,Asn
+ASD00290000	Gallus gallus	
+ASD00300000	Azotobacter vinelandii	
+ASD00310000	Rattus norvegicus	site,298,Arg@@site,69,Arg@@site,150,His
+ASD00310000	Rattus norvegicus	
+ASD00310000	Rattus norvegicus	
+ASD00310000	Rattus norvegicus	
+ASD00320000	Salmonella enterica subsp. enterica serovar Typhimurium	site,455,Tyr@@site,291,Pro@@site,454,Gly@@site,39,Glu@@site,50,Lys@@site,40,Ser@@site,293,Met@@site,292,Tyr@@site,41,Ala@@site,38,Leu@@site,294,Phe@@site,465,Cys
+ASD00330000	Sulfolobus acidocaldarius	
+ASD00330000	Escherichia coli	
+ASD00330000	Escherichia coli	site,84,Asn@@site,19,Asp@@site,94,Lys@@site,89,Tyr@@site,12,Ile@@site,60,Lys
+ASD00330000	Sulfolobus acidocaldarius	site,15,Ile@@site,88,Asn@@site,98,Lys@@site,93,Tyr@@site,64,Lys@@site,22,Asp
+ASD00340000	Alcaligenes faecalis	
+ASD00350000	Methanocaldococcus jannaschii	site,419,Gly@@site,230,Thr@@site,440,Gln@@site,6,Lys@@site,414,Met@@site,229,Trp@@site,434,Asn@@site,417,Ala@@site,420,Ile@@site,11,Ser@@site,421,Ala@@site,8,Gly@@site,10,Thr@@site,444,Glu
+ASD00360000	Homo sapiens	
+ASD00360000	Rattus norvegicus	
+ASD00370000	Penicillium chrysogenum	site,445,Phe@@site,436,Arg@@site,528,Phe@@site,436,Arg,site,433,Asp@@site,433,Asp@@site,514,Arg
+ASD00370000	Escherichia coli	
+ASD00390000	Homo sapiens	
+ASD00400000	Homo sapiens	
+ASD00410000	Homo sapiens	
+ASD00430000	Saccharomyces cerevisiae	site,73,Lys@@site,510,Phe@@site,76,Arg@@site,386,Val@@site,487,Trp@@site,454,Cys@@site,392,Glu@@site,77,Ser@@site,393,Met
+ASD00440000	Escherichia coli	site,228,Glu@@site,223,Trp@@site,214,Val@@site,182,Arg@@site,219,Val
+ASD00450000	Homo sapiens	site,505,Leu@@site,529,Thr@@range,594,596,(DFG) loop@@site,594,Asp@@site,572,Ile@@site,501,Glu@@site,574,His@@site,595,Phe@@site,531,Trp@@site,532,Cys@@site,514,Leu@@site,483,Lys
+ASD00460000	Homo sapiens	site,684,Phe@@site,841,Ile@@site,680,Arg@@site,837,Glu@@site,767,Glu@@site,688,Phe
+ASD00460000	Rattus norvegicus	
+ASD00470000	Bos taurus	
+ASD00480000	Escherichia coli	site,62,Leu@@site,63,Ser@@site,71,Ile@@site,87,Val@@site,83,Arg@@site,31,Ile@@site,72,Gly@@site,74,Leu@@site,73,Glu@@site,124,Arg@@site,65,Leu@@site,125,Leu@@site,128,Thr@@site,50,Val@@site,129,Ser@@site,85,Ala
+ASD00490000	Escherichia coli	site,1015,Asn@@site,977,Thr@@site,974,Thr@@site,1017,Thr@@site,993,Lys@@site,954,Lys
+ASD00490000	Escherichia coli	
+ASD00510000	Homo sapiens	site,67,Val@@site,112,Val@@site,101,Val@@site,41,Leu@@range,104,105,beta4-beta5-loop@@site,39,Tyr
+ASD00510000	Homo sapiens	
+ASD00510000	Homo sapiens	
+ASD00520000	Homo sapiens	site,332,Ser@@site,286,Arg@@site,390,Glu@@site,333,Ser
+ASD00530000	Homo sapiens	
+ASD00540000	Homo sapiens	site,187,Arg@@site,223,Tyr@@site,290,Cys
+ASD00550000	Homo sapiens	
+ASD00560000	Eimeria tenella	site,247,Arg@@site,643,Arg@@site,635,Glu@@site,366,Arg
+ASD00570000	Homo sapiens	range,96,101,conserved IEPDIG motif@@site,206,Leu@@site,133,Pro@@site,200,Ala@@site,93,Phe
+ASD00600000	Homo sapiens	site,108,Tyr@@site,198,Ile@@site,104,Leu@@site,248,Trp@@site,178,Cys@@site,191,Lys@@site,283,Glu@@site,251,Tyr@@site,37,Tyr@@site,180,Ser
+ASD00650000	Saccharomyces cerevisiae	
+ASD00650000	Saccharomyces cerevisiae	
+ASD00650000	Saccharomyces cerevisiae	
+ASD00670000	Homo sapiens	site,139,Ser@@site,349,Asn@@site,379,Ser@@site,345,Ile@@site,109,Cys@@site,372,Leu@@site,136,Met
+ASD00680000	Homo sapiens	
+ASD00690000	Saccharomyces cerevisiae	site,142,Ser@@site,145,Thr@@site,76,Arg@@site,138,Asn@@site,139,Asn@@site,75,Arg@@site,141,Gly
+ASD00700000	Homo sapiens	
+ASD00700000	Homo sapiens	
+ASD00700000	Homo sapiens	
+ASD00710000	Escherichia coli	site,208,Glu@@site,115,His@@site,164,Arg@@site,107,Thr@@site,160,Ile@@site,110,Arg@@site,146,Tyr@@site,168,Lys@@site,112,Thr@@site,183,Gln@@site,190,Asn@@site,207,Cys@@site,113,Met@@site,181,Ile@@site,109,Thr@@site,205,Thr
+ASD00730000	Homo sapiens	
+ASD00740000	Gallus gallus	site,341,Met@@site,340,Tyr@@site,338,Thr@@site,295,Lys@@range,404,406,DFG motif@@site,310,Glu
+ASD00750000	Escherichia coli	
+ASD00770000	Homo sapiens	domain,C-terminal regulatory domain
+ASD00780000	Homo sapiens	
+ASD00790000	Bos taurus	
+ASD00790000	Bos taurus	
+ASD00790000	Bos taurus	
+ASD00790000	Bos taurus	domain,matrix domain of subunit IV
+ASD00800000	Bos taurus	site,32,Asn@@site,194,Met@@site,35,Ser@@site,227,Lys@@site,31,Trp@@site,228,Asp@@site,17,Ala@@site,100,Arg@@site,197,Leu@@site,224,Tyr@@site,201,His@@site,190,Met@@site,27,Ile@@site,38,Gly@@site,18,Phe@@site,220,Phe
+ASD00820000	Homo sapiens	site,364,Thr@@site,365,Ser@@site,97,Arg@@site,367,Pro@@site,100,Phe@@site,114,Phe@@site,103,Ala@@site,217,Asn@@site,476,Phe@@site,98,Gly@@site,99,Ile@@site,102,Leu@@site,113,Val@@site,366,Leu
+ASD00830000	Homo sapiens	
+ASD00840000	Homo sapiens	
+ASD00850000	Saccharopolyspora erythraea	site,392,Leu@@site,238,Leu@@site,391,Leu@@site,237,Val
+ASD00860000	Saccharomyces cerevisiae	
+ASD00870000	Homo sapiens	site,453,Gln@@site,131,Pro@@site,129,Arg@@site,140,Lys@@site,354,Phe@@site,456,Arg@@site,154,Asn@@site,152,Ile@@site,446,Arg@@site,432,Met@@site,144,Arg@@site,134,Arg@@site,436,Met@@site,127,Phe@@site,428,His
+ASD00880000	Staphylococcus aureus	site,313,Phe@@site,117,Val@@site,19,Val@@site,92,Phe@@site,311,Pro@@site,289,Leu@@site,94,Leu@@site,337,Leu@@site,96,His@@site,16,Glu@@site,310,Met
+ASD00890000	Dengue virus	
+ASD00900000	Mus musculus	
+ASD00900000	Enterobacteria phage T2	
+ASD00910000	Escherichia coli	site,106,Tyr@@site,48,Ser@@site,84,Glu@@site,56,His@@site,80,Asn@@site,49,Ala
+ASD00930000	Clostridium oroticum	
+ASD00950000	Escherichia coli	
+ASD00960000	Homo sapiens	
+ASD00960000	Rattus norvegicus	
+ASD00990000	Homo sapiens	
+ASD01000000	Homo sapiens	site,130,Asp@@site,133,Ala@@site,214,Leu@@site,117,Gly@@site,218,Ala@@site,217,Gly@@site,137,Pro@@site,134,Gly@@site,132,Leu@@site,136,Ile@@site,215,Glu@@site,211,Tyr@@site,160,Leu@@range,119,127,Loop 5@@site,127,Trp@@site,239,Phe@@site,115,Met@@site,221,Arg@@site,116,Glu@@site,119,Arg@@site,118,Glu
+ASD01010000	Rattus norvegicus	
+ASD01020000	Homo sapiens	site,678,Thr@@site,706,Ile@@site,704,Leu@@site,944,Tyr@@site,941,Ile@@site,948,Val@@site,952,Met@@site,760,Leu@@site,782,Leu@@site,945,Met@@site,786,Val
+ASD01030000	Homo sapiens	site,160,Lys@@site,185,Asp@@site,9,Asp@@site,124,Asn@@site,184,Asp@@site,123,Thr@@site,11,Asp
+ASD01040000	Homo sapiens	
+ASD01050000	Drosophila melanogaster	domain,N Terminus
+ASD01060000	Mus musculus	
+ASD01060000	Bos taurus	
+ASD01070000	Escherichia coli	
+ASD01080000	Saccharomyces cerevisiae	
+ASD01090000	Escherichia coli	
+ASD01100000	Homo sapiens	
+ASD01120000	Homo sapiens	site,18,Val@@site,25,Ala@@site,178,Met@@site,114,Tyr@@site,161,Val@@site,27,Gly@@site,26,Arg@@site,32,Thr@@site,19,Met@@site,31,Leu@@site,29,Gly@@site,141,Arg@@site,35,Leu@@site,28,Thr@@site,30,Glu@@site,113,Lys
+ASD01120000	Rattus norvegicus	
+ASD01120000	Sus scrofa	site,32,Thr@@site,178,Met@@site,51,Lys@@site,114,Tyr@@site,52,Ala@@site,29,Gly@@site,56,His@@range,53,73
+ASD01120000	Dictyostelium discoideum	
+ASD01120000	Rhodopseudomonas palustris	
+ASD01130000	Homo sapiens	site,73,Cys
+ASD01130000	Oryctolagus cuniculus	site,73,Cys
+ASD01130000	Vigna radiata	
+ASD01140000	Homo sapiens	
+ASD01140000	Homo sapiens	
+ASD01140000	Homo sapiens	
+ASD01140000	Rattus norvegicus	
+ASD01140000	Rattus norvegicus	
+ASD01140000	Rattus norvegicus	
+ASD01140000	Mus musculus	
+ASD01140000	Mus musculus	
+ASD01140000	Mus musculus	
+ASD01150000	Homo sapiens	
+ASD01150000	Homo sapiens	
+ASD01160000	Rattus norvegicus	
+ASD01160000	Rattus norvegicus	
+ASD01170000	Haemophilus influenzae	site,139,Tyr@@site,133,Leu@@site,235,Leu@@site,220,Val@@site,170,Thr@@site,231,Gln@@site,221,Met@@site,228,Asn@@site,224,Glu
+ASD01180000	Homo sapiens	
+ASD01190000	Homo sapiens	site,752,Met@@site,602,Phe
+ASD01190000	Rattus norvegicus	site,459,Ser@@site,474,Tyr@@site,496,Arg@@site,472,His@@site,489,Arg@@site,468,Val@@site,463,Phe@@site,497,Tyr@@site,501,Leu@@site,493,Pro
+ASD01200000	Homo sapiens	site,211,Ile@@site,455,Val@@site,63,Arg@@site,214,Tyr@@site,235,Met@@site,62,Val@@site,456,Ala@@site,210,Met@@site,452,Val@@site,215,Tyr
+ASD01200000	Rattus norvegicus	
+ASD01200000	Mus musculus	
+ASD01210000	Escherichia coli	site,160,Lys@@site,158,Arg@@site,254,Tyr@@site,143,His@@site,148,Glu@@site,150,Ala@@site,151,Ser
+ASD01210000	Bos taurus	
+ASD01220000	Zymomonas mobilis	
+ASD01230000	Homo sapiens	
+ASD01230000	Rattus norvegicus	site,752,Gly@@site,775,Asn@@site,750,Ser,@@site,515,Pro@@site,502,Ile@@site,519,Leu@@site,518,Ser,@@site,751,Lys
+ASD01240000	Bos taurus	
+ASD01240000	Homo sapiens	
+ASD01240000	Rattus norvegicus	
+ASD01250000	Homo sapiens	
+ASD01260000	Oryctolagus cuniculus	
+ASD01270000	Oryctolagus cuniculus	
+ASD01280000	Enterobacter aerogenes	
+ASD01290000	Escherichia coli	site,234,Gly@@site,237,Arg@@site,235,Gly
+ASD01300000	Bacillus subtilis	site,23,Arg@@site,63,Arg@@site,55,Arg@@site,113,Arg
+ASD01310000	Homo sapiens	
+ASD01310000	Homo sapiens	
+ASD01310000	Rattus norvegicus	
+ASD01310000	Rattus norvegicus	
+ASD01320000	Homo sapiens	site,311,Arg@@site,76,Tyr@@site,43,Asp@@site,318,Gly@@site,316,Lys@@site,310,Arg@@site,319,Cys@@site,317,Phe
+ASD01320000	Homo sapiens	site,76,Tyr@@site,311,Arg@@site,43,Asp@@site,310,Arg
+ASD01330000	Homo sapiens	
+ASD01330000	Rattus norvegicus	
+ASD01330000	Saccharomyces cerevisiae	
+ASD01340000	Homo sapiens	site,313,Phe@@site,306,His@@site,309,Phe
+ASD01340000	Bos taurus	
+ASD01350000	Human cytomegalovirus	
+ASD01360000	Escherichia coli	site,105,Lys
+ASD01370000	Rattus norvegicus	
+ASD01380000	Homo sapiens	
+ASD01380000	Homo sapiens	
+ASD01380000	Homo sapiens	
+ASD01380000	Rattus norvegicus	
+ASD01390000	Mycobacterium tuberculosis	site,53,Ser@@site,60,Arg
+ASD01400000	Haemophilus influenzae	site,64,Arg@@site,181,Tyr@@site,44,Asp@@site,39,Trp@@site,47,Val@@site,46,Arg
+ASD01410000	Hepatitis C virus	site,500,Trp@@site,425,Leu@@site,396,Ala@@site,429,Phe@@site,494,Val@@site,503,Arg@@site,493,Gly@@site,395,Ala@@site,392,Leu@@site,492,Leu@@site,495,Pro@@site,428,His@@site,399,Thr
+ASD01420000	Homo sapiens	
+ASD01420000	Homo sapiens	
+ASD01430000	Panulirus interruptus	
+ASD01430000	Limulus polyphemus	
+ASD01430000	Aphonopelma californicum	
+ASD01430000	Callinectes sapidus	
+ASD01440000	Homo sapiens	site,587,His
+ASD01450000	Homo sapiens	site,425,Arg@@site,31,Leu@@site,30,Arg@@site,380,Phe@@site,384,Asn@@site,23,Asp@@site,426,Arg@@site,373,His
+ASD01460000	Lactobacillus sp.	site,54,Asp@@site,82,Ser@@site,67,Glu@@site,218,Arg@@site,53,Asp@@site,83,Ser@@site,63,Tyr@@site,199,Asp@@site,64,Asp
+ASD01470000	Human immunodeficiency virus type 1	
+ASD01480000	Corynebacterium glutamicum	domain,C-terminal
+ASD01480000	Escherichia coli	
+ASD01480000	Bacillus subtilis	
+ASD01480000	Serratia marcescens	site,352,Ser
+ASD01490000	Bacillus subtilis	range,262,267@@site,204,Arg
+ASD01490000	Lactobacillus casei	range,265,275@@site,237,Trp@@site,245,Arg
+ASD01490000	Treponema denticola	
+ASD01500000	Homo sapiens	site,81,Tyr@@site,37,Arg@@site,133,Lys
+ASD01510000	Thermus thermophilus	
+ASD01510000	Escherichia coli	site,390,Leu@@site,177,Leu@@site,373,Ile@@site,69,Ile@@site,102,Trp@@site,54,Ala@@site,324,Leu@@site,18,Ile@@site,144,Ala
+ASD01520000	Homo sapiens	
+ASD01520000	Homo sapiens	
+ASD01530000	Homo sapiens	
+ASD01540000	Homo sapiens	site,294,His@@site,129,Phe
+ASD01560000	Homo sapiens	
+ASD01570000	Saccharomyces cerevisiae	site,74,Cys@@site,63,Ser@@domain,DNA binding domain@@site,73,Lys@@site,100,Trp@@site,58,Asn@@site,71,Lys@@site,70,Arg@@site,57,Arg
+ASD01580000	Bacillus subtilis	site,81,Glu@@site,139,Glu@@site,141,Phe@@site,88,Arg@@site,85,Gly
+ASD01590000	Homo sapiens	
+ASD01600000	Saccharomyces cerevisiae	
+ASD01600000	Thermotoga maritima	site,130,Asp@@site,19,Lys@@site,104,Thr@@site,201,Ser@@site,176,Asp@@site,144,Ser@@site,225,Ser@@site,11,Asp
+ASD01610000	Influenza A virus H3N2	site,41,Trp@@site,40,Leu@@site,45,Arg@@site,26,Leu@@site,34,Gly@@site,44,Asp@@site,38,Leu@@site,43,Leu@@site,42,Ile@@site,31,Ser@@site,27,Val
+ASD01620000	Influenza A virus H3N2	
+ASD01630000	Homo sapiens	
+ASD01630000	Cricetulus griseus	
+ASD01640000	Rhodnius prolixus	
+ASD01650000	Homo sapiens	
+ASD01660000	Rattus norvegicus	
+ASD01660000	Homo sapiens	
+ASD01670000	Enterobacteria phage lambda	
+ASD01680000	Homo sapiens	
+ASD01680000	Homo sapiens	
+ASD01690000	Homo sapiens	
+ASD01690000	Homo sapiens	
+ASD01700000	Homo sapiens	site,258,Val@@site,155,Val@@site,314,Leu@@site,327,Leu@@site,323,Leu@@site,186,Leu@@site,182,Val@@site,284,Ile@@site,262,Ile@@site,286,Ile@@site,280,Ile@@site,260,Ile@@site,157,Leu
+ASD01720000	Neurospora crassa	
+ASD01720000	Neurospora crassa	
+ASD01720000	Saccharomyces cerevisiae	
+ASD01720000	Saccharomyces cerevisiae	
+ASD01720000	Sus scrofa	
+ASD01720000	Sus scrofa	
+ASD01720000	Sus scrofa	
+ASD01720000	Bos taurus	
+ASD01720000	Bos taurus	
+ASD01720000_	Bos taurus	
+ASD01730000	Rattus norvegicus	site,737,Met@@site,511,Asp
+ASD01740000	Homo sapiens	domain,tail domain@@domain,motor domain
+ASD01760000	Bifidobacterium longum	site,176,Tyr@@site,174,His@@site,159,Arg@@site,172,Asn
+ASD01760000	Bacillus stearothermophilus	site,174,Tyr@@site,170,Asn@@site,169,Gln@@site,172,His
+ASD01770000	Escherichia coli	site,149,Asp@@site,246,Asn@@site,193,Ser@@site,191,Ser@@site,125,Asn@@site,69,Ser@@site,197,Arg
+ASD01780000	Escherichia coli	site,271,Thr@@site,240,Arg@@site,162,Thr@@site,302,Val@@site,273,Cys@@site,303,Glu
+ASD01790000	Glycine max	
+ASD02030000	Rattus norvegicus	site,781,Glu@@site,519,Ile@@site,774,Leu@@site,521,Asn@@site,777,Leu@@site,524,Ala
+ASD01800000	Homo sapiens	
+ASD01810000	Homo sapiens	
+ASD01820000	Homo sapiens	
+ASD01820000	Sus scrofa	
+ASD01820000	Cavia porcellus	
+ASD01830000	Homo sapiens	
+ASD01830000	Cavia porcellus	
+ASD01840000	Homo sapiens	
+ASD01850000	Homo sapiens	
+ASD01860000	Homo sapiens	site,59,Glu@@site,102,Asp@@site,67,Arg@@site,91,Arg@@,site,64,Gln
+ASD01860000	Streptococcus faecalis	
+ASD01860000	Ascaris lumbricoides	
+ASD01860000	Neurospora crassa	
+ASD01870000	Homo sapiens	
+ASD01870000	Rattus norvegicus	site,819,Val@@site,747,Asn@@site,798,Trp@@site,661,Arg@@site,815,Thr
+ASD01880000	Homo sapiens	
+ASD01880000	Rattus norvegicus	
+ASD01890000	Homo sapiens	
+ASD01890000	Mus musculus	
+ASD01890000	Rattus norvegicus	
+ASD01900000	Homo sapiens	
+ASD01900000	Rattus norvegicus	
+ASD01910000	Homo sapiens	
+ASD01910000	Rattus norvegicus	
+ASD01920000	Rattus norvegicus	
+ASD01930000	Mesocricetus auratus	
+ASD01940000	Homo sapiens	site,219,Met@@site,115,Leu@@site,215,Leu@@site,212,Ser@@site,143,Met@@site,211,Val@@site,216,Ile@@site,97,Lys@@site,127,Val@@site,118,Leu
+ASD01940000	Rattus norvegicus	
+ASD01950000	Homo sapiens	site,220,Ile@@site,234,Met@@site,216,Ser@@site,145,Ile@@site,103,Ile@@site,147,Met@@site,223,Met@@site,219,Leu@@site,101,Lys@@site,130,Ile@@site,131,Val@@site,213,Phe@@site,122,Leu@@site,119,Leu
+ASD01980000	Gallus gallus	range,165,171
+ASD01990000	Meleagris gallopavo	
+ASD01990000	Sus scrofa	
+ASD02000000	Neisseria gonorrhoeae	site,201,Lys@@site,270,Glu@@site,334,Asp@@site,275,Asn@@domain,AAK domain@@site,21,Met@@site,17,Tyr@@site,257,Gln
+ASD02020000	Cucurbita maxima	
+ASD02040000	Azotobacter vinelandii	
+ASD02050000	Salmonella enterica subsp. enterica serovar Typhimurium	site,54,Asp@@range,82,101
+ASD02060000	Homo sapiens	domain,13 conserved serine residues in the NFAT regulatory domain
+ASD02080000	Salmonella enterica subsp. enterica serovar Typhimurium	site,79,Tyr@@site,35,Arg@@site,43,Cys@@site,269,Leu@@site,8,Asn@@site,34,Ser@@site,37,Pro
+ASD02090000	Brevundimonas diminuta	site,254,His
+ASD02100000	Pseudomonas fluorescens	
+ASD02100000	Pseudomonas aeruginosa	site,36,Tyr@@site,106,Glu@@site,38,Gly@@site,45,Lys@@site,40,Glu@@site,42,Gln@@site,35,Lys
+ASD02110000	Acinetobacter lwoffii	
+ASD02110000	Bos taurus	
+ASD02110000	Homo sapiens	
+ASD02120000	Homo sapiens	range,146,156@@range,106,113
+ASD02130000	Escherichia coli	site,258,Tyr@@site,244,Phe@@site,249,Glu@@site,247,Phe@@site,259,Phe@@site,262,Tyr
+ASD02150000	Staphylococcus aureus	
+ASD02160000	Homo sapiens	
+ASD02170000	Rattus norvegicus	range,111,117@@range,31,34@@site,16,Ser@@site,237,Cys
+ASD02170000	Homo sapiens	
+ASD02180000	Azospirillum brasilense	site,240,Arg@@site,395,Leu@@site,396,Met@@site,215,Arg@@site,214,Arg@@site,238,Met@@site,60,Arg@@site,397,Ala
+ASD02190000	Homo sapiens	site,575,Met@@site,638,Ile@@site,332,Phe@@site,671,Gln@@site,674,Phe@@site,642,Phe
+ASD02200000	Homo sapiens	
+ASD02200000	Bos taurus	site,478,Asp@@site,289,Asp
+ASD02210000	Escherichia coli	site,587,Arg@@site,881,Asn@@site,832,Arg@@site,773,Lys
+ASD02210000	Zea mays	
+ASD02220000	Escherichia coli	site,88,Trp
+ASD02230000	Mycobacterium tuberculosis	site,480,Asn@@site,462,Asp@@site,463,Arg@@site,467,Leu@@site,460,Tyr@@site,464,Pro
+ASD02230000	Escherichia coli	site,364,Asn@@site,346,Asn@@site,344,His@@site,348,Pro@@site,347,Arg
+ASD02240000	Rattus norvegicus	domain,pleckstrin homology (PH)
+ASD02250000	Homo sapiens	
+ASD02250000	Sus scrofa	site,48,His@@site,52,Tyr@@range,57,72
+ASD02260000	Homo sapiens	domain,src-homology 2(SH2)
+ASD02270000	Streptomyces chromofuscus	
+ASD02280000	Bacillus subtilis	site,53,Ser@@site,87,Ser@@site,149,Asp@@range,311,316@@range,106,110@@site,141,Gln@@site,55,Arg@@site,86,Ala@@site,150,His
+ASD02280000	Homo sapiens	site,132,Ser@@site,144,Asn@@site,101,Asp@@site,102,Lys@@site,135,Gln@@site,100,Lys@@site,146,Tyr
+ASD02290000	Rhodobacter sphaeroides	site,257,Arg@@site,234,Arg@@site,31,Arg
+ASD02300000	Oryctolagus cuniculus	site,304,Lys
+ASD02300000	Oryctolagus cuniculus	site,19,Arg
+ASD02300000	Oryctolagus cuniculus	
+ASD02310000	Leishmania donovani	
+ASD02320000	Homo sapiens	
+ASD02330000	Homo sapiens	
+ASD02340000	Acanthophoenix rubra	
+ASD02350000	Bos taurus	
+ASD02350000	Homo sapiens	
+ASD02360000	Homo sapiens	
+ASD02370000	Staphylococcus aureus	site,200,Leu@@site,229,Tyr@@site,219,Ser@@site,214,Leu@@site,231,Phe@@site,217,Ile@@site,198,Gly
+ASD02390000	Homo sapiens	
+ASD02400000	Homo sapiens	
+ASD02400000	Homo sapiens	
+ASD02400000	Homo sapiens	
+ASD02400000	Homo sapiens	
+ASD02400000	Rattus norvegicus	
+ASD02400000	Rattus norvegicus	
+ASD02400000	Rattus norvegicus	
+ASD02400000	Rattus norvegicus	
+ASD02400000	Mus musculus	range,205,231@@site,150,Gln
+ASD02400000_	Mus musculus	
+ASD02400000_	Mus musculus	
+ASD02400000_	Mus musculus	
+ASD02430000	Mus musculus	
+ASD02430000	Rattus norvegicus	
+ASD02440000	Homo sapiens	site,200,Glu@@site,181,Asp@@site,192,Leu@@site,188,Pro@@site,276,Glu@@site,193,Asn@@site,179,Trp@@site,291,Trp@@site,280,Phe@@site,196,Phe@@site,279,Lys@@site,185,Pro@@site,186,Glu@@site,191,Phe@@site,197,Lys
+ASD02450000	Pseudomonas aeruginosa	
+ASD02460000	Solanum tuberosum	
+ASD02460000	Solanum tuberosum	
+ASD02470000	Saccharomyces cerevisiae	site,290,Ser@@range,104,113@@site,115,His@@site,310,His@@site,113,Leu@@site,221,Cys@@site,289,Leu@@range,288,304@@site,287,Ala@@site,286,Gly@@site,291,Asp@@site,114,His@@site,112,Leu@@site,92,His@@site,225,His
+ASD02490000	Homo sapiens	site,130,Met@@site,328,Tyr@@site,258,Arg@@site,74,Arg@@site,75,Val@@site,155,Leu@@site,147,Ser@@site,137,Tyr@@site,310,Thr@@site,134,Val@@site,151,Ile@@site,81,Val@@site,146,Val@@site,154,Phe@@site,382,Tyr@@site,133,Gly@@site,71,Leu@@site,80,Ser@@site,72,Pro@@site,150,Asn
+ASD02500000	Saccharomyces cerevisiae	site,404,Ser@@site,459,Arg@@site,406,Thr@@site,405,Gly@@site,403,Thr@@site,491,His@@site,452,Trp@@site,407,Thr@@site,402,Ser
+ASD02500000	Homo sapiens	site,432,Thr@@site,433,Lys@@site,489,Arg@@site,515,Trp@@site,518,Gly@@site,521,Phe@@site,519,Ser@@site,482,Trp@@site,514,Gly@@site,437,Ser@@site,436,Arg@@site,516,Arg@@site,434,Ser@@site,520,Gly
+ASD02500000	Homo sapiens	range,475,479@@range,557,566@@site,532,Arg@@site,479,Arg
+ASD02500000	Oryctolagus cuniculus	site,70,Asn@@site,470,Phe@@site,106,Arg@@site,469,Ile@@site,43,Arg@@site,44,Asn@@site,464,His@@site,471,Pro
+ASD02500000	Escherichia coli	site,246,Asp@@site,297,Asp@@site,292,Arg@@site,220,Lys@@site,127,Asp@@site,222,Glu
+ASD02500000	Rattus norvegicus	
+ASD02500000	Rattus norvegicus	
+ASD02510000	Escherichia coli	site,195,Gln@@site,218,Phe@@site,197,Arg
+ASD02520000	Bos taurus	site,53,Tyr@@site,52,Ile@@site,31,Trp
+ASD02530000	Escherichia coli	
+ASD02540000	Bacillus stearothermophilus	
+ASD02550000	Homo sapiens	
+ASD02560000	Human immunodeficiency virus type 1	site,236,Pro@@site,181,Tyr@@site,179,Val@@site,106,Val@@site,188,Tyr@@site,103,Lys@@site,234,Leu@@site,101,Lys@@site,229,Trp@@site,235,His@@site,95,Pro@@site,100,Leu@@site,227,Phe
+ASD02570000	Dictyostelium discoideum	
+ASD02570000	Dictyostelium discoideum	
+ASD02570000	Dictyostelium discoideum	
+ASD02570000	Dictyostelium discoideum	
+ASD02570000	Dictyostelium discoideum	
+ASD02570000	Dictyostelium discoideum	
+ASD02580000	Escherichia coli	site,292,Cys@@site,9,Lys@@site,275,His@@site,91,Lys@@site,55,Thr@@site,232,Asp@@site,262,Arg@@site,281,Phe@@site,234,Leu@@site,268,Ile@@site,249,Ser
+ASD02580000	Thermotoga maritima	site,202,Lys@@site,141,Asp@@site,200,Val@@site,186,Gly@@site,158,Lys@@site,171,Arg@@site,185,Ser@@site,203,Gln@@site,180,Thr
+ASD02580000	Salmonella enterica subsp. enterica serovar Typhimurium	site,202,Lys@@site,229,Ser@@site,185,Asp@@site,244,Tyr@@site,248,Leu@@site,246,Asn@@site,215,Arg@@site,220,Pro@@site,222,Lys@@site,187,Met@@site,221,Ile
+ASD02580000	Lactobacillus leichmannii	range,266,269@@site,222,Asp@@site,258,Arg
+ASD02590000	Homo sapiens	
+ASD02590000	Mus musculus	
+ASD02600000	Escherichia coli	site,174,Arg
+ASD02610000	Oryctolagus cuniculus	site,829,Ile@@site,256,Phe@@site,56,Gln@@site,834,Phe@@site,259,Gln@@site,253,Leu@@site,311,Leu
+ASD02610000	Oryctolagus cuniculus	
+ASD02620000	Bos taurus	
+ASD02640000	Mus musculus	
+ASD02650000	Homo sapiens	
+ASD02670000	Homo sapiens	site,219,Lys@@site,288,Ile@@site,509,Arg@@site,246,Arg@@site,454,Leu@@site,174,Tyr@@site,238,Trp@@site,513,Ser@@site,457,Val@@site,242,Arg@@site,438,Lys@@site,415,Asn@@site,266,His@@site,434,Arg@@site,474,Glu@@site,281,Arg@@site,411,Leu@@site,372,Arg@@site,407,Glu@@site,435,Tyr@@site,223,Lys
+ASD02680000	Homo sapiens	
+ASD02690000	Homo sapiens	
+ASD02690000	Rattus norvegicus	
+ASD02690000	Cavia porcellus	
+ASD02710000	Staphylococcus aureus	site,84,Asp@@site,86,His@@site,97,His@@site,100,His
+ASD02710000	Synechococcus elongatus	site,120,Glu@@site,117,His@@site,104,Asp@@site,106,His
+ASD02740000	Pseudomonas fluorescens	site,83,Thr@@site,102,Phe@@domain,StyR-N(N-terminal regulatory domain)
+ASD02750000	Triticum aestivum	
+ASD02770000	Homo sapiens	
+ASD02770000	Candida albicans	
+ASD02780000	Salmonella enterica subsp. enterica serovar Typhimurium	
+ASD02780000	Escherichia coli	
+ASD02790000	Arabidopsis thaliana	site,187,Asn@@site,190,Trp@@site,165,Ser@@site,142,Pro@@site,181,Lys@@site,172,Asn@@site,173,Leu@@site,141,Trp@@site,144,Gly
+ASD02800000	Escherichia coli	
+ASD02810000	Homo sapiens	site,258,Tyr@@site,183,Asn@@site,175,Arg
+ASD02820000	Homo sapiens	
+ASD02820000	Bos taurus	
+ASD02840000	Gallus gallus	domain,the COOH terminus
+ASD02850000	Bacillus stearothermophilus	site,32,His@@site,31,His
+ASD02860000	Trypanosoma cruzi	
+ASD02880000	Homo sapiens	
+ASD02890000	Pseudomonas aeruginosa	
+ASD02890000	Pseudomonas acidovorans	
+ASD02900000	Salmonella enterica subsp. enterica serovar Typhimurium	site,102,Tyr@@site,183,Thr@@site,60,Asp@@site,49,Glu@@site,175,Tyr
+ASD02900000	Salmonella enterica subsp. enterica serovar Typhimurium	
+ASD02910000	Bacillus stearothermophilus	site,111,Lys@@site,192,Lys@@site,195,Lys
+ASD02930000	Mus musculus	
+ASD02960000	Kluyveromyces marxianus	
+ASD02970000	Rattus norvegicus	
+ASD02970000	Homo sapiens	
+ASD02980000	Homo sapiens	range,263,266
+ASD02980000	Bacillus anthracis	site,102,Thr@@site,212,Glu@@site,210,Arg@@site,136,Glu@@site,67,Lys@@site,44,His@@site,47,Met@@site,70,Gln@@site,69,Arg@@site,242,His@@site,46,Gln@@site,43,Gln
+ASD02990000	Bacillus anthracis	site,117,Arg@@site,126,Tyr@@site,114,Ile@@site,107,Asn@@site,99,Arg@@site,120,His@@site,110,Ala@@site,111,Glu
+ASD02990000	Escherichia coli	site,93,Asp@@site,130,Arg@@site,119,Trp@@site,92,Arg@@site,127,Arg@@site,72,Asn@@site,103,Arg@@site,96,His
+ASD03000000	Sulfolobus solfataricus	site,80,Arg@@site,216,Gly@@site,94,Pro
+ASD03010000	Enterobacteria phage T4	site,195,His
+ASD03020000	Homo sapiens	site,174,Tyr@@site,142,Tyr@@site,160,Tyr
+ASD03030000	Homo sapiens	
+ASD03030000	Homo sapiens	
+ASD03040000	Rattus norvegicus	
+ASD03050000	Homo sapiens	
+ASD03060000	Homo sapiens	
+ASD03080000	Homo sapiens	
+ASD03080000	Homo sapiens	
+ASD03090000	Homo sapiens	
+ASD03090000	Rattus norvegicus	
+ASD03100000	Musa acuminata	
+ASD03110000	Apis cerana japonica	
+ASD03120000	Mycobacterium tuberculosis	site,169,Tyr@@site,379,His@@site,410,Tyr@@site,218,Glu
+ASD03130000	Homo sapiens	
+ASD03140000	Escherichia coli	
+ASD03150000	Escherichia coli	
+ASD03160000	Rattus norvegicus	
+ASD03170000	Homo sapiens	
+ASD03180000	Homo sapiens	
+ASD03190000	Homo sapiens	
+ASD03200000	Homo sapiens	site,288,Thr
+ASD03200000	Xenopus laevis	
+ASD03210000	Homo sapiens	
+ASD03210000	Mus musculus	
+ASD03210000	Oryctolagus cuniculus	
+ASD03220000	Homo sapiens	
+ASD03220000	Rattus norvegicus	
+ASD03230000	Homo sapiens	
+ASD03230000	Oryctolagus cuniculus	
+ASD03240000	Homo sapiens	
+ASD03240000	Mus musculus	
+ASD03250000	Homo sapiens	
+ASD03250000	Mus musculus	
+ASD03260000	Bos taurus	
+ASD03270000	Enterococcus faecalis	domain,C-terminal lobe
+ASD03280000	Drosophila melanogaster	domain, MID domain
+ASD03290000	Homo sapiens	domain,N-terminal half of the RS1 motif
+ASD03300000	Mus musculus	
+ASD03310000	Bos taurus	site,59,Arg@@site,53,Asn@@site,62,Thr@@site,50,Asn
+ASD03320000	Homo sapiens	range,381,383,DFGmotif@@site,337,Ala@@site,344,Ala
+ASD03330000	Homo sapiens	
+ASD03330000	Rattus norvegicus	
+ASD03340000	Bacillus megaterium	site,91,Tyr@@site,303,Arg@@site,89,Tyr@@site,306,Thr@@site,61,Thr
+ASD03350000	Homo sapiens	
+ASD03360000	Bombyx mori cytoplasmic polyhedrosis virus	
+ASD03370000	Proteus mirabilis	
+ASD03380000	Escherichia coli	site,178,Arg
+ASD03390000	Bos taurus	
+ASD03400000	Homo sapiens	
+ASD03410000	Mus musculus	
+ASD03420000	Mus musculus	
+ASD03430000	Homo sapiens	
+ASD03430000	Mus musculus	
+ASD03440000	Escherichia coli	
+ASD03450000	Helicobacter pylori	site,247,Arg@@site,150,Glu@@site,252,Trp@@site,244,Trp
+ASD03460000	Bacillus subtilis	domain,DHp dimerization domain
+ASD03470000	Human immunodeficiency virus type 1	
+ASD03480000	Influenza A virus H1N1	site,254,Phe@@site,251,Phe@@site,571,Arg@@site,572,Arg
+ASD03490000	Homo sapiens	site,71,Glu@@motif,Asp-Phe-Gly(DFG) motif@@site,109,Met@@site,53,Lys
+ASD03500000	Escherichia coli	
+ASD03500000	Escherichia coli	
+ASD03520000	Rattus norvegicus	
+ASD03520000	Rattus norvegicus	
+ASD03520000	Rattus norvegicus	
+ASD03530000	Methanocaldococcus jannaschii	site,178,Asp@@site,179,Glu@@motif,Walker B motif@@motif,Walker A motif@@site,17,Phe
+ASD03540000	Homo sapiens	
+ASD03550000	Bos taurus	site,87,Ser@@site,39,Arg@@site,80,Tyr
+ASD03560000	Saccharomyces cerevisiae	
+ASD03570000	Homo sapiens	
+ASD03580000	Macaca fascicularis	
+ASD03580000	Oryctolagus cuniculus	
+ASD03580000	Escherichia coli	site,214,Lys@@site,186,Gly@@site,155,Arg@@site,212,Lys@@site,215,Lys@@site,26,Arg@@site,56,Tyr@@site,216,His@@site,188,Glu@@site,22,Arg@@site,60,Asp@@site,59,Ser@@site,55,Arg
+ASD03590000	Bacillus thuringiensis	
+ASD03590000	Bacillus cereus	
+ASD03600000	Poliovirus type 1	
+ASD03610000	Escherichia coli	
+ASD03620000	Homo sapiens	
+ASD03620000	Mus musculus	
+ASD03630000	Homo sapiens	
+ASD03630000	Rattus norvegicus	
+ASD03640000	Escherichia coli	site,278,Arg@@site,70,Glu
+ASD03670000	Escherichia coli	
+ASD03670000	Thermus thermophilus	
+ASD03670000	Escherichia coli	
+ASD03670000	Thermus thermophilus	
+ASD03690000	Escherichia coli	site,35,Cys@@site,60,His@@site,3,His@@site,64,His
+ASD03700000	Homo sapiens	
+ASD03710000	Vibrio cholerae	site,3577,Ser@@site,3469,Thr@@site,3470,Arg@@site,3641,Lys@@site,3612,Arg@@site,3623,Arg@@site,3496,His@@site,3526,Arg@@site,3495,Lys@@site,3636,Lys@@site,3624,Lys
+ASD03720000	Homo sapiens	site,274,Arg@@site,143,Tyr@@site,305,His@@site,278,Ser@@site,237,Ser@@site,397,His@@site,276,Asn
+ASD03720000	Rattus norvegicus	
+ASD03730000	Homo sapiens	
+ASD03740000	West Nile virus	
+ASD03750000	Homo sapiens	
+ASD03750000	Homo sapiens	
+ASD03750000	Homo sapiens	
+ASD03900000	Homo sapiens	
+ASD03910000	Homo sapiens	site,142,Arg@@site,135,Thr@@site,100,Lys@@site,37,Phe@@site,35,Leu@@site,131,Ala@@site,96,Pro@@site,128,Lys@@site,138,Thr@@site,2,Val
+ASD03910000	Homo sapiens	site,36,Tyr@@site,105,Arg@@site,109,Asn@@site,102,Glu
+ASD03920000	Homo sapiens	
+ASD03930000	Homo sapiens	
+ASD03940000	Escherichia coli	site,370,Arg@@site,127,Leu@@site,124,Gly@@site,123,Ser@@site,185,Glu@@site,126,Thr@@site,79,Ile@@site,122,Gly@@site,125,Lys
+ASD03950000	Mus musculus	
+ASD03960000	Homo sapiens	
+ASD03970000	Aequorea victoria	
+ASD03980000	Escherichia coli	
+ASD02030000	Rattus norvegicus	site,517,Glu@@site,526,Val@@site,514,Ile@@site,780,Leu@@site,519,Ser@@site,516,Glu@@site,777,Leu
+ASD01320000	Oryctolagus cuniculus	site,194,Arg@@site,76,Tyr@@site,69,Ile@@site,573,Glu@@site,310,Arg@@site,188,Asn@@site,68,Trp@@site,228,Asp@@site,614,Tyr@@site,46,Val@@site,61,Arg@@range,283,287,280s loop@@site,41,Val@@site,73,Gln@@site,72,Gln@@site,192,Lys@@site,197,Phe@@site,189,Pro@@site,772,Phe@@site,230,Pro@@site,190,Trp@@site,311,Arg@@site,191,Glu@@site,771,Arg@@site,286,Phe@@site,43,Asp@@site,383,Glu@@site,243,Arg@@site,382,Pro@@site,572,His@@site,193,Ala@@site,65,Val
