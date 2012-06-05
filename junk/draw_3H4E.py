@@ -30,7 +30,7 @@ cmd.load(pdbfile)
 
 # prettify
 cmd.hide('all')
-cmd.show('ribbon','3H4E and chain A')
+cmd.show('cartoon','3H4E and chain A')
 cmd.bg_color('white')
 
 
@@ -38,6 +38,15 @@ cmd.spectrum(palette = 'green_red', selection = '3H4E and chain A')
 #cmd.select('retinal','3H4E and het and chain A and resn ret')
 #cmd.show('spheres','retinal')
 #cmd.color('magenta','retinal')
+
+# Set the view
+cmd.set_view(\
+    '-0.912057340,   -0.295883119,   -0.283901036,\
+     0.399889141,   -0.795006156,   -0.456119299,\
+    -0.090745762,   -0.529538393,    0.843419492,\
+     0.000087761,   -0.000581503, -183.590560913,\
+     8.321296692,  -66.967765808,  -33.590000153,\
+   -36.799331665,  403.937011719,  -20.000000000' )
 
 # constants
 cutoff = 2
