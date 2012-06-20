@@ -47,12 +47,13 @@ for seqr in aln :
 	s = seqr.seq
 	s_new = "".join(map(itemgetter(1),filter(lambda t:t[0] in pos_aa,\
 		enumerate(s))))
+	s_new = s_new.replace('-','.')
 	seqr.seq = Seq(s_new,alphabet=Alphabet.IUPAC.protein)
 
 msa_hex= []
 # Remove sequences with too many gaps
 for seqr in aln : 
-	if (0.0+seqr.seq.count('-'))/len(seqr.seq) > gap_cutoff : 
+	if (0.0+seqr.seq.count('.'))/len(seqr.seq) > gap_cutoff : 
 		continue 
 	else : 
 		msa_hex.append(seqr)
