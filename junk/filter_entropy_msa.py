@@ -11,6 +11,26 @@ OUTPUT:
 
 foo_map.dat has 2 columns.
 Col 1 - col id in stripped msa
-Col 2
+Col 2 - col id in original msa
 
-""
+"""
+
+import os, sys
+import numpy as np
+import pylab as pl
+
+from Bio import AlignIO, SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+
+
+#----------------------------------------------------------------------
+# Define constants, file paths and other things
+
+
+
+
+#----------------------------------------------------------------------
+# Read columns and filter them according to entropy
+
+
