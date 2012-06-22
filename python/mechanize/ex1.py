@@ -1,6 +1,5 @@
 """
 Opens up a bowser and then createsa ands gets thwe contenst of the page   
-
 """
 
 
