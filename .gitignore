@@ -13,3 +13,4 @@ python/sqlite/*.db
 python/sqlite/*.sql
 python/markup/*.png
 junk/data/
+python/cookielib/*.lwp
