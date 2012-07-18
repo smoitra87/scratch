@@ -4,16 +4,22 @@ This program merges RZZZ.SP files
 
 import os,sys,glob
 from operator import itemgetter
+import re
 
-globstr = 'R*.SP'
-root = 'R'
+
+globstr = '*.SP'
+#root = 'R'
 outfn = 'final_merged.csv'
 skip_count = 86
 
 
 if __name__ == '__main__'  :
 	fnames=  glob.glob(globstr)
-	fnums = map(lambda x: x[0][len(root):],map(os.path.splitext,fnames))
+#	fnums = map(lambda x: x[0][len(root):],\
+#		map(os.path.splitext,fnames))
+	regex = re.compile('\d+')
+	fnums = [regex.findall(fn)[0] for fn in fnames]
+	
 	fnums = map(int,fnums)
 	ftups =  sorted(zip(fnames,fnums),key=itemgetter(1))
 	fhandles = [(open(fn,'r'),fnum) for fn,fnum in ftups]
