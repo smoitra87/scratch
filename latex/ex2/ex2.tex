@@ -1,0 +1,77 @@
+\documentclass{article}[12pt]
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+
+\DeclareMathOperator*{\supdeep}{supdeep}
+\begin{document}
+
+\title{A simple Title}
+\author{Subhodeep}
+
+\maketitle
+
+\begin{abstract}
+This is the abstract
+\end{abstract}
+
+\section{ex2}
+
+Two matrices placed in an align environment
+
+\begin{align}
+\begin{matrix}
+a&b\\
+c&d\\
+\end{matrix}\\
+\begin{bmatrix}
+a&b\\
+c&d\\
+\end{bmatrix}
+\end{align}
+
+Another matrix placed in an equation environment. With some columsn in the matrix being filled by dots
+
+\begin{equation}
+\begin{vmatrix}
+x1 & \hdotsfor{2} \\
+y1 & y2 & y3 \\
+\hdotsfor{2} & z3
+\end{vmatrix}
+\end{equation}
+
+We will use cases to generate cases for the function
+\[
+f(x) = \vert x \vert = \begin{cases}
+x& \text{if $x \geq 0$} \\
+-x& \text{if $x < 0 $}
+\end{cases}
+\]
+
+Let's see if we can do this using delimiting braces and matrix. Yes, it still works but the cases example looks prettier 
+\[
+f(x) = \vert x \vert = \left\{ \begin{matrix}
+x& \text{if $x \geq 0$} \\
+-x& \text{if $x < 0 $} 
+\end{matrix} \right.
+\]
+
+I think it might be possible to have differing delimiters , such as $\left( \text{different} \right\}$ . Let us also define a new math operator that works well $\operatorname{sup\,deep}_{x\rightarrow\infty}(x)$. 
+But this operator does not place the $x\rightarrow\infty$ below the operator. For this we will need to declare a new operator using DeclareMathOperator* .
+Well it still doesn't work $\supdeep_{x\rightarrow\infty}$
+
+
+The most famous boxed equation of all time is :
+\[
+\boxed{\mathcal{E}=\mathcal{MC}^2}
+\]
+
+I think it might also be possible to box text using fbox ? 
+\fbox{This must be important cuz it is boxed}
+
+\end{document}
+
+
+
+
+
+
