@@ -1,0 +1,92 @@
+\documentclass{article}[12pt]
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{A simple Title}
+\author{Subhodeep}
+
+\maketitle
+
+\begin{abstract}
+This is the abstract
+\end{abstract}
+
+\section{Ex1 section}
+
+The first align using splits is referenced by ref \ref{eq1}. It is also possible to use eqref \eqref{eq1}. 
+
+\begin{equation}
+\label{eq1} 
+\begin{split}
+x_1 = a_1 + b_1\\
+ = \alpha_1 + \beta_1 + \gamma_1\\
+x_2 = a_2 + b_2
+\end{split}
+\end{equation}
+
+The above equations do not align properly in the split mode. To make things align properly you have to use the \& operator. and it then gets solved
+
+\begin{equation}
+\begin{split}
+x_1 & = a_1 + b_1\\
+ & = \alpha_1 + \beta_1 + \gamma_1\\
+x_2 & = a_2 + b_2
+\end{split}
+\end{equation}
+
+We will no use multiline to just wrap over multiple lines
+
+
+Did not work unfortunately, :(
+%\begin{equation}
+%\begin{multiline}
+%a + b + c+d+e+f \\
+%x+y+z+\alpha
+%\end{multiline}
+%\end{equation}
+
+This is an example of inline math $x=1$ and \(\beta\)
+
+
+Now, we will look at an examples of align.
+
+\begin{align}
+x_1 = a_1 + b_1\\
+ = \alpha_1 + \beta_1 + \gamma_1\\
+x_2 = a_2 + b_2
+\end{align}
+
+Next we will properly align it
+
+
+\begin{align}
+x_1 & = a_1 + b_1\\
+ & = \alpha_1 + \beta_1 + \gamma_1\\
+x_2 &  = a_2 + b_2
+\end{align}
+
+
+It is possible to use align to align just about anything. Basically \& acts like a tabspace and all the contents are arranged around that. 
+
+
+\begin{align}
+x_1 & = a_1 + b_1 & x_2 &  = a_2 + b_2 \\
+x_1 & > a_1 + b_1 & x_2 &  < a_2 + b_2
+\end{align}
+
+Note that all the equations are numbered when using align
+
+Another possible thing to try is to name the equations based on the section number. This can be achieved by making a numberswithin preprocessor directive
+
+
+\end{document}
+
+
+
+
+
+

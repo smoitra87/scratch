@@ -1,4 +1,5 @@
 skeleton/*
+ex1/*
 !*.tex
 !*.bib
 !*.sh
