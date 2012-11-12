@@ -3,6 +3,8 @@ ex1/*
 ex2/*
 ex3/*
 ex4/*
+minted/*
+
 !*.tex
 !*.bib
 !*.sh

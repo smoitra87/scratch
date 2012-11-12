@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{minted}
+%\usemintedstyle{trac}
+
+\begin{document}
+
+\title{The Minted package}
+\author{Subhodeep Moitra \\ {\tt subho@cmu.edu}}
+\maketitle
+
+\section{Mint Away}
+
+\paragraph{Using the minted environment}
+
+\begin{minted}{python}
+def f(args = None) : 
+	pass
+\end{minted}
+
+\paragraph{Using a mint one liner}
+\mint{python}/print("You owe me %d$"%(10))/
+
+\paragraph{Input from a file} Use the following options {\texttt linenos,bgcolor,frame,fontfamily,fontsize,label}
+\vspace{0.3in}
+
+\definecolor{greenbg}{rgb}{0.90,0.95,0.90}
+\inputminted[linenos=true,bgcolor=greenbg,frame=single,fontfamily=courier,fontsize=\tiny,label=Tiny Font + courier]{python}{sql.py}
+
+\inputminted[linenos=true,bgcolor=greenbg,frame=single,fontfamily=tt,fontsize=\footnotesize,label=Foot note font + tt]{python}{sql.py}
+
+\paragraph{Use a minted float environment called Listing} 
+ A code listing having these options is as shown in listing~\ref{list:list1}
+
+\begin{listing}[H]
+\caption{Use the following options {\texttt firstline,firstnumber,lastline, numberblanklines, stepnumber, tabsize,showtabs,showspace}} 
+\label{list:list1}
+\inputminted[linenos=true,frame=single,firstline=9,lastline=25,showtabs=true,showspaces=true,tabsize=4,firstnumber=9,numberblanklines=false,stepnumber=2]{python}{sql.py}
+\end{listing}
+
+\begin{listing}[H]
+\caption{Same as before but we will gobble up one character,Notice that create and insert get pushed}
+\label{list:list2}
+\inputminted[linenos=true,frame=single,firstline=9,lastline=25,showtabs=true,showspaces=true,tabsize=4,firstnumber=9,numberblanklines=false,stepnumber=2,gobble=1]{python}{sql.py}
+\end{listing}
+
+
+
+\pagebreak
+
+\section{Defining Shortcuts}
+
+Define a shortcut so that I don't have to keep entering the same things again and again. Let us define an environment for python. You can refer to it as pythoncode. You can only define one per programming language for the same document. 
+However you can easily call it something else and create another one.
+
+\newminted{python}{linenos=true,frame=single,tabsize=4,fontsize=\footnotesize}
+
+
+%\begin{listing}[H]
+%\caption{USing a predefined environment for python`}
+%\label{list:list3}
+%\inputminted{python}{sql.py}
+%\end{listing}
+
+\begin{pythoncode}
+class A(object) : 
+	""" Class A """
+	def __init__(self) : 
+		pass
+\end{pythoncode}
+
+It is possible to easily modify the pre-defined environment and pass additional arguments to it. 
+
+\begin{pythoncode*}{bgcolor=greenbg}
+class A(object) : 
+	""" Class A """
+	def __init__(self) : 
+		pass
+\end{pythoncode*}
+
+However I am not able to input a file using a predefined environment. Need to learn more latex..!!!! 
+
+\Large{This is enough for now..!!!}
+
+
+
+
+
+\end{document}
+
+
