@@ -5,12 +5,14 @@ Program for doing DEE pruning
 import numpy as np
 from operator import itemgetter
 from itertools import product
+import pickle
+from pdb import set_trace as stop
 
 # Define some constaint
 MAXVAL=1e100
 MAX_E = 30
 MIN_E = 0
-N,R = 3,2 # Num aa and nrot/aa
+N,R = 7,4 # Num aa and nrot/aa
 
 class Protein(object) : 
 	""" Describes a protein object"""
@@ -19,7 +21,13 @@ class Protein(object) :
 		self.r = r
 		# Assign Energies
 		self.Es = np.random.uniform(MIN_E,MAX_E,(n,r))
-		self.Ep = np.random.uniform(MIN_E,MAX_E,(n,n,r,r))
+		self.Ep = np.zeros((n,n,r,r))		
+		for i in range(n) : 
+			for j in range(i+1,n) : 
+				x = np.random.uniform(MIN_E,MAX_E,(r,r))
+				self.Ep[i][j] = x 
+				self.Ep[j][i] = x.T		
+
 		self.rotSpace = []
 		for i in range(n) : 
 			self.rotSpace.append(range(r));
@@ -39,10 +47,12 @@ class Protein(object) :
 class TestProtein(Protein) : 
 	def __init__(self) : 
 		super(TestProtein,self).__init__(3,3)
-		self.Ep[1][1][1][0] = 1000
-		self.Ep[1][1][1][1] = 1000
-		self.Ep[1][1][1][2] = 1000
-
+		self.Ep[1][2][1][0] = 1000
+		self.Ep[1][2][1][1] = 1000
+		self.Ep[1][2][1][2] = 1000
+		self.Ep[2][1][0][1] = 1000
+		self.Ep[2][1][1][1] = 1000
+		self.Ep[2][1][2][1] = 1000
 
 				
 
@@ -177,8 +187,8 @@ class SCPSolver(object) :
 		self.findmin_brute()
 		print("-"*20+"Running Desmet DEE"+"-"*20)
 		self.Desmet_DEE() 
-		print("-"*20+"Running Desmet DEE"+"-"*20)
-		self.Desmet_DEE() 
+#		print("-"*20+"Running Desmet DEE"+"-"*20)
+#		self.Desmet_DEE() 
 		print("-"*20+"Running Goldstein DEE"+"-"*20)
 		self.Goldstein_DEE() 
 		self.print_rotSpace()
@@ -193,8 +203,10 @@ class SCPSolver(object) :
 
 if __name__ == '__main__' : 
 	# Initialize stuff
-	#p = Protein(N,R)
-	p = TestProtein()
+	p = Protein(N,R)
+#	p = TestProtein()
+#	with open('prot.pkl') as fin : 
+#		p = pickle.load(fin)
 	scp = SCPSolver(p) 
 	scp.solve()
 
