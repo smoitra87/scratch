@@ -12,7 +12,7 @@ from pdb import set_trace as stop
 MAXVAL=1e100
 MAX_E = 30
 MIN_E = 0
-N,R = 7,4 # Num aa and nrot/aa
+N,R = 5,3 # Num aa and nrot/aa
 
 class Protein(object) : 
 	""" Describes a protein object"""
@@ -155,7 +155,6 @@ class SCPSolver(object) :
 							elimRots[i] = [(r,t)]
 						break;
 
-	
 		# Eliminate the flagged rotamers
 		for i in elimRots.keys() : 
 			for r,t in elimRots[i] : 
@@ -168,6 +167,59 @@ class SCPSolver(object) :
 		""" Execute the pairs Goldstein DEE criteria"""
 		# Complexity $O(n^3r^5)$
 		pass
+
+	def SimpleSplit_DEE(self) : 
+		""" Prune search space using split DEE criteria"""
+		n = self.p.n
+		Es = self.p.Es
+		Ep = self.p.Ep
+		rotSpace = self.p.rotSpace
+
+		elimRots = {}
+		Y = np.zeros((n,self.p.r))
+		for i in range(n) :
+			for r in rotSpace[i] :
+				elim_r = False # master flag to help breaking
+				for t in rotSpace[i] : 
+					if t == r :	continue
+					for j in range(n) :
+						if j == i : continue
+						rspj = rotSpace[j]
+						Y[j][t] = min([Ep[i][j][r][s]-Ep[i][j][t][s] \
+								for s in rspj])
+				for k in range(n) : 
+					if i==k  : continue 
+					elim = [False]*self.p.r
+					for t in rotSpace[i] : 
+						if t==r : continue
+						X = Es[i][r] - Es[i][t]
+						for j in range(n) : 
+							if j == i or j==k : continue 
+							X += Y[j][t]
+						for v in rotSpace[k] : 
+							if X + Ep[i][k][r][v] - Ep[i][k][t][v]> 0 : 
+								elim[v] = True
+					elim_all = reduce(lambda x,y:x and y,\
+						[elim[v] for v in rotSpace[k]])
+					if elim_all == True : 
+						try :
+							elimRots[i].append((r,k))
+						except KeyError : 
+							elimRots[i] = [(r,k)]
+						elim_r = True 
+						break
+				if elim_r == True : break 	
+	
+		# Eliminate the flagged rotamers
+		for i in elimRots.keys() : 
+			for r,k in elimRots[i] : 
+				print("Rot{0} elim by split{1} in res{2}".format(r,k,i))
+			removed = map(itemgetter(0),elimRots[i])
+			rotSpace[i] = filter(lambda(x): x not in removed,\
+								rotSpace[i])			
+
+	
+
 
 	def _pspace(self)  :	
 		""" Prints length of param space """
@@ -187,10 +239,13 @@ class SCPSolver(object) :
 		self.findmin_brute()
 		print("-"*20+"Running Desmet DEE"+"-"*20)
 		self.Desmet_DEE() 
-#		print("-"*20+"Running Desmet DEE"+"-"*20)
-#		self.Desmet_DEE() 
+		print("-"*20+"Running Desmet DEE"+"-"*20)
+		self.Desmet_DEE() 
 		print("-"*20+"Running Goldstein DEE"+"-"*20)
 		self.Goldstein_DEE() 
+		print("-"*20+"Running Simple Split DEE"+"-"*20)
+		self.SimpleSplit_DEE() 
+	
 		self.print_rotSpace()
 		self.findmin_brute()
 
