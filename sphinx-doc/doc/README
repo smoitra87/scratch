@@ -1,0 +1,5 @@
+To geneate docs
+$ make html
+
+To generate pdf
+$ make latexpdf
