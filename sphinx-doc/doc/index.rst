@@ -15,6 +15,8 @@ This is the most awesome project awesome. It containts cool and ultracool code.
 
 Additional Documentation
 ========================
+There is so much goodness coming up such as in `Tables n'at`_.
+
 
 General paragraph text
 ----------------------
@@ -32,7 +34,7 @@ I think this happiness [1]_ can be often be attributed to coding. Let me cite an
 A List of things I like : 
 
 * Food
-* Running
+* Running - Such as in running_
 	(1) 5K
 	(2) Marathon
 * Climbing
@@ -46,6 +48,72 @@ running
 climbing
 	The act of equal madness, where you don't know how to get down after climbing up
 	
+Code Blocks
+-----------
+I think might be a code block ::
+
+	I can do whatever I want here
+
+And here I can put in some python code ::
+
+	>>> def f() : 
+	... 	return 1
+	...
+	>>> f()
+	1 
+
+How about this doctest block ::
+
+	>>> print("This is so cool")
+	This is so cool
+
+Tables n'at
+***********
+
+A simple table. Not sure how these things work. 
+
+=====  =====  ======
+   Inputs     Output
+------------  ------
+  A      B    A or B
+=====  =====  ======
+False  False  False
+True   False  True
+False  True   True
+True   True   True
+=====  =====  ======
+
+.. 
+	This comment is going to be lost
+
+..	This comment will not be shown but may appear in HTML comments
+
+Figures
++++++++
+This is my figure sub-sub sectiokn
+
+.. _running:
+.. figure::	images/running.jpg
+	:align:	center
+	:width:	300
+	:height: 200
+
+	The freedom of running
+
+You can even download this image like :download:`Running image<images/running.jpg>`
+
+Text Related
+------------
+
+A module is defined as :mod:`awesome` and a class is defined as :class:`awesome.Cool`. I did this by ``:class:`awesome.Cool```.
+. Sometimes writing this out again and again can get boring, so you use the ``::replace`` method, to get the |awesome| module. 
+
+.. |awesome| replace:: :mod:`awesome`
+
+.. include:: blasec.rst
+
+Some definitions
+----------------
 
 :Authors: Subhodeep Moitra1
 :Email: smoitra@cs.cmu.edu
@@ -60,6 +128,10 @@ Indices and tables
 * :ref:`search`
 
 .. _Python: http://python.org
+
+Draw a horizontal lines for the references
+
+-------------------------------
 
 .. [1] Comes from python http://python.org
 .. [HAP2012] A deep sense of happiness http://readthedocs.org
