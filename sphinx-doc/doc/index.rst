@@ -11,7 +11,7 @@ This is the most awesome project awesome. It containts cool and ultracool code.
 .. toctree::
 	:maxdepth: 2
 
-	modules
+	code
 
 Additional Documentation
 ========================
