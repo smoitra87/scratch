@@ -110,6 +110,22 @@ A module is defined as :mod:`awesome` and a class is defined as :class:`awesome.
 
 .. |awesome| replace:: :mod:`awesome`
 
+Functions and Classes 
+*********************
+
+.. function:: Lasso(X, Y, lambda[, nCV=1])
+	
+	Solve the Lasso regression problem
+	
+	:param X: The regressors
+	:param Y: The predicted value
+	:param lambda: The regularization term
+	:param nCV: The number of cross validation runs
+	:type nCV: integer
+	:type lambda: float > 0 
+	:rtype: SolutionObject or None
+
+
 .. include:: blasec.rst
 
 Some definitions
