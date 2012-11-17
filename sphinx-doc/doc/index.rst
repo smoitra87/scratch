@@ -8,12 +8,10 @@ Welcome to Awesome 's documentation!
 
 This is the most awesome project awesome. It containts cool and ultracool code. 
 
-Contents:
-
 .. toctree::
 	:maxdepth: 2
 
-	code.rst
+	modules
 
 
 Indices and tables

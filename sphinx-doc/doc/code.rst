@@ -1,13 +1,34 @@
-Welcome to the Code Page
-========================
+code Package
+============
 
-We will look at some code examples here ::
-	>>> import sys
-	>>> print(sys.platform)
-	linux2
+:mod:`code` Package
+-------------------
 
+.. automodule:: code.__init__
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
+:mod:`awesome` Module
+---------------------
 
-.. automodule:: awesome
-	:members:
+.. automodule:: code.awesome
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`awesomecopy` Module
+-------------------------
+
+.. automodule:: code.awesomecopy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    code.dummy
 
