@@ -24,9 +24,28 @@ I even feel like referencing Para2_ cuz I can. I think I will get tired of singi
 
 .. _Para2:
 
-Welcome to para2. I have so much to say here. I am going to import an image here. I am *soooo* happy |happy|
+Welcome to para2. I have so much to say here. I am going to import an image here. I am *soooo* happy |happy|. 
+I think this happiness [1]_ can be often be attributed to coding. Let me cite another happiness [HAP2012]_  and let me do it once again [HAP2012]_. 
 
 .. |happy| image:: happy.gif
+
+A List of things I like : 
+
+* Food
+* Running
+	(1) 5K
+	(2) Marathon
+* Climbing
+* Wine
+
+But, how can I be clear, without defining some important stuff:
+
+running
+	The act of spontaneous craziness, where your two feet take you far far away 
+
+climbing
+	The act of equal madness, where you don't know how to get down after climbing up
+	
 
 :Authors: Subhodeep Moitra1
 :Email: smoitra@cs.cmu.edu
@@ -42,3 +61,5 @@ Indices and tables
 
 .. _Python: http://python.org
 
+.. [1] Comes from python http://python.org
+.. [HAP2012] A deep sense of happiness http://readthedocs.org
