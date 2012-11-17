@@ -29,7 +29,7 @@ I even feel like referencing Para2_ cuz I can. I think I will get tired of singi
 Welcome to para2. I have so much to say here. I am going to import an image here. I am *soooo* happy |happy|. 
 I think this happiness [1]_ can be often be attributed to coding. Let me cite another happiness [HAP2012]_  and let me do it once again [HAP2012]_. 
 
-.. |happy| image:: happy.gif
+.. comments .. |happy| image:: happy.gif
 
 A List of things I like : 
 
@@ -66,6 +66,29 @@ How about this doctest block ::
 
 	>>> print("This is so cool")
 	This is so cool
+
+Wonder if I can put in c++ code. This is possible using ``.. code-block:: cpp`` 
+
+.. code-block:: cpp
+	
+	#include<iostream>
+	using namespace std;
+	
+	int main() {
+		cout<<"Hello World"<<endl;
+		return 0;
+	}
+
+And just a plain code section ::
+	
+	#include<iostream>
+	using namespace std;
+	
+	int main() {
+		cout<<"Hello World"<<endl;
+		return 0;
+	}
+
 
 Tables n'at
 ***********
@@ -127,6 +150,15 @@ Functions and Classes
 
 
 .. include:: blasec.rst
+
+Math
+----
+
+Now for some math. I think I like :math:`\alpha * \beta` . How about I write down some DEE conditions : 
+
+.. math::
+	
+	E(r) = \sum_{i=1}^{N}E_i(r_i) + \sum_{i<j}E_{ij}(r_i,r_j)
 
 Some definitions
 ----------------

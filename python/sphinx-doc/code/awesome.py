@@ -1,6 +1,8 @@
 """
 This module is for pure awesomeness
 
+.. moduleauthor:: Subhodeep Moitra<smoitra@cs.cmu.edu>
+
 """ 
 
 import os,sys
@@ -21,6 +23,19 @@ class Cool(object) :
 	
 		Raises: 
 			Doesn't raise anything
+
+		.. note::
+			We are not going to talk about other coool classes
+		
+		Intersphinx can be used to refer other cool modules such as 
+		:mod:`os`, :mod:`sys` and :mod:`itertools`. 
+
+		Can intersphinx get ``Bio.Align.Generic.Alignment`` ? 
+		:class:`Bio.Align.Generic.Alignment` ? I guess not.  
+
+
+		There are a 
+
 
 		"""
 		print("{0}".format(item))
@@ -53,6 +68,20 @@ class UltraCool(Cool) :
 			
 		"""
 		print("{0}".format('*'*n+item+'*'*n))
+
+def foo(n) : 
+	""" The original foo function 
+	
+	Let's say you want to use this function. You may do so like::
+		>>> print(foo(10))
+		55
+
+	Be **careful** when using :func:`foo` since it is a child
+	of :class:`Cool` and it might get jealous. But they are all members
+	of :mod:`awesome`
+
+	"""
+	return (n*(n+1))/2
 
 
 if __name__ == '__main__' : 
