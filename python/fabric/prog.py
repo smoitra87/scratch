@@ -13,3 +13,7 @@ def return_user() :
 
 if __name__ == '__main__' :
 	execute(return_user)
+	
+	# Can also execute arbitrary commands and save the output
+	out = execute(hosts('subhodeep@pisa.lti.cs.cmu.edu')(lambda : run('uname -a')))
+	print(out)
