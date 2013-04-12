@@ -122,20 +122,58 @@ dev.off()
 return
 }
 
+######################################################################
+# Experiments 04/09
+
 # Create dataset 1 Sum
-L=huge.generator(n=200,d=20,graph="random",prob=0)
-X = L$data
-d=20
-X = cbind(X,X[,1:d-1]+X[,2:d])
-run_ggm(X,'test_corr1')
+#L=huge.generator(n=200,d=20,graph="random",prob=0)
+#X = L$data
+#d=20
+#X = cbind(X,X[,1:d-1]+X[,2:d])
+#run_ggm(X,'test_corr1')
+#
+## Create dataset 1 Product
+#X = L$data
+#X = cbind(X,X[,1:d-1]*X[,2:d])
+#run_ggm(X,'test_corr2')
+#
+## Create dataset 1 dist
+#X = L$data
+#X = cbind(X,abs(X[,1:d-1]-X[,2:d]))
+#run_ggm(X,'test_corr3')
+#
 
-# Create dataset 1 Product
-X = L$data
-X = cbind(X,X[,1:d-1]*X[,2:d])
-run_ggm(X,'test_corr2')
+######################################################################
+# Experiments 04/11
 
-# Create dataset 1 dist
-X = L$data
-X = cbind(X,abs(X[,1:d-1]-X[,2:d]))
-run_ggm(X,'test_corr3')
+
+
+# Pregenerate the data
+L_list <- list()
+for (i in 0:5){
+   n = 50*2^i
+   L=huge.generator(n=n,d=20,graph="random",prob=0) 
+#   L_list
+   print(i)
+}
+
+
+# Sum 
+
+
+
+
+
+# Product
+
+
+# Distance
+
+
+# Distance 2D 
+
+
+# Distance 3D
+
+
 
