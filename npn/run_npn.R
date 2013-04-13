@@ -105,11 +105,10 @@ return
 #run_ggm_split('data/X_2000_300K.dat','300_dist2000',5)
 
 ###### Distances whole trajectory
-#run_ggm('data/X_2000_300K.dat','300_dist2000')
+run_ggm('data/distances174_300K.dat','300_dist2000')
 
 #### Distances Subsampled trajectory
-run_ggm('data/X_sub1000_300K.dat','300_sub1000')
-run_ggm('data/X_sub200_300K.dat','300_sub200')
+run_ggm('data/distances174_sub_300K.dat','300_sub')
 
 
 #### Thetatau split
@@ -128,12 +127,10 @@ run_ggm('data/X_sub200_300K.dat','300_sub200')
 #run_ggm_split('data/X_2000_350K.dat','350_dist2000',5)
 
 ###### Distances whole trajectory
-#run_ggm('data/X_2000_350K.dat','350_dist2000')
+run_ggm('data/distances174_350K.dat','350_dist2000')
 
 #### Distances Subsampled trajectory
-run_ggm('data/X_sub1000_350K.dat','350_sub1000')
-run_ggm('data/X_sub200_350K.dat','350_sub200')
-
+run_ggm('data/distances174_sub_350K.dat','350_sub')
 
 #### Thetatau split
 #run_ggm_split('data/theta44tau43_350_5000.dat','tt_350K_5000',5)

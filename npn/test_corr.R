@@ -192,55 +192,143 @@ theta = matrix(data=0,nrow=39,ncol=39)
 theta[1:20,21:39] = m1
 theta[21:39,1:20] = m2
 
-##### Sum 
+###### Sum 
+#
+#auc.sum.mb <- list()
+#auc.sum.npn <- list()
+#for (i in 0:5) {
+#  X = L_list[[i+1]]$data
+#  n = 50*2^i
+#  X = cbind(X,X[,1:d-1]+X[,2:d])
+#  run_ggm(X,paste('test_sum_n',n,sep="")) 
+#  auc <- plot_roc(X,theta,paste('test_sum_n',n,sep=""))
+#  auc.sum.mb[[i+1]] <- auc$mb
+#  auc.sum.npn[[i+1]] <- auc$npn
+#
+#}
+#
+###### Product
+#auc.prod.mb <- list()
+#auc.prod.npn <- list()
+#for (i in 0:5) {
+#  X = L_list[[i+1]]$data
+#  n = 50*2^i
+#  X = cbind(X,X[,1:d-1]*X[,2:d])
+#  run_ggm(X,paste('test_prod_n',n,sep=""))
+#  auc <- plot_roc(X,theta,paste('test_prod_n',n,sep=""))
+#  auc.prod.mb[[i+1]] <- auc$mb
+#  auc.prod.npn[[i+1]] <- auc$npn
+#}
+#
+###### 1D Distance
+#auc.l1.mb <- list()
+#auc.l1.npn <- list()
+#for (i in 0:5) {
+#  X = L_list[[i+1]]$data
+#  n = 50*2^i
+#  X = cbind(X,abs(X[,1:d-1]-X[,2:d]))
+#  run_ggm(X,paste('test_l1_n',n,sep=""))
+#  auc <- plot_roc(X,theta,paste('test_l1_n',n,sep=""))
+#  auc.l1.mb[[i+1]] <- auc$mb
+#  auc.l1.npn[[i+1]] <- auc$npn
+#
+#}
 
-auc.sum.mb <- list()
-auc.sum.npn <- list()
-for (i in 0:5) {
-  X = L_list[[i+1]]$data
-  n = 50*2^i
-  X = cbind(X,X[,1:d-1]+X[,2:d])
-  run_ggm(X,paste('test_sum_n',n,sep="")) 
-  auc <- plot_roc(X,theta,paste('test_sum_n',n,sep=""))
-  auc.sum.mb[[i+1]] <- auc$mb
-  auc.sum.npn[[i+1]] <- auc$npn
+###### 3D distances
+
+L_list <- list()
+d = 10
+for (i in 0:5){
+   n = 50*2^i
+   L=huge.generator(n=n,d=3*d,graph="random",prob=0) 
+   L_list[[i+1]] <- L
+}
+
+#define theta
+m <- matrix(data=0,nrow=30,ncol=d*(d-1)/2)
+colid = 0
+for(i in 1:d) {
+ j=i+1
+ while(j<=d) {
+   colid = colid + 1
+   m[i,colid] = 1
+   m[i+d,colid] = 1
+   m[i+2*d,colid] = 1
+   m[j,colid] = 1
+   m[j+d,colid] = 1
+   m[j+2*d,colid] = 1
+   j = j + 1
+ }
 
 }
 
-##### Product
-auc.prod.mb <- list()
-auc.prod.npn <- list()
+theta = matrix(data=0,nrow=3*d+d*(d-1)/2,ncol=3*d+d*(d-1)/2)
+theta[1:30,31:75] <- m
+theta[31:75,1:30] <- t(m)
+png(paste("3dtheta1.png",sep=""))
+myImagePlot(theta)
+dev.off()
+
+# Edges between the different distance measres 
+
+#define theta
+m <- matrix(data=0,nrow=d*(d-1)/2,ncol=d*(d-1)/2)
+colid = 0
+for(i in 1:d) {
+ nbr = NULL
+ j = i+1
+ while(j <= d) {
+  colid = d*(d-1)/2 - (d-i)*(d-i+1)/2 + j-i
+  nbr = c(nbr,colid)
+  j = j+1
+ } 
+ for(p in 1:(d-1)) {
+  for(q in 1:(d-1)) {
+   if(q==p) { next } 
+   m[nbr[p],nbr[q]] = 1
+  }
+ }
+}
+
+theta2 = matrix(data=0,nrow=3*d+d*(d-1)/2,ncol=3*d+d*(d-1)/2)
+theta2[31:75,31:75] <- m
+png(paste("3dtheta2.png",sep=""))
+myImagePlot(theta2)
+dev.off()
+
+auc.3d.mb <- list()
+auc.3d.npn <- list()
+auc2.3d.mb <- list()
+auc2.3d.npn <- list()
+
 for (i in 0:5) {
   X = L_list[[i+1]]$data
   n = 50*2^i
-  X = cbind(X,X[,1:d-1]*X[,2:d])
-  run_ggm(X,paste('test_prod_n',n,sep=""))
-  auc <- plot_roc(X,theta,paste('test_prod_n',n,sep=""))
-  auc.prod.mb[[i+1]] <- auc$mb
-  auc.prod.npn[[i+1]] <- auc$npn
+
+  m <- matrix(data=0,nrow=n,ncol=d*(d-1)/2)
+  for(p in 1:n){
+   colid=0
+   for (j in 1:d) {
+    k = j+1
+    while(k <=d){
+       colid = colid + 1
+       m[p,colid] <- sqrt((X[p,j]-X[p,k])^2+(X[p,d+j]-X[p,d+k])^2 + 
+                     (X[p,2*d+j]-X[p,2*d+k])^2)
+       k = k + 1
+    }
+   }
+  }
+  
+  X = cbind(X,m)
+  run_ggm(X,paste('test_3d_n',n,sep="")) 
+  auc <- plot_roc(X,theta,paste('test_3d_n',n,sep=""))
+  auc.3d.mb[[i+1]] <- auc$mb
+  auc.3d.npn[[i+1]] <- auc$npn
+
+  auc2 <- plot_roc(X,theta2,paste('test_3d2_n',n,sep=""))
+  auc2.3d.mb[[i+1]] <- auc2$mb
+  auc2.3d.npn[[i+1]] <- auc2$npn
+
 }
-
-##### 1D Distance
-auc.l1.mb <- list()
-auc.l1.npn <- list()
-for (i in 0:5) {
-  X = L_list[[i+1]]$data
-  n = 50*2^i
-  X = cbind(X,abs(X[,1:d-1]-X[,2:d]))
-  run_ggm(X,paste('test_l1_n',n,sep=""))
-  auc <- plot_roc(X,theta,paste('test_l1_n',n,sep=""))
-  auc.l1.mb[[i+1]] <- auc$mb
-  auc.l1.npn[[i+1]] <- auc$npn
-
-}
-
-# Distance 2D 
-
-
-
-
-
-# Distance 3D
-
 
 
