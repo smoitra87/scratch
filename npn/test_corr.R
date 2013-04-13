@@ -150,24 +150,52 @@ return
 
 # Pregenerate the data
 L_list <- list()
+d = 20
 for (i in 0:5){
    n = 50*2^i
-   L=huge.generator(n=n,d=20,graph="random",prob=0) 
-#   L_list
-   print(i)
+   L=huge.generator(n=n,d=d,graph="random",prob=0) 
+   L_list[[i+1]] <- L
 }
 
+# Define original dependency matrix
+m1 = diag(20)
+m1[2:20,1:19] = m1[2:20,1:19] + diag(19)
+m1 = m1[,1:19]
+m2 = diag(20)
+m2[1:19,2:20] = m2[1:19,2:20] + diag(19)
+m2 = m2[1:19,]
+theta = matrix(data=0,nrow=39,ncol=39)
+theta[1:20,21:39] = m1
+theta[21:39,1:20] = m2
 
-# Sum 
 
 
+##### Sum 
 
+for (i in 0:5) {
+  X = L_list[[i+1]]$data
+  n = 50*2^i
+  X = cbind(X,X[,1:d-1]+X[,2:d])
+  run_ggm(X,paste('test_sum_n',n,sep="")) 
+}
 
+##### Product
 
-# Product
+for (i in 0:5) {
+  X = L_list[[i+1]]$data
+  n = 50*2^i
+  X = cbind(X,X[,1:d-1]*X[,2:d])
+  run_ggm(X,paste('test_prod_n',n,sep=""))
+}
 
+##### 1D Distance
 
-# Distance
+for (i in 0:5) {
+  X = L_list[[i+1]]$data
+  n = 50*2^i
+  X = cbind(X,abs(X[,1:d-1]-X[,2:d]))
+  run_ggm(X,paste('test_l1_n',n,sep=""))
+}
 
 
 # Distance 2D 
