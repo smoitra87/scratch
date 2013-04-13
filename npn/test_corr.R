@@ -69,6 +69,27 @@ axis(BELOW<-1, at=1:length(xLabels), labels=xLabels, cex.axis=0.7)
 }
 # ----- END plot function ----- #
 
+######### function for plotting ROC values
+plot_roc <- function(X,theta,substr) {
+
+  X.npn <- huge.npn(X)
+  out.mb <- huge(X,nlambda=50)
+  out.npn <- huge(X.npn,nlambda=50)
+
+  png(paste('out_mb_roc_',substr,sep=""))
+  roc.mb = huge.roc(out.mb$path,theta)
+  dev.off()
+
+  png(paste('out_npn_roc_',substr,sep=""))
+  roc.npn = huge.roc(out.npn$path,theta)
+  dev.off()
+
+  auc <- list(mb=roc.mb$AUC,npn=roc.npn$AUC)
+  return(auc)
+}
+
+# ----- END ROC plotting function ----- #
+
 run_ggm <- function(X,substr){
 #X <- read.csv(fpath,header=FALSE)
 #Y<-as.matrix(X)
@@ -122,6 +143,9 @@ dev.off()
 return
 }
 
+
+
+
 ######################################################################
 # Experiments 04/09
 
@@ -168,37 +192,52 @@ theta = matrix(data=0,nrow=39,ncol=39)
 theta[1:20,21:39] = m1
 theta[21:39,1:20] = m2
 
-
-
 ##### Sum 
 
+auc.sum.mb <- list()
+auc.sum.npn <- list()
 for (i in 0:5) {
   X = L_list[[i+1]]$data
   n = 50*2^i
   X = cbind(X,X[,1:d-1]+X[,2:d])
   run_ggm(X,paste('test_sum_n',n,sep="")) 
+  auc <- plot_roc(X,theta,paste('test_sum_n',n,sep=""))
+  auc.sum.mb[[i+1]] <- auc$mb
+  auc.sum.npn[[i+1]] <- auc$npn
+
 }
 
 ##### Product
-
+auc.prod.mb <- list()
+auc.prod.npn <- list()
 for (i in 0:5) {
   X = L_list[[i+1]]$data
   n = 50*2^i
   X = cbind(X,X[,1:d-1]*X[,2:d])
   run_ggm(X,paste('test_prod_n',n,sep=""))
+  auc <- plot_roc(X,theta,paste('test_prod_n',n,sep=""))
+  auc.prod.mb[[i+1]] <- auc$mb
+  auc.prod.npn[[i+1]] <- auc$npn
 }
 
 ##### 1D Distance
-
+auc.l1.mb <- list()
+auc.l1.npn <- list()
 for (i in 0:5) {
   X = L_list[[i+1]]$data
   n = 50*2^i
   X = cbind(X,abs(X[,1:d-1]-X[,2:d]))
   run_ggm(X,paste('test_l1_n',n,sep=""))
+  auc <- plot_roc(X,theta,paste('test_l1_n',n,sep=""))
+  auc.l1.mb[[i+1]] <- auc$mb
+  auc.l1.npn[[i+1]] <- auc$npn
+
 }
 
-
 # Distance 2D 
+
+
+
 
 
 # Distance 3D
