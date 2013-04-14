@@ -106,34 +106,44 @@ run_ggm_glasso <- function(fpath,substr){
 X <- read.csv(fpath,header=FALSE)
 Y<-as.matrix(X)
 sz <- dim(Y)
-
 X <- as.matrix(Y)
+
 X.npn = huge.npn(X) # Nonparanormal
-out.mb = huge(X,nlambda=50) # Estimate the solution path
-out.npn = huge(X.npn,nlambda=50)
-#huge.roc(out.mb$path,L$theta) # Plot the ROC curve
+out.glasso = huge(X,method="glasso",nlambda=50) # Estimate the solution path
+out.npn.glasso = huge(X.npn,method="glasso",nlambda=50)
+#huge.roc(out.glasso$path,L$theta) # Plot the ROC curve
 #huge.roc(out.npn$path,L$theta)
-mb.stars = huge.select(out.mb,criterion="stars") # Select the graph using StARS
-npn.stars = huge.select(out.npn,criterion="stars")
-mb.ric = huge.select(out.mb) # Select the graph using RIC
+glasso.stars = huge.select(out.glasso,criterion="stars") # Select the graph using StARS
+npn.stars = huge.select(out.npn.glasso,criterion="stars")
+glasso.ebic = huge.select(out.glasso,criterion="ebic")
+npn.ebic = huge.select(out.npn.glasso,criterion="ebic")
+glasso.ric = huge.select(out.glasso) # Select the graph using RIC
 npn.ric = huge.select(out.npn)
-png(paste("out_mb_",substr,sep=""))
-plot(out.mb)
+
+## Begin Plotting
+png(paste("out_glasso_",substr,sep=""))
+plot(out.glasso)
 dev.off()
-png(paste("out_npn_",substr,sep=""))
-plot(out.npn)
+png(paste("out_npn_glasso",substr,sep=""))
+plot(out.npn.glasso)
 dev.off()
-png(paste("out_mb_ric_",substr,sep=""))
-plot(mb.ric)
+png(paste("out_glasso_ric_",substr,sep=""))
+plot(glasso.ric)
 dev.off()
-png(paste("out_npn_ric_",substr,sep=""))
+png(paste("out_npn_glasso_ric_",substr,sep=""))
 plot(npn.ric)
 dev.off()
-png(paste("out_mb_stars_",substr,sep=""))
-plot(mb.stars)
+png(paste("out_glasso_stars_",substr,sep=""))
+plot(glasso.stars)
 dev.off()
-png(paste("out_npn_stars_",substr,sep=""))
+png(paste("out_npn_glasso_stars_",substr,sep=""))
 plot(npn.stars)
+dev.off()
+png(paste("out_glasso_ebic_",substr,sep=""))
+plot(glasso.ebic)
+dev.off()
+png(paste("out_npn_glasso_ebic_",substr,sep=""))
+plot(npn.ebic)
 dev.off()
 
 return
@@ -244,16 +254,19 @@ return
 
 ###### Distances whole trajectory
 #run_ggm('data/distances174_300K.dat','300_dist2000')
+run_ggm_glasso('data/distances174_300K.dat','300_glasso_dist2000')
 
 #### Distances Subsampled trajectory
 #run_ggm('data/distances174_sub_300K.dat','300_sub')
+run_ggm_glasso('data/distances174_sub_300K.dat','300_glasso_sub')
 
 ###### Thetatau whole
 #run_ggm_angles('data/theta44tau43_300_5000.dat','tt_300K_5000')
-#run_ggm_angles_glasso('data/theta44tau43_300_5000.dat','tt_glasso_300K_5000')
+run_ggm_angles_glasso('data/theta44tau43_300_5000.dat','tt_glasso_300K_5000')
 
 ##### ThetaTau subsampled
-run_ggm_angles('data/tt_300K_sub.dat','tt_300K_sub')
+#run_ggm_angles('data/tt_300K_sub.dat','tt_300K_sub')
+run_ggm_angles_glasso('data/tt_300K_sub.dat','tt_glasso_300K_sub')
 
 #######################################################################
 # 350 K
@@ -262,17 +275,19 @@ run_ggm_angles('data/tt_300K_sub.dat','tt_300K_sub')
 
 ###### Distances whole trajectory
 #run_ggm('data/distances174_350K.dat','350_dist2000')
+run_ggm_glasso('data/distances174_350K.dat','350_glasso_dist2000')
 
 #### Distances Subsampled trajectory
 #run_ggm('data/distances174_sub_350K.dat','350_sub')
+run_ggm_glasso('data/distances174_sub_350K.dat','350_glasso_sub')
 
 ###### Thetatau whole
 #run_ggm_angles('data/theta44tau43_300_5000.dat','tt_350K_5000')
-#run_ggm_angles_glasso('data/theta44tau43_300_5000.dat','tt_glasso350K_5000')
+run_ggm_angles_glasso('data/theta44tau43_300_5000.dat','tt_glasso_350K_5000')
 
 ##### ThetaTau subsampled
-run_ggm_angles('data/tt_350K_sub.dat','tt_350K_sub')
-
+#run_ggm_angles('data/tt_350K_sub.dat','tt_350K_sub')
+run_ggm_angles_glasso('data/tt_350K_sub.dat','tt_glasso_350K_sub')
 
 
 
