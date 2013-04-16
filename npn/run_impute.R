@@ -8,6 +8,12 @@ train <- read.csv(trainf,header=FALSE)
 train<-as.matrix(train)
 test <- read.csv(testf,header=FALSE)
 test<-as.matrix(test)
+class(train) <- "numeric"
+class(test) <- "numeric"
+
+print(c(min(train),max(train)))
+print(summary(train))
+
 
 if(dtype=='angular') {
   train <- rad(train)
@@ -36,17 +42,17 @@ out.npn[["trans"]] = "npn"
 
 ####### The models
 models = list()
-model = huge.select(out.ggm,criterion="stars")  
-models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
+#model = huge.select(out.ggm,criterion="stars")  
+#models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
-model = huge.select(out.npn,criterion="stars")
-models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
+#model = huge.select(out.npn,criterion="stars")
+#models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
-model = huge.select(out.ggm,criterion="ebic")
-models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
+#model = huge.select(out.ggm,criterion="ebic")
+#models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
-model = huge.select(out.npn,criterion="ebic")
-models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
+#model = huge.select(out.npn,criterion="ebic")
+#models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
 model = huge.select(out.ggm,criterion="ric") # Select the graph using RIC
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
@@ -56,8 +62,8 @@ models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
 if(metric=='loglik') {
   sink("loglik.out",append=TRUE)
-  S_test <- cov(test)
-  S_train <- cov(train)
+  S_test <- cor(test)
+  S_train <- cor(train)
 
   for( mname in  names(models)){
     text = paste(substr,dtype,mname,metric,sep="_")
@@ -67,7 +73,7 @@ if(metric=='loglik') {
 	if("opt.icov" %in% names(model)){
     	Z <- model$opt.icov
     } else {
-		Z <- solve(diag(diag(cov(model$data))))
+		Z <- solve(diag(diag(cor(model$data))))
     } 
 
 	Z = as.matrix(Z)
@@ -89,22 +95,61 @@ if(metric=="impute") {
 	sink("impute.R",append=TRUE)
 	sink()
 
-	n,p = dim(s)
+	n = dim(test)[1]
+    p = dim(test)[2]
 
 	for(mname in names(models))	 {
        model = models[[mname]]
+	   if("opt.icov" %in% names(model)){
+	        Z <- model$opt.icov
+            Zinv <- solve(Z)
+    	} else {
+        Zinv <- diag(diag(cor(model$data)))
+    	} 
 
-       
+	mu = colMeans(test)
+
+    #for v = 1
+	v=1
+    sig12 = matrix(Zinv[1,2:p],nrow=1,ncol=p-1)
+	sig22 = matrix(Zinv[2:p,2:p],nrow=p-1,ncol=p-1)
+	mu1 = mu[1]	
+	mu2 = mu[2:p]
+
+	# for 2 to p-1
+    for(v in 2:(p-1)) {
+		sig12 = matrix(Zinv[p,c(1:(v-1),(v+1):p)],nrow=1,ncol=p-1)
+		m1 = rbind(matrix(Zinv[1:(v-1),1:(v-1)],nrow=v-1,ncol=v-1),matrix(Zinv[(v+1):p,1:(v-1)],nrow=p-v,ncol=v-1))
+		m2 = rbind(matrix(Zinv[1:(v-1),(v+1):p],nrow=v-1,ncol=p-v),matrix(Zinv[(v+1):p,(v+1):p],nrow=p-v,ncol=p-v))
+		sig22 = cbind(m1,m2)
+    }
+	# for v = p
+	v=p
+    sig12 = matrix(Zinv[p,1:(p-1)],nrow=1,ncol=p-1)
+	sig22 = matrix(Zinv[1:(p-1),1:(p-1)],nrow=p-1,ncol=p-1)
+
+	
 
     }
-
-
-
 }
-
-
 return(models)
 }
+
+# Calculate Cond mean
+condmean <- function(mu1,mu2,a,sig12,sig22) {
+   val = mu1 + sig12%*%solve(sig22)%*%(a-mu2)
+   return(val)
+
+
+}
+
+# Run imputation for a particular col
+impute_col <- function(dat,v,sig12,sig22) {
+	
+
+
+}
+
 
 #######################################################################
 # 300 K
@@ -154,35 +199,66 @@ return(models)
 # File handling and prelims
 
 # delete previous results
-sink("loglik.out")
-sink()
-sink("impute.out")
-sink()
-
-models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','loglik','300K_noniid')
+#sink("loglik.out")
+#sink()
+#models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','loglik','300K_noniid')
 
 #### Subsample
-models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','loglik','300K_iid')
+#models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','loglik','300K_iid')
 
 #### Whole theta tau
-models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43_300_5000_test.dat','angles','loglik','300K_noniid')
+i#models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43_300_5000_test.dat','angular','loglik','300K_noniid')
 
 ##### ThetaTau subsampled
-models = test_glasso('data/tt_300K_sub_train.dat','data/tt_300K_sub_test.dat','angles','loglik','300K_iid')
+#models = test_glasso('data/tt_300K_sub_train.dat','data/tt_300K_sub_test.dat','angular','loglik','300K_iid')
 
 #######################################################################
 # 350 K
 
-models = test_glasso('data/distances174_350K_train.dat','data/distances174_350K_test.dat','dist','loglik','350K_noniid')
+#models = test_glasso('data/distances174_350K_train.dat','data/distances174_350K_test.dat','dist','loglik','350K_noniid')
 
 #### Subsample
-models = test_glasso('data/distances174_sub_350K_train.dat','data/distances174_sub_350K_test.dat','dist','loglik','350K_iid')
+#models = test_glasso('data/distances174_sub_350K_train.dat','data/distances174_sub_350K_test.dat','dist','loglik','350K_iid')
 
 #### Whole theta tau
-models = test_glasso('data/theta44tau43_350_5000_train.dat','theta44tau43_350_5000_test.dat','angles','loglik','350K_noniid')
+#models = test_glasso('data/theta44tau43_350_5000_train.dat','data/theta44tau43_350_5000_test.dat','angular','loglik','350K_noniid')
 
 ##### ThetaTau subsampled
-models = test_glasso('data/tt_350K_sub_train.dat','data/tt_350K_sub_test.dat','angles','loglik','350K_iid')
+#models = test_glasso('data/tt_350K_sub_train.dat','data/tt_350K_sub_test.dat','angular','loglik','350K_iid')
+
+
+#####################################################################
+# Run imputation tests
+sink("impute.out")
+sink()
+
+models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','impute','300K_noniid')
+
+#### Subsample
+#models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','loglik','300K_iid')
+
+#### Whole theta tau
+i#models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43_300_5000_test.dat','angular','loglik','300K_noniid')
+
+##### ThetaTau subsampled
+#models = test_glasso('data/tt_300K_sub_train.dat','data/tt_300K_sub_test.dat','angular','loglik','300K_iid')
+
+#######################################################################
+# 350 K
+
+#models = test_glasso('data/distances174_350K_train.dat','data/distances174_350K_test.dat','dist','loglik','350K_noniid')
+
+#### Subsample
+#models = test_glasso('data/distances174_sub_350K_train.dat','data/distances174_sub_350K_test.dat','dist','loglik','350K_iid')
+
+#### Whole theta tau
+#models = test_glasso('data/theta44tau43_350_5000_train.dat','data/theta44tau43_350_5000_test.dat','angular','loglik','350K_noniid')
+
+##### ThetaTau subsampled
+#models = test_glasso('data/tt_350K_sub_train.dat','data/tt_350K_sub_test.dat','angular','loglik','350K_iid')
+
+
+
 
 
 
