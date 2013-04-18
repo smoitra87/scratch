@@ -83,23 +83,23 @@ if(dtype=='angular') {
 }
 
 # Relabel and transform test
-test.ggm = test # relabeling test
-test.npn = huge.npn(test)
+test.ggm <- test # relabeling test
+test.npn <- huge.npn(test)
 
 # Relabel and transform train
-train.ggm = train
-train.npn = huge.npn(train) # Nonparanormal
+train.ggm <- train
+train.npn <- huge.npn(train) # Nonparanormal
 
 
 # Find solution path using Glasso
-out.ggm = huge(train.ggm,method="glasso",nlambda=50) 
-out.ggm[["trans"]] = "ggm"
-out.npn = huge(train.npn,method="glasso",nlambda=50)
-out.npn[["trans"]] = "npn"
+out.ggm <- huge(train.ggm,method="glasso",nlambda=50) 
+out.ggm[["trans"]] <- "ggm"
+out.npn <- huge(train.npn,method="glasso",nlambda=50)
+out.npn[["trans"]] <- "npn"
 
 
 ####### Select models from solution path using different criteria
-models = list()
+models <- list()
 
 #### Use Stars
 #model = huge.select(out.ggm,criterion="stars")  
@@ -109,18 +109,18 @@ models = list()
 #models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
 #### Use EBIC
-model = huge.select(out.ggm,criterion="ebic")
+model <- huge.select(out.ggm,criterion="ebic")
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
-model = huge.select(out.npn,criterion="ebic")
+model <- huge.select(out.npn,criterion="ebic")
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
 
 #### Use RIC
-model = huge.select(out.ggm,criterion="ric")
+model <- huge.select(out.ggm,criterion="ric")
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
-model = huge.select(out.npn,criterion="ric")
+model <- huge.select(out.npn,criterion="ric")
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
 #######################################################################
@@ -128,14 +128,21 @@ models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
 if(metric=='loglik') {
   sink("loglik.out",append=TRUE)
+
+  if(model$trans=="npn") {
+	test <- test.npn
+  } else {
+    test <- test.ggm
+  }
+
   S_test <- cor(test)
   S_train <- cor(train)
 
   for( mname in  names(models)){
     text = paste(substr,dtype,mname,metric,sep="_")
 
-	model = models[[mname]]
-  
+	model <- models[[mname]]
+	
 	if("opt.icov" %in% names(model)){
     	Z <- model$opt.icov
     } else {
@@ -167,12 +174,7 @@ if(metric=="impute") {
 	n = dim(test)[1]
     p = dim(test)[2]
 
-	if(model$trans=="npn") {
-		test <- test.npn
-    } else {
-
-        test <- test.ggm
-    }
+	test <- as.matrix(test.npn)
 
 	for(mname in names(models))	 {
        model = models[[mname]]
@@ -183,6 +185,16 @@ if(metric=="impute") {
         Zinv <- diag(diag(cor(model$data)))
     	} 
 
+	if(model$trans=="npn") {
+		test <- test.npn
+		print("NPN train validation")
+		print(sum((train.npn - model$data)^2))
+    } else {
+		test <- test.ggm
+        print("GGM train validation")
+		print(sum((train.ggm - model$data)^2))
+
+    }
 	mu = colMeans(test)
 	sse = 0
 
