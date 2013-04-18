@@ -70,8 +70,8 @@ glasso.stars = huge.select(out.glasso,criterion="stars") # Select the graph usin
 npn.stars = huge.select(out.npn.glasso,criterion="stars")
 glasso.ebic = huge.select(out.glasso,criterion="ebic")
 npn.ebic = huge.select(out.npn.glasso,criterion="ebic")
-glasso.ric = huge.select(out.glasso) # Select the graph using RIC
-npn.ric = huge.select(out.npn)
+glasso.ric = huge.select(out.glasso,criterion="ric") # Select the graph using RIC
+npn.ric = huge.select(out.npn.glasso,criterion="ric")
 
 ## Begin Plotting
 png(paste("out_glasso_",substr,sep=""))
@@ -117,8 +117,8 @@ glasso.stars = huge.select(out.glasso,criterion="stars") # Select the graph usin
 npn.stars = huge.select(out.npn.glasso,criterion="stars")
 glasso.ebic = huge.select(out.glasso,criterion="ebic")
 npn.ebic = huge.select(out.npn.glasso,criterion="ebic")
-glasso.ric = huge.select(out.glasso) # Select the graph using RIC
-npn.ric = huge.select(out.npn)
+glasso.ric = huge.select(out.glasso,criterion="ric") # Select the graph using RIC
+npn.ric = huge.select(out.npn.glasso,criterion="ric")
 
 ## Begin Plotting
 png(paste("out_glasso_",substr,sep=""))

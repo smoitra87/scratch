@@ -3,6 +3,55 @@
 library(huge)
 library(circular)  # Load the package huge
 
+# Calculate Cond mean
+condmean <- function(mu1,mu2,a,sig12,sig22) {
+   val = mu1 + sig12%*%solve(sig22)%*%(a-mu2)
+   return(val)
+}
+
+# Run imputation for a particular col
+impute_col <- function(dat,v,mu1,mu2,sig12,sig22) {
+
+	n = dim(dat)[1]
+	p <- dim(dat)[2]
+    sse <- 0
+	  
+	mu1 = rep(mu1,n)
+	mu2 = matrix(rep(mu2,n),nrow=p-1,ncol=n)
+
+
+    Y <- dat[,v]
+    if(v==1) {
+    	a <- t(dat[,2:p])
+    } else if(v==p) {
+    	a  <- t(dat[,1:(p-1)])
+    } else {
+		a1 <- matrix(dat[,1:(v-1)],nrow=n,ncol=v-1)
+        a2 <- matrix(dat[,(v+1):p],nrow=n,ncol=p-v)
+        a <- t(cbind(a1,a2))
+    } 
+    Yimp <- condmean(mu1,mu2,a,sig12,sig22) 
+    sse = sse + mean((Y-Yimp)^2)
+    
+	return(sse)
+}
+#----------End Function------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################################
+### Log likelihood and Imputation Testing for a particular Dataset
+
 test_glasso <- function(trainf,testf,dtype,metric,substr){
 train <- read.csv(trainf,header=FALSE)
 train<-as.matrix(train)
@@ -11,8 +60,8 @@ test<-as.matrix(test)
 class(train) <- "numeric"
 class(test) <- "numeric"
 
-print(c(min(train),max(train)))
-print(summary(train))
+#print(c(min(train),max(train)))
+#print(summary(train))
 
 
 if(dtype=='angular') {
@@ -33,32 +82,49 @@ if(dtype=='angular') {
   test <- as.matrix(test)
 }
 
+# Relabel and transform test
+test.ggm = test # relabeling test
+test.npn = huge.npn(test)
+
+# Relabel and transform train
+train.ggm = train
 train.npn = huge.npn(train) # Nonparanormal
-out.ggm = huge(train,method="glasso",nlambda=50) # Estimate the solution path
+
+
+# Find solution path using Glasso
+out.ggm = huge(train.ggm,method="glasso",nlambda=50) 
 out.ggm[["trans"]] = "ggm"
 out.npn = huge(train.npn,method="glasso",nlambda=50)
 out.npn[["trans"]] = "npn"
 
 
-####### The models
+####### Select models from solution path using different criteria
 models = list()
+
+#### Use Stars
 #model = huge.select(out.ggm,criterion="stars")  
 #models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
 #model = huge.select(out.npn,criterion="stars")
 #models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
-#model = huge.select(out.ggm,criterion="ebic")
-#models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
+#### Use EBIC
+model = huge.select(out.ggm,criterion="ebic")
+models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
-#model = huge.select(out.npn,criterion="ebic")
-#models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
+model = huge.select(out.npn,criterion="ebic")
+models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
-model = huge.select(out.ggm,criterion="ric") # Select the graph using RIC
+
+#### Use RIC
+model = huge.select(out.ggm,criterion="ric")
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
 model = huge.select(out.npn,criterion="ric")
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
+
+#######################################################################
+# Run log likelihood 
 
 if(metric=='loglik') {
   sink("loglik.out",append=TRUE)
@@ -90,6 +156,9 @@ if(metric=='loglik') {
   sink()
 }
 
+########################################################################
+# Run Imputation test
+
 if(metric=="impute") {
 
 	sink("impute.R",append=TRUE)
@@ -97,6 +166,13 @@ if(metric=="impute") {
 
 	n = dim(test)[1]
     p = dim(test)[2]
+
+	if(model$trans=="npn") {
+		test <- test.npn
+    } else {
+
+        test <- test.ggm
+    }
 
 	for(mname in names(models))	 {
        model = models[[mname]]
@@ -108,95 +184,56 @@ if(metric=="impute") {
     	} 
 
 	mu = colMeans(test)
+	sse = 0
 
     #for v = 1
 	v=1
     sig12 = matrix(Zinv[1,2:p],nrow=1,ncol=p-1)
 	sig22 = matrix(Zinv[2:p,2:p],nrow=p-1,ncol=p-1)
 	mu1 = mu[1]	
-	mu2 = mu[2:p]
+	mu2 = matrix(mu[2:p],nrow=p-1,ncol=1)
+
+	sse = sse + impute_col(test,v,mu1,mu2,sig12,sig22)
+
 
 	# for 2 to p-1
     for(v in 2:(p-1)) {
-		sig12 = matrix(Zinv[p,c(1:(v-1),(v+1):p)],nrow=1,ncol=p-1)
+		#print(c("Imputing column",v))
+		sig12 = matrix(Zinv[v,c(1:(v-1),(v+1):p)],nrow=1,ncol=p-1)
 		m1 = rbind(matrix(Zinv[1:(v-1),1:(v-1)],nrow=v-1,ncol=v-1),matrix(Zinv[(v+1):p,1:(v-1)],nrow=p-v,ncol=v-1))
 		m2 = rbind(matrix(Zinv[1:(v-1),(v+1):p],nrow=v-1,ncol=p-v),matrix(Zinv[(v+1):p,(v+1):p],nrow=p-v,ncol=p-v))
 		sig22 = cbind(m1,m2)
+		mu1 = mu[v]		
+		mu2 = matrix(c(mu[1:(v-1)],mu[(v+1):p]),nrow=(p-1),ncol=1)
+		sse = sse + impute_col(test,v,mu1,mu2,sig12,sig22)
+		#print(c("sse is",sse))
     }
 	# for v = p
 	v=p
     sig12 = matrix(Zinv[p,1:(p-1)],nrow=1,ncol=p-1)
 	sig22 = matrix(Zinv[1:(p-1),1:(p-1)],nrow=p-1,ncol=p-1)
+    mu1 = mu[p]
+    mu2 = matrix(mu[1:(p-1)],nrow=(p-1),ncol=1)
+	sse = sse + impute_col(test,v,mu1,mu2,sig12,sig22)
 
-	
+	rmse = sqrt(sse/p)
+	model[['rmse']] = rmse
+
+	print(c(model$criterion,model$trans,model[['rmse']]))
 
     }
 }
 return(models)
 }
 
-# Calculate Cond mean
-condmean <- function(mu1,mu2,a,sig12,sig22) {
-   val = mu1 + sig12%*%solve(sig22)%*%(a-mu2)
-   return(val)
+#---------------End Function------------------
 
 
-}
-
-# Run imputation for a particular col
-impute_col <- function(dat,v,sig12,sig22) {
-	
-
-
-}
-
-
-#######################################################################
-# 300 K
-
-#run_ggm_split('data/X_2000_300K.dat','300_dist2000',5)
-
-###### Distances whole trajectory
-#run_ggm('data/distances174_300K.dat','300_dist2000')
-#test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','loglik','300K_noniid')
-
-#### Distances Subsampled trajectory
-#run_ggm('data/distances174_sub_300K.dat','300_sub')
-#run_ggm_glasso('data/distances174_sub_300K.dat','300_glasso_sub')
-
-###### Thetatau whole
-#run_ggm_angles('data/theta44tau43_300_5000.dat','tt_300K_5000')
-#run_ggm_angles_glasso('data/theta44tau43_300_5000.dat','tt_glasso_300K_5000')
-
-##### ThetaTau subsampled
-#run_ggm_angles('data/tt_300K_sub.dat','tt_300K_sub')
-#run_ggm_angles_glasso('data/tt_300K_sub.dat','tt_glasso_300K_sub')
-
-#######################################################################
-# 350 K
-
-#run_ggm_split('data/X_2000_350K.dat','350_dist2000',5)
-
-###### Distances whole trajectory
-#run_ggm('data/distances174_350K.dat','350_dist2000')
-#run_ggm_glasso('data/distances174_350K.dat','350_glasso_dist2000')
-
-#### Distances Subsampled trajectory
-#run_ggm('data/distances174_sub_350K.dat','350_sub')
-#run_ggm_glasso('data/distances174_sub_350K.dat','350_glasso_sub')
-
-###### Thetatau whole
-#run_ggm_angles('data/theta44tau43_300_5000.dat','tt_350K_5000')
-#run_ggm_angles_glasso('data/theta44tau43_300_5000.dat','tt_glasso_350K_5000')
-
-##### ThetaTau subsampled
-#run_ggm_angles('data/tt_350K_sub.dat','tt_350K_sub')
-#run_ggm_angles_glasso('data/tt_350K_sub.dat','tt_glasso_350K_sub')
 
 
 
 ######################################################################
-# File handling and prelims
+# Loglikelihood tests
 
 # delete previous results
 #sink("loglik.out")
@@ -228,7 +265,7 @@ i#models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43
 
 
 #####################################################################
-# Run imputation tests
+# Imputation testis
 sink("impute.out")
 sink()
 
