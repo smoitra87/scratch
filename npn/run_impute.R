@@ -131,11 +131,11 @@ out.npn[["trans"]] <- "npn"
 models <- list()
 
 #### Use Stars
-#model = huge.select(out.ggm,criterion="stars")  
-#models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
+model = huge.select(out.ggm,criterion="stars")  
+models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
-#model = huge.select(out.npn,criterion="stars")
-#models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
+model = huge.select(out.npn,criterion="stars")
+models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
 #### Use EBIC
 model <- huge.select(out.ggm,criterion="ebic")
@@ -156,20 +156,20 @@ models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 # Run log likelihood 
 
 if(metric=='loglik') {
-  sink("loglik.out",append=TRUE)
+  sink("loglik.csv",append=TRUE)
 
   if(model$trans=="npn") {
 	test <- test.npn
+	train <- train.ggm
   } else {
     test <- test.ggm
+	train <- train.ggm
   }
 
   S_test <- cor(test)
   S_train <- cor(train)
 
   for( mname in  names(models)){
-    text = paste(substr,dtype,mname,metric,sep="_")
-
 	model <- models[[mname]]
 	
 	if("opt.icov" %in% names(model)){
@@ -182,12 +182,13 @@ if(metric=='loglik') {
 	ll_train = log(det(Z)) - sum(diag(S_train%*%Z)) 
 	ll_test = log(det(Z)) - sum(diag(S_test%*%Z)) 
 
-    cat(text)
-    cat("\n")		
-    cat(paste("Train:",ll_train))
-    cat("\t")		
-    cat(paste("Test:",ll_test))
-	cat("\n\n")
+	model[['trainll']] <- ll_train
+	model[['testll']] <- ll_test
+
+	cat(paste(dtype,temp,iid,model$trans,model$criterion,model$trainll,model$testll,sep=","))
+	cat('\n')
+
+
   }
   sink()
 }
@@ -197,13 +198,12 @@ if(metric=='loglik') {
 
 if(metric=="impute") {
 
-	sink("impute.R",append=TRUE)
-	sink()
-
 	n = dim(test)[1]
     p = dim(test)[2]
 
 	test <- as.matrix(test.npn)
+
+	sink("impute.csv",append=TRUE)
 
 	for(mname in names(models))	 {
        model = models[[mname]]
@@ -257,10 +257,13 @@ if(metric=="impute") {
 	rmse = sqrt(sse/p)
 	model[['rmse_base2']] = rmse
 
-	print(c("rmse",model$criterion,model$trans,model[['rmse']]))
-	print(c("rmse_base1",model$criterion,model$trans,model[['rmse_base1']]))
-	print(c("rmse_base2",model$criterion,model$trans,model[['rmse_base2']]))
+	cat(paste(dtype,temp,iid,model$trans,model$criterion,model$rmse,model$rmse_base1,model$rmse_base2,sep=","))
+	cat('\n')
+#	print(c("rmse",model$criterion,model$trans,model[['rmse']]))
+#	print(c("rmse_base1",model$criterion,model$trans,model[['rmse_base1']]))
+#	print(c("rmse_base2",model$criterion,model$trans,model[['rmse_base2']]))
     }
+	sink()
 }
 return(models)
 }
@@ -268,16 +271,18 @@ return(models)
 #---------------End Function------------------
 
 
-
-
-
 ######################################################################
 # Loglikelihood tests
 
 # delete previous results
-#sink("loglik.out")
-#sink()
-models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','loglik','300K_noniid')
+
+sink("loglik.csv",append=TRUE)
+cat(paste("Dtype","Temp","IID/Non-IID","Transform","M.select","TrainLL","TestLL",sep=","))
+cat('\n')
+sink()
+
+
+#models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','loglik','300K_noniid')
 
 #### Subsample
 #models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','loglik','300K_iid')
@@ -305,41 +310,40 @@ i#models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43
 
 #####################################################################
 # Imputation tests
-sink("impute.out")
+sink("impute.csv")
 sink()
 
-sink("impute.out",append=TRUE)
+sink("impute.csv",append=TRUE)
 cat(paste("Dtype","Temp","IID/Non-IID","Transform","M.select","RMSE","RMSE_base1","RMSE_base2",sep=","))
 cat('\n')
+sink()
 
-
-#models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','impute','300K_noniid')
+models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','impute','300K_noniid')
 
 #### Subsample
-#models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','impute','300K_iid')
+models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','impute','300K_iid')
 
 #### Whole theta tau
-#models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43_300_5000_test.dat','angular','impute','300K_noniid')
+models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43_300_5000_test.dat','angular','impute','300K_noniid')
 
 ##### ThetaTau subsampled
-#models = test_glasso('data/tt_300K_sub_train.dat','data/tt_300K_sub_test.dat','angular','impute','300K_iid')
+models = test_glasso('data/tt_300K_sub_train.dat','data/tt_300K_sub_test.dat','angular','impute','300K_iid')
 
 #######################################################################
 # 350 K
 
-#models = test_glasso('data/distances174_350K_train.dat','data/distances174_350K_test.dat','dist','impute','350K_noniid')
+models = test_glasso('data/distances174_350K_train.dat','data/distances174_350K_test.dat','dist','impute','350K_noniid')
 
 #### Subsample
-#models = test_glasso('data/distances174_sub_350K_train.dat','data/distances174_sub_350K_test.dat','dist','impute','350K_iid')
+models = test_glasso('data/distances174_sub_350K_train.dat','data/distances174_sub_350K_test.dat','dist','impute','350K_iid')
 
 #### Whole theta tau
-#models = test_glasso('data/theta44tau43_350_5000_train.dat','data/theta44tau43_350_5000_test.dat','angular','impute','350K_noniid')
+models = test_glasso('data/theta44tau43_350_5000_train.dat','data/theta44tau43_350_5000_test.dat','angular','impute','350K_noniid')
 
 ##### ThetaTau subsampled
-#models = test_glasso('data/tt_350K_sub_train.dat','data/tt_350K_sub_test.dat','angular','impute','350K_iid')
+models = test_glasso('data/tt_350K_sub_train.dat','data/tt_350K_sub_test.dat','angular','impute','350K_iid')
 
 
-sink()
 
 
 
