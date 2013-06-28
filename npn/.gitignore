@@ -3,3 +3,8 @@ data/
 pics/
 *.Rhistory
 *.csv
+*.pdf
+*.ods
+*.out
+*.png
+*.RData
