@@ -133,11 +133,11 @@ models <- list()
 #### Use Stars
 model = huge.select(out.ggm,criterion="stars")  
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
-
+##
 model = huge.select(out.npn,criterion="stars")
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
-
-#### Use EBIC
+##
+### Use EBIC
 model <- huge.select(out.ggm,criterion="ebic")
 models[[paste(model$method,model$trans,model$criterion,sep="_")]] = model
 
@@ -185,7 +185,7 @@ if(metric=='loglik') {
 	model[['trainll']] <- ll_train
 	model[['testll']] <- ll_test
 
-	cat(paste(dtype,temp,iid,model$trans,model$criterion,model$trainll,model$testll,sep=","))
+	cat(paste(dtype,temp,iid,model$trans,model$criterion,model$opt.sparsity,model$trainll,model$testll,sep=","))
 	cat('\n')
 
 
@@ -257,7 +257,7 @@ if(metric=="impute") {
 	rmse = sqrt(sse/p)
 	model[['rmse_base2']] = rmse
 
-	cat(paste(dtype,temp,iid,model$trans,model$criterion,model$rmse,model$rmse_base1,model$rmse_base2,sep=","))
+	cat(paste(dtype,temp,iid,model$trans,model$criterion,model$opt.sparsity,model$rmse,model$rmse_base1,model$rmse_base2,sep=","))
 	cat('\n')
 #	print(c("rmse",model$criterion,model$trans,model[['rmse']]))
 #	print(c("rmse_base1",model$criterion,model$trans,model[['rmse_base1']]))
@@ -276,75 +276,75 @@ return(models)
 
 # delete previous results
 
-sink("loglik.csv",append=TRUE)
-cat(paste("Dtype","Temp","IID/Non-IID","Transform","M.select","TrainLL","TestLL",sep=","))
+sink("loglik.csv")
+cat(paste("Dtype","Temp","IID/Non-IID","Transform","M.select","Sparsity","TrainLL","TestLL",sep=","))
 cat('\n')
 sink()
 
 
-#models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','loglik','300K_noniid')
+models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','loglik','300K_noniid')
 
-#### Subsample
-#models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','loglik','300K_iid')
+### Subsample
+models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','loglik','300K_iid')
 
-#### Whole theta tau
-i#models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43_300_5000_test.dat','angular','loglik','300K_noniid')
+### Whole theta tau
+models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43_300_5000_test.dat','angular','loglik','300K_noniid')
 
-##### ThetaTau subsampled
-#models = test_glasso('data/tt_300K_sub_train.dat','data/tt_300K_sub_test.dat','angular','loglik','300K_iid')
+#### ThetaTau subsampled
+models = test_glasso('data/tt_300K_sub_train.dat','data/tt_300K_sub_test.dat','angular','loglik','300K_iid')
 
-#######################################################################
-# 350 K
+######################################################################
+## 350 K
 
-#models = test_glasso('data/distances174_350K_train.dat','data/distances174_350K_test.dat','dist','loglik','350K_noniid')
+models = test_glasso('data/distances174_350K_train.dat','data/distances174_350K_test.dat','dist','loglik','350K_noniid')
 
-#### Subsample
-#models = test_glasso('data/distances174_sub_350K_train.dat','data/distances174_sub_350K_test.dat','dist','loglik','350K_iid')
+### Subsample
+models = test_glasso('data/distances174_sub_350K_train.dat','data/distances174_sub_350K_test.dat','dist','loglik','350K_iid')
 
-#### Whole theta tau
-#models = test_glasso('data/theta44tau43_350_5000_train.dat','data/theta44tau43_350_5000_test.dat','angular','loglik','350K_noniid')
+### Whole theta tau
+models = test_glasso('data/theta44tau43_350_5000_train.dat','data/theta44tau43_350_5000_test.dat','angular','loglik','350K_noniid')
 
-##### ThetaTau subsampled
-#models = test_glasso('data/tt_350K_sub_train.dat','data/tt_350K_sub_test.dat','angular','loglik','350K_iid')
+#### ThetaTau subsampled
+models = test_glasso('data/tt_350K_sub_train.dat','data/tt_350K_sub_test.dat','angular','loglik','350K_iid')
 
 
 #####################################################################
-# Imputation tests
-sink("impute.csv")
-sink()
-
-sink("impute.csv",append=TRUE)
-cat(paste("Dtype","Temp","IID/Non-IID","Transform","M.select","RMSE","RMSE_base1","RMSE_base2",sep=","))
-cat('\n')
-sink()
-
-models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','impute','300K_noniid')
-
-#### Subsample
-models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','impute','300K_iid')
-
-#### Whole theta tau
-models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43_300_5000_test.dat','angular','impute','300K_noniid')
-
-##### ThetaTau subsampled
-models = test_glasso('data/tt_300K_sub_train.dat','data/tt_300K_sub_test.dat','angular','impute','300K_iid')
-
-#######################################################################
-# 350 K
-
-models = test_glasso('data/distances174_350K_train.dat','data/distances174_350K_test.dat','dist','impute','350K_noniid')
-
-#### Subsample
-models = test_glasso('data/distances174_sub_350K_train.dat','data/distances174_sub_350K_test.dat','dist','impute','350K_iid')
-
-#### Whole theta tau
-models = test_glasso('data/theta44tau43_350_5000_train.dat','data/theta44tau43_350_5000_test.dat','angular','impute','350K_noniid')
-
-##### ThetaTau subsampled
-models = test_glasso('data/tt_350K_sub_train.dat','data/tt_350K_sub_test.dat','angular','impute','350K_iid')
-
-
-
-
-
-
+## Imputation tests
+#sink("impute.csv")
+#sink()
+#
+#sink("impute.csv",append=TRUE)
+#cat(paste("Dtype","Temp","IID/Non-IID","Transform","M.select","Sparsity","RMSE","RMSE_base1","RMSE_base2",sep=","))
+#cat('\n')
+#sink()
+#
+#models = test_glasso('data/distances174_300K_train.dat','data/distances174_300K_test.dat','dist','impute','300K_noniid')
+#
+##### Subsample
+#models = test_glasso('data/distances174_sub_300K_train.dat','data/distances174_sub_300K_test.dat','dist','impute','300K_iid')
+#
+##### Whole theta tau
+#models = test_glasso('data/theta44tau43_300_5000_train.dat','data/theta44tau43_300_5000_test.dat','angular','impute','300K_noniid')
+#
+###### ThetaTau subsampled
+#models = test_glasso('data/tt_300K_sub_train.dat','data/tt_300K_sub_test.dat','angular','impute','300K_iid')
+#
+########################################################################
+## 350 K
+#
+#models = test_glasso('data/distances174_350K_train.dat','data/distances174_350K_test.dat','dist','impute','350K_noniid')
+#
+##### Subsample
+#models = test_glasso('data/distances174_sub_350K_train.dat','data/distances174_sub_350K_test.dat','dist','impute','350K_iid')
+#
+##### Whole theta tau
+#models = test_glasso('data/theta44tau43_350_5000_train.dat','data/theta44tau43_350_5000_test.dat','angular','impute','350K_noniid')
+#
+###### ThetaTau subsampled
+#models = test_glasso('data/tt_350K_sub_train.dat','data/tt_350K_sub_test.dat','angular','impute','350K_iid')
+#
+#
+#
+#
+#
+#
