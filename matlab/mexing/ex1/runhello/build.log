@@ -1,0 +1,33 @@
+ant:
+
+<mkdir dir="/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/distrib" />
+<mkdir dir="/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/src" />
+mcc -o runhello -W main:runhello -T link:exe -d /home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/src -w enable:specified_file_mismatch -w enable:repeated_file -w enable:switch_ignored -w enable:missing_lib_sentinel -w enable:demo_license -v /home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello.m
+Compiler version: 4.17 (R2012a)
+Processing /home/subhodeep/local/MATLAB/R2012a/toolbox/matlab/mcc.enc
+Processing include files...
+2 item(s) added.
+Processing directories installed with MCR...
+The file /home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/src/mccExcludedFiles.log contains a list of functions excluded from the CTF archive.
+0 item(s) added.
+Generating MATLAB path for the compiled application...
+Created 39 path items.
+Begin validation of MEX files: Mon Jul 8 13:56:29 2013
+Validating '/home/subhodeep/projects/scratch/matlab/mexing/ex1/helloworld.mexglx'.
+No conflicting MATLAB file found.
+End validation of MEX files: Mon Jul 8 13:56:29 2013
+Warning: Adding path "/home/subhodeep/projects/scratch/matlab/mexing/ex1" to
+Compiler path instance.
+Parsing file "/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello.m"
+    (Referenced from: "Compiler Command Line").
+Parsing file "/home/subhodeep/local/MATLAB/R2012a/toolbox/compiler/deploy/deployprint.m"
+    (Referenced from: "Compiler Command Line").
+Parsing file "/home/subhodeep/local/MATLAB/R2012a/toolbox/compiler/deploy/printdlg.m"
+    (Referenced from: "Compiler Command Line").
+Deleting 1 temporary MEX authorization files.
+Removing: '/tmp/02be1iBZLlj_11233.auth'.
+Generating file "/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/src/readme.txt".
+Generating file "/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/src/run_runhello.sh".
+copy '/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/src/readme.txt' '/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/distrib/readme.txt'
+copy '/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/src/run_runhello.sh' '/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/distrib/run_runhello.sh'
+copy '/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/src/runhello' '/home/subhodeep/projects/scratch/matlab/mexing/ex1/runhello/distrib/runhello'
