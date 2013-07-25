@@ -1,0 +1,129 @@
+##################### PHAISTOS OPTIONS #####################
+#                                                          #
+#     This output can be directly copy&pasted into a       #
+#   configuration file, and applied using --config-file.   #
+#                                                          #
+############################################################
+
+######################
+#### MAIN OPTIONS ####
+######################
+
+### General options ###
+verbose = true                                              	# Output information during run
+debug = 1                                                  	# Debug information level
+data-dir = "/home/subhodeep/local/phaistos/data"            	# Path to Phaistos data directory
+status-interval = 5                                         	# Frequency of status display
+chain-type = "chainfb"                                      	# Chain type (only chainfb is currently activated)
+seed = 1374509901                                           	# Seed for random number generator. The default value is the current time. Remove this line from config file to use random seed.
+timeout-minutes = 1											# Timeout after M minutes of execution
+timeout-time = 0                                           	# Timeout: exits at time T (seconds from Epoch)
+
+### Input options ###
+pdb-file = "../../2gb1.pdb"                                 	# Input: pdb filename
+aa-file = ""                                                	# Input: amino acid residue sequence filename
+ss-file = ""                                                	# Input: secondary structure sequence filename
+
+### Chain options ###
+init-from-pdb = true	# Whether to initialize the chain from a pdb-file
+atom-types = BACKBONE_ATOMS BACKBONE_O_ATOMS BACKBONE_H_ATOMS CB_ATOMS SIDECHAIN_ATOMS NON_BACKBONE_H_ATOMS 	# The types of atoms included in the chain
+
+
+###########################
+#### PROCEDURE OPTIONS ####
+###########################
+
+### Options for Phaistos fold procedure ###
+procedure-fold = 1                                          	# Activate procedure-fold
+procedure-fold-debug = 0                                    	# Debug level
+procedure-fold-energy2-evaluation-interval = 0              	# How often to evaluate energy2 (0:never)
+
+
+#############################
+#### MONTE CARLO OPTIONS ####
+#############################
+
+### General Monte Carlo options ###
+threads = 1                                                 	# Number of threads (1: no multithreading)
+identical-threads = false                                   	# Make all threads identical
+iterations = 10000000                                       	# Number of iterations pr. thread
+steps-per-move = 100                                        	# Number of steps per each move in Monte Carlo run
+
+### Metropolis-Hastings options ###
+monte-carlo-metropolis-hastings = 1                         	# Activate monte-carlo-metropolis-hastings [number of occurrences]
+monte-carlo-metropolis-hastings-debug = 0                   	# Debug level
+monte-carlo-metropolis-hastings-declash-on-reinitialize = true	# Whether to remove self-collisions from the chain when reinitializing
+monte-carlo-metropolis-hastings-maximum-declash-attempts = 20000	# The number of times declashing is attempted before a complete reinitialization is done
+monte-carlo-metropolis-hastings-reinitialization-interval = 0	# How often reinitialization takes place
+monte-carlo-metropolis-hastings-consistency-check-interval = 10000	# How often consistency of the chain is checked
+
+##############################
+### MOVE OPTIONS #############
+##############################
+
+# Pivot local moves
+move-pivot-local = 1                                        	# Activate move-pivot-local [number of occurrences]
+move-pivot-local-debug = 0                                  	# Debug level
+move-pivot-local-weight = 1                                 	# Weight used when selecting moves in move collection
+move-pivot-local-move-length-min = 1                        	# Minimum move length
+move-pivot-local-move-length-max = 1                        	# Maximum move length
+move-pivot-local-regions = [(-2147483648,2147483647)]       	# Regions of chain in which move will be applied
+move-pivot-local-sample-bond-angle-dofs = true              	# Whether bond angles should be sampled
+move-pivot-local-sample-phi-psi-dofs = true                 	# Whether dihedral angles should be sampled
+move-pivot-local-sample-omega-dofs = false                  	# Whether omega angles should be sampled
+move-pivot-local-std-dev-bond-angle = 0.1                   	# Standard deviation in bond angle change (degr.) (UNINITIALIZED => constraint off)
+move-pivot-local-std-dev-phi-psi = 0.1                        	# Standard deviation in dihedral angle change (degr.) (UNINITIALIZED => constraint off)
+move-pivot-local-std-dev-omega = 0.8                        	# Standard deviation in omega angle change (degr.) (UNINITIALIZED => constraint off)
+
+## DBN moves
+#move-backbone-dbn = 1
+#move-backbone-dbn-implicit-energy = 0
+#
+## pivot-uniform options
+#move-pivot-uniform = 1
+#move-pivot-uniform-weight = 1.0
+#
+## crankshaft
+#move-crankshaft = 1
+#move-crankshaft-weight = 0.5
+#
+
+
+##############################
+#### BACKBONE-DBN OPTIONS ####
+##############################
+
+### TorusDbn options ###
+backbone-dbn-torus = 1                                      	# Activate backbone-dbn-torus [number of occurrences]
+backbone-dbn-torus-debug = 0                                	# Debug level
+backbone-dbn-torus-log-space = false                        	# Whether DBN calculations should be done in log space.
+backbone-dbn-torus-dbn-start-distribution = normal          	# N-terminus probability: normal|uniform|stationary
+backbone-dbn-torus-dbn-transition-distribution = normal     	# Transition distribution: normal|uniform|stationary
+backbone-dbn-torus-parameter-file = ""                      	# parameter file name
+backbone-dbn-torus-sequence-length = -1                     	# Set sequence length in model (only necessary when no input sequence is given)
+backbone-dbn-torus-initial-pdb-file = ""                    	# Input from PDB file
+backbone-dbn-torus-initial-aa-sequence = ""                 	# Input from amino acid sequence
+backbone-dbn-torus-initial-aa-file = ""                     	# Input from amino acid sequence file
+backbone-dbn-torus-initial-ss-sequence = ""                 	# Input from secondary structure sequence
+backbone-dbn-torus-initial-ss-file = ""                     	# Input from secondary structure file
+backbone-dbn-torus-initial-cis-sequence = ""                	# Cis sequence
+backbone-dbn-torus-initial-cis-file = ""                    	# Cis filename
+
+############################
+#### OBSERVABLE OPTIONS ####
+############################
+
+### pdb: dump pdb file(s) (observable) ###
+observable-pdb = 1                                          	# Activate observable-pdb [number of occurrences]
+observable-pdb-debug = 0                                    	# Debug level
+observable-pdb-weight = 1                                   	# Weight used when summing energy terms
+observable-pdb-register-interval = 1000                     	# How often to register/calculate observable.
+observable-pdb-register-burnin = 0                          	# After how many iterations to start registering/calculating observable.
+observable-pdb-output-target = "sim.pdb"                    	# How/Where the observable should be reported ("pdb-header":output information to header in dumped pdb files; "pdb-b-factor":output information to b-factors in dumped pdb files; "stdout|cout|stderr|cerr": Output to stdout|stderr. Any other string is interpreted as a filename for a separate logfile.
+observable-pdb-output-interval = 1                          	# How often to register/calculate observable. This value will only be read whenever an observable is active (i.e. iteration number matches register-interval)
+observable-pdb-minimum-energy-mode = false                  	# Whether only to dump minimum energy structures
+observable-pdb-minimum-energy-fraction = 0.1                	# How far from the minimum energy a structure must be before being dumped
+observable-pdb-minimum-energy-interval = 500                	# Minimum interval between dumped minimum energy structures
+
+
+################### PHAISTOS OPTIONS END ###################

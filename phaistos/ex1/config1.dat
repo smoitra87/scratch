@@ -1,0 +1,197 @@
+##################### PHAISTOS OPTIONS #####################
+#                                                          #
+#     This output can be directly copy&pasted into a       #
+#   configuration file, and applied using --config-file.   #
+#                                                          #
+############################################################
+
+######################
+#### MAIN OPTIONS ####
+######################
+
+### General options ###
+verbose = true                                              	# Output information during run
+debug = 0                                                   	# Debug information level
+data-dir = "/home/subhodeep/local/phaistos/data"            	# Path to Phaistos data directory
+status-interval = 5                                         	# Frequency of status display
+chain-type = "chainfb"                                      	# Chain type (only chainfb is currently activated)
+seed = 1374507348                                           	# Seed for random number generator. The default value is the current time. Remove this line from config file to use random seed.
+timeout-minutes = 0                                         	# Timeout after M minutes of execution
+timeout-time = 0                                            	# Timeout: exits at time T (seconds from Epoch)
+
+### Input options ###
+pdb-file = "2gb1.pdb"                                       	# Input: pdb filename
+aa-file = ""                                                	# Input: amino acid residue sequence filename
+ss-file = ""                                                	# Input: secondary structure sequence filename
+
+### Chain options ###
+init-from-pdb = true                                        	# Whether to initialize the chain from a pdb-file
+atom-types = BACKBONE_ATOMS BACKBONE_O_ATOMS BACKBONE_H_ATOMS CB_ATOMS SIDECHAIN_ATOMS NON_BACKBONE_H_ATOMS 	# The types of atoms included in the chain
+
+
+###########################
+#### PROCEDURE OPTIONS ####
+###########################
+
+### Options for Phaistos fold procedure ###
+procedure-fold = 1                                          	# Activate procedure-fold
+procedure-fold-debug = 0                                    	# Debug level
+procedure-fold-energy2-evaluation-interval = 0              	# How often to evaluate energy2 (0:never)
+
+
+#############################
+#### MONTE CARLO OPTIONS ####
+#############################
+
+### General Monte Carlo options ###
+threads = 1                                                 	# Number of threads (1: no multithreading)
+identical-threads = false                                   	# Make all threads identical
+iterations = 10000000                                       	# Number of iterations pr. thread
+steps-per-move = 100                                        	# Number of steps per each move in Monte Carlo run
+
+### Metropolis-Hastings options ###
+monte-carlo-metropolis-hastings = 1                         	# Activate monte-carlo-metropolis-hastings [number of occurrences]
+monte-carlo-metropolis-hastings-debug = 0                   	# Debug level
+monte-carlo-metropolis-hastings-declash-on-reinitialize = false	# Whether to remove self-collisions from the chain when reinitializing
+monte-carlo-metropolis-hastings-maximum-declash-attempts = 20000	# The number of times declashing is attempted before a complete reinitialization is done
+monte-carlo-metropolis-hastings-reinitialization-interval = 0	# How often reinitialization takes place
+monte-carlo-metropolis-hastings-consistency-check-interval = 10000	# How often consistency of the chain is checked
+
+
+######################
+#### MOVE OPTIONS ####
+######################
+
+### CRISP (no priors) ###
+move-crisp = 1                                              	# Activate move-crisp [number of occurrences]
+move-crisp-debug = 0                                        	# Debug level
+move-crisp-weight = 0.2                                     	# Weight used when selecting moves in move collection
+move-crisp-move-length-min = 5                              	# Minimum move length
+move-crisp-move-length-max = 5                              	# Maximum move length
+move-crisp-regions = [(-2147483648,2147483647)]             	# Regions of chain in which move will be applied
+move-crisp-std-dev-bond-angle = 0.5                         	# Standard deviation in bond angle change (UNINITIALIZED => constraint off)
+move-crisp-std-dev-phi-psi = 4                              	# Standard deviation in dihedral angle change (UNINITIALIZED => constraint off)
+move-crisp-std-dev-omega = 0.5                              	# Standard deviation in omega angle change (UNINITIALIZED => constraint off)
+move-crisp-only-internal-moves = false                      	# only execute internal moves
+move-crisp-sample-omega = false                             	# sample omega angles during prerotation
+
+### Local pivot move ###
+move-pivot-local = 1                                        	# Activate move-pivot-local [number of occurrences]
+move-pivot-local-debug = 0                                  	# Debug level
+move-pivot-local-weight = 0.05                              	# Weight used when selecting moves in move collection
+move-pivot-local-move-length-min = 1                        	# Minimum move length
+move-pivot-local-move-length-max = 1                        	# Maximum move length
+move-pivot-local-regions = [(-2147483648,2147483647)]       	# Regions of chain in which move will be applied
+move-pivot-local-sample-bond-angle-dofs = true              	# Whether bond angles should be sampled
+move-pivot-local-sample-phi-psi-dofs = true                 	# Whether dihedral angles should be sampled
+move-pivot-local-sample-omega-dofs = false                  	# Whether omega angles should be sampled
+move-pivot-local-std-dev-bond-angle = 0.8                   	# Standard deviation in bond angle change (degr.) (UNINITIALIZED => constraint off)
+move-pivot-local-std-dev-phi-psi = 1                        	# Standard deviation in dihedral angle change (degr.) (UNINITIALIZED => constraint off)
+move-pivot-local-std-dev-omega = 0.8                        	# Standard deviation in omega angle change (degr.) (UNINITIALIZED => constraint off)
+
+### Rotamer sidechain move ###
+move-sidechain-rotamer = 1                                  	# Activate move-sidechain-rotamer [number of occurrences]
+move-sidechain-rotamer-debug = 0                            	# Debug level
+move-sidechain-rotamer-weight = 0.5                         	# Weight used when selecting moves in move collection
+move-sidechain-rotamer-move-length-min = 1                  	# Minimum move length
+move-sidechain-rotamer-move-length-max = 1                  	# Maximum move length
+move-sidechain-rotamer-regions = [(-2147483648,2147483647)] 	# Regions of chain in which move will be applied
+move-sidechain-rotamer-implicit-energy = false              	# Whether the rotamer bias (implicit energy) should be divided out (=false) or not (=true)
+move-sidechain-rotamer-sigma-scale-factor = 1               	# Flatten/sharpen rotamer distributions by scaling sigma
+move-sidechain-rotamer-rotamer-state-resample-frequency = 0.33	# Frequency with which move will resample rotamer state
+move-sidechain-rotamer-sample-hydrogen-chis = true          	# Whether hydrogen chi angles should be resampled (uniformly)
+move-sidechain-rotamer-skip-proline = true                  	# Whether to skip prolines (prolines introduce a change in bond length which must be taken into account by the forcefield)
+
+### Local sidechain move ###
+move-sidechain-local = 2                                    	# Activate move-sidechain-local [number of occurrences]
+move-sidechain-local-debug = 0                              	# Debug level
+move-sidechain-local-weight = 0.125                         	# Weight used when selecting moves in move collection
+move-sidechain-local-move-length-min = 1                    	# Minimum move length
+move-sidechain-local-move-length-max = 1                    	# Maximum move length
+move-sidechain-local-regions = [(-2147483648,2147483647)]   	# Regions of chain in which move will be applied
+move-sidechain-local-sigma-major-dofs = 0.1                 	# Standard deviation of gaussian surrounding current sidechain for major degrees of freedom
+move-sidechain-local-sigma-minor-dofs = 0.00349066          	# Standard deviation of gaussian surrounding current sidechain for minor degrees of freedom
+move-sidechain-local-sample-major-dofs = true               	# Whether major dofs (chi angles) should be resampled
+move-sidechain-local-sample-minor-dofs = true               	# Whether minor dofs (side chain bond angles, CB|O bond angle|dihedral, etc)
+move-sidechain-local-mode = constrain-one-endpoint          	# Move mode (simple,scale-sigma,select-dofs,constrain-all-endpoints,constrain-one-endpoint)
+move-sidechain-local-lagrange-multiplier = 200              	# When using constrain-endpoint mode, this controls the weight of the constraint.
+move-sidechain-local-skip-proline = true                    	# Whether to skip prolines (prolines introduce a change in bond length which must be taken into account by the forcefield)
+move-sidechain-local-1-debug = 0                            	# Debug level
+move-sidechain-local-1-weight = 0.125                       	# Weight used when selecting moves in move collection
+move-sidechain-local-1-move-length-min = 1                  	# Minimum move length
+move-sidechain-local-1-move-length-max = 1                  	# Maximum move length
+move-sidechain-local-1-regions = [(-2147483648,2147483647)] 	# Regions of chain in which move will be applied
+move-sidechain-local-1-sigma-major-dofs = 0.1               	# Standard deviation of gaussian surrounding current sidechain for major degrees of freedom
+move-sidechain-local-1-sigma-minor-dofs = 0.00349066        	# Standard deviation of gaussian surrounding current sidechain for minor degrees of freedom
+move-sidechain-local-1-sample-major-dofs = true             	# Whether major dofs (chi angles) should be resampled
+move-sidechain-local-1-sample-minor-dofs = true             	# Whether minor dofs (side chain bond angles, CB|O bond angle|dihedral, etc)
+move-sidechain-local-1-mode = constrain-one-endpoint        	# Move mode (simple,scale-sigma,select-dofs,constrain-all-endpoints,constrain-one-endpoint)
+move-sidechain-local-1-lagrange-multiplier = 500000         	# When using constrain-endpoint mode, this controls the weight of the constraint.
+move-sidechain-local-1-skip-proline = true                  	# Whether to skip prolines (prolines introduce a change in bond length which must be taken into account by the forcefield)
+
+
+########################
+#### ENERGY OPTIONS ####
+########################
+
+### Clash-fast (energy) ###
+energy-clash-fast = 1                                       	# Activate energy-clash-fast [number of occurrences]
+energy-clash-fast-debug = 0                                 	# Debug level
+energy-clash-fast-weight = 1                                	# Weight used when summing energy terms
+energy-clash-fast-only-modified-pairs = true                	# Specifies whether energy should consider only pairs modified by the last move. If a clashfree structure is maintained at all times, this is sufficient to detect all clashes
+energy-clash-fast-boolean-mode = true                       	# Specifies whether energy should work in clash/non-clash mode and return infinity/0 (true) or count all the clashes and return the number of clashes (false)
+energy-clash-fast-minimum-residue-distance = 2              	# Minimum distance along chain (measured in number of residues) before pair is taken into account by the energy
+energy-clash-fast-clash-distance-h = 1.5                    	# Distance within which pairs of hydrogens are considered to be clashing (in angstrom)
+energy-clash-fast-clash-distance-no = 2.3                   	# Distance within which pairs of Nitrogen-Oxygen pairs are considered to be clashing (in angstrom)
+energy-clash-fast-clash-distance-ps = 1.9                   	# Distance within which pairs of pseudo-sidechain atom pairs are considered to be clashing (in angstrom)
+energy-clash-fast-clash-distance-sg = 1.8                   	# Distance within which pairs of SG atom pairs are considered to be clashing (in angstrom)
+energy-clash-fast-clash-distance-any-pair = 2.3             	# Default distance within which pairs of atom pairs of all other types are considered to be clashing (in angstrom)
+
+### opls-angle-bend-cached: OPLS angle bend term - cached version (energy) ###
+energy-opls-angle-bend-cached = 1                           	# Activate energy-opls-angle-bend-cached [number of occurrences]
+energy-opls-angle-bend-cached-debug = 0                     	# Debug level
+energy-opls-angle-bend-cached-weight = 1.67857              	# Weight used when summing energy terms
+energy-opls-angle-bend-cached-omit-sidechains = false       	# Exclude sidechain interactions
+
+### opls-torsion: OPLS torsion term (energy) ###
+energy-opls-torsion = 1                                     	# Activate energy-opls-torsion [number of occurrences]
+energy-opls-torsion-debug = 0                               	# Debug level
+energy-opls-torsion-weight = 1.67857                        	# Weight used when summing energy terms
+
+### opls-bond-stretch: OPLS bond-stretch term (energy) ###
+energy-opls-bond-stretch = 1                                	# Activate energy-opls-bond-stretch [number of occurrences]
+energy-opls-bond-stretch-debug = 0                          	# Debug level
+energy-opls-bond-stretch-weight = 1.67857                   	# Weight used when summing energy terms
+
+### opls-non-bonded-cached: gbsa, vdw and charge terms - cached version (energy) ###
+energy-opls-non-bonded-cached = 1                           	# Activate energy-opls-non-bonded-cached [number of occurrences]
+energy-opls-non-bonded-cached-debug = 0                     	# Debug level
+energy-opls-non-bonded-cached-weight = 1.67857              	# Weight used when summing energy terms
+energy-opls-non-bonded-cached-vdw-cutoff-distance = inf     	# Distance beyond which vdw contributions are set to zero.
+energy-opls-non-bonded-cached-charge-cutoff-distance = inf  	# Distance beyond which charge contributions are set to zero.
+energy-opls-non-bonded-cached-gbsa-maximum-deviation-cutoff = 0.1	# Maximum deviation allowed in born radii in two subtrees of the chaintree before it is recalculated
+energy-opls-non-bonded-cached-gbsa-cutoff-distance-phase1 = inf	# Distance beyond which gbsa contributions are set to zero in phase1.
+energy-opls-non-bonded-cached-gbsa-cutoff-distance-phase2 = inf	# Distance beyond which gbsa contributions are set to zero in phase2.
+
+
+##############################
+#### BACKBONE-DBN OPTIONS ####
+##############################
+
+### TorusDbn options ###
+backbone-dbn-torus = 1                                      	# Activate backbone-dbn-torus [number of occurrences]
+backbone-dbn-torus-debug = 0                                	# Debug level
+backbone-dbn-torus-log-space = false                        	# Whether DBN calculations should be done in log space.
+backbone-dbn-torus-dbn-start-distribution = normal          	# N-terminus probability: normal|uniform|stationary
+backbone-dbn-torus-dbn-transition-distribution = normal     	# Transition distribution: normal|uniform|stationary
+backbone-dbn-torus-parameter-file = ""                      	# parameter file name
+backbone-dbn-torus-sequence-length = -1                     	# Set sequence length in model (only necessary when no input sequence is given)
+backbone-dbn-torus-initial-pdb-file = ""                    	# Input from PDB file
+backbone-dbn-torus-initial-aa-sequence = ""                 	# Input from amino acid sequence
+backbone-dbn-torus-initial-aa-file = ""                     	# Input from amino acid sequence file
+backbone-dbn-torus-initial-ss-sequence = ""                 	# Input from secondary structure sequence
+backbone-dbn-torus-initial-ss-file = ""                     	# Input from secondary structure file
+backbone-dbn-torus-initial-cis-sequence = ""                	# Cis sequence
+backbone-dbn-torus-initial-cis-file = ""                    	# Cis filename
+
+

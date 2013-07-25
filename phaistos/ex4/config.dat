@@ -1,0 +1,157 @@
+
+############################################################
+#                 PHAISTOS v1.0 (rev. N/A)             #
+#    A Markov Chain Monte Carlo Simulation Framework       #
+#                                                          #
+#  Please cite:                                            #
+#   Boomsma, Frellsen, Harder, Bottaro, Johansson, Tian    #
+#   Stovgaard, Andreetta, Olsson, Valentin, Antonov,       #
+#   Christensen, Borg, Jensen, Lindorff-Larsen,            #
+#   Ferkinghoff-Borg, Hamelryck, J Comput Chem. 2013       #
+#   doi: 10.1002/jcc.23292                                 #
+#                                                          #
+############################################################
+#################### PHAISTOS OPTIONS #####################
+#                                                          #
+#     This output can be directly copy&pasted into a       #
+#   configuration file, and applied using --config-file.   #
+#                                                          #
+############################################################
+
+######################
+#### MAIN OPTIONS ####
+######################
+
+### General options ###
+verbose = true                                              	# Output information during run
+debug = 1                                                   	# Debug information level
+data-dir = "/home/subhodeep/local/phaistos/data"            	# Path to Phaistos data directory
+status-interval = 5                                         	# Frequency of status display
+chain-type = "chainfb"                                      	# Chain type (only chainfb is currently activated)
+seed = 1374699039                                           	# Seed for random number generator. The default value is the current time. Remove this line from config file to use random seed.
+timeout-minutes = 0                                         	# Timeout after M minutes of execution
+timeout-time = 0                                            	# Timeout: exits at time T (seconds from Epoch)
+
+### Input options ###
+pdb-file = "../../2gb1.pdb"                                 	# Input: pdb filename
+aa-file = ""                                                	# Input: amino acid residue sequence filename
+ss-file = ""                                                	# Input: secondary structure sequence filename
+
+### Chain options ###
+init-from-pdb = true                                        	# Whether to initialize the chain from a pdb-file
+atom-types = BACKBONE_ATOMS BACKBONE_O_ATOMS BACKBONE_H_ATOMS CB_ATOMS SIDECHAIN_ATOMS NON_BACKBONE_H_ATOMS 	# The types of atoms included in the chain
+
+
+###########################
+#### PROCEDURE OPTIONS ####
+###########################
+
+### Options for Phaistos fold procedure ###
+procedure-fold = 1                                          	# Activate procedure-fold
+procedure-fold-debug = 0                                    	# Debug level
+procedure-fold-energy2-evaluation-interval = 0              	# How often to evaluate energy2 (0:never)
+
+
+#############################
+#### MONTE CARLO OPTIONS ####
+#############################
+
+### General Monte Carlo options ###
+threads = 1                                                 	# Number of threads (1: no multithreading)
+identical-threads = false                                   	# Make all threads identical
+iterations = 10000000                                       	# Number of iterations pr. thread
+steps-per-move = 100                                        	# Number of steps per each move in Monte Carlo run
+
+### Metropolis-Hastings options ###
+monte-carlo-metropolis-hastings = 1                         	# Activate monte-carlo-metropolis-hastings [number of occurrences]
+monte-carlo-metropolis-hastings-debug = 0                   	# Debug level
+monte-carlo-metropolis-hastings-declash-on-reinitialize = true	# Whether to remove self-collisions from the chain when reinitializing
+monte-carlo-metropolis-hastings-maximum-declash-attempts = 20000	# The number of times declashing is attempted before a complete reinitialization is done
+monte-carlo-metropolis-hastings-reinitialization-interval = 0	# How often reinitialization takes place
+monte-carlo-metropolis-hastings-consistency-check-interval = 10000	# How often consistency of the chain is checked
+
+
+######################
+#### MOVE OPTIONS ####
+######################
+
+### Pivot - sampling changes to phi,psi angles from uniform distributions ###
+move-pivot-uniform = 1                                      	# Activate move-pivot-uniform [number of occurrences]
+move-pivot-uniform-debug = 0                                	# Debug level
+move-pivot-uniform-weight = 1                               	# Weight used when selecting moves in move collection
+move-pivot-uniform-move-length-min = 1                      	# Minimum move length
+move-pivot-uniform-move-length-max = 1                      	# Maximum move length
+move-pivot-uniform-regions = [(-2147483648,2147483647)]     	# Regions of chain in which move will be applied
+move-pivot-uniform-single-dof-only = true                   	# Whether only to resample a single dof in each iteration (selected randomly)
+move-pivot-uniform-skip-proline-phi = true                  	# Whether to skip prolines phi angles (modifiying the proline phi angle introduces an improper torsion change)
+move-pivot-uniform-max-delta = 3.14159                      	# Maximum change in angle value
+
+
+########################
+#### ENERGY OPTIONS ####
+########################
+
+### Clash-fast (energy) ###
+energy-clash-fast = 1                                       	# Activate energy-clash-fast [number of occurrences]
+energy-clash-fast-debug = 0                                 	# Debug level
+energy-clash-fast-weight = 1                                	# Weight used when summing energy terms
+energy-clash-fast-only-modified-pairs = true                	# Specifies whether energy should consider only pairs modified by the last move. If a clashfree structure is maintained at all times, this is sufficient to detect all clashes
+energy-clash-fast-boolean-mode = true                       	# Specifies whether energy should work in clash/non-clash mode and return infinity/0 (true) or count all the clashes and return the number of clashes (false)
+energy-clash-fast-minimum-residue-distance = 2              	# Minimum distance along chain (measured in number of residues) before pair is taken into account by the energy
+energy-clash-fast-clash-distance-h = 1.5                    	# Distance within which pairs of hydrogens are considered to be clashing (in angstrom)
+energy-clash-fast-clash-distance-no = 2.3                   	# Distance within which pairs of Nitrogen-Oxygen pairs are considered to be clashing (in angstrom)
+energy-clash-fast-clash-distance-ps = 1.9                   	# Distance within which pairs of pseudo-sidechain atom pairs are considered to be clashing (in angstrom)
+energy-clash-fast-clash-distance-sg = 1.8                   	# Distance within which pairs of SG atom pairs are considered to be clashing (in angstrom)
+energy-clash-fast-clash-distance-any-pair = 2.3             	# Default distance within which pairs of atom pairs of all other types are considered to be clashing (in angstrom)
+
+
+############################
+#### OBSERVABLE OPTIONS ####
+############################
+
+### Clash-fast (observable) ###
+observable-clash-fast = 1                                   	# Activate observable-clash-fast [number of occurrences]
+observable-clash-fast-debug = 0                             	# Debug level
+observable-clash-fast-weight = 1                            	# Weight used when summing energy terms
+observable-clash-fast-register-interval = 1000              	# How often to register/calculate observable.
+observable-clash-fast-register-burnin = 0                   	# After how many iterations to start registering/calculating observable.
+observable-clash-fast-output-target = "clash_%p_%t.dat" # How/Where the observable should be reported ("pdb-header":output information to header in dumped pdb files; "pdb-b-factor":output information to b-factors in dumped pdb files; "stdout|cout|stderr|cerr": Output to stdout|stderr. Any other string is interpreted as a filename for a separate logfile.
+observable-clash-fast-output-interval = 1                   	# How often to register/calculate observable. This value will only be read whenever an observable is active (i.e. iteration number matches register-interval)
+observable-clash-fast-only-modified-pairs = true            	# Specifies whether energy should consider only pairs modified by the last move. If a clashfree structure is maintained at all times, this is sufficient to detect all clashes
+observable-clash-fast-boolean-mode = true                   	# Specifies whether energy should work in clash/non-clash mode and return infinity/0 (true) or count all the clashes and return the number of clashes (false)
+observable-clash-fast-minimum-residue-distance = 2          	# Minimum distance along chain (measured in number of residues) before pair is taken into account by the energy
+observable-clash-fast-clash-distance-h = 1.5                	# Distance within which pairs of hydrogens are considered to be clashing (in angstrom)
+observable-clash-fast-clash-distance-no = 2.3               	# Distance within which pairs of Nitrogen-Oxygen pairs are considered to be clashing (in angstrom)
+observable-clash-fast-clash-distance-ps = 1.9               	# Distance within which pairs of pseudo-sidechain atom pairs are considered to be clashing (in angstrom)
+observable-clash-fast-clash-distance-sg = 1.8               	# Distance within which pairs of SG atom pairs are considered to be clashing (in angstrom)
+observable-clash-fast-clash-distance-any-pair = 2.3         	# Default distance within which pairs of atom pairs of all other types are considered to be clashing (in angstrom)
+
+
+#### pdb observables
+observable-pdb = 1
+observable-pdb-register-interval = 1000
+observable-pdb-output-target = "models.pdb"
+
+
+
+##############################
+#### BACKBONE-DBN OPTIONS ####
+##############################
+
+### TorusDbn options ###
+backbone-dbn-torus = 1                                      	# Activate backbone-dbn-torus [number of occurrences]
+backbone-dbn-torus-debug = 0                                	# Debug level
+backbone-dbn-torus-log-space = false                        	# Whether DBN calculations should be done in log space.
+backbone-dbn-torus-dbn-start-distribution = normal          	# N-terminus probability: normal|uniform|stationary
+backbone-dbn-torus-dbn-transition-distribution = normal     	# Transition distribution: normal|uniform|stationary
+backbone-dbn-torus-parameter-file = ""                      	# parameter file name
+backbone-dbn-torus-sequence-length = -1                     	# Set sequence length in model (only necessary when no input sequence is given)
+backbone-dbn-torus-initial-pdb-file = ""                    	# Input from PDB file
+backbone-dbn-torus-initial-aa-sequence = ""                 	# Input from amino acid sequence
+backbone-dbn-torus-initial-aa-file = ""                     	# Input from amino acid sequence file
+backbone-dbn-torus-initial-ss-sequence = ""                 	# Input from secondary structure sequence
+backbone-dbn-torus-initial-ss-file = ""                     	# Input from secondary structure file
+backbone-dbn-torus-initial-cis-sequence = ""                	# Cis sequence
+backbone-dbn-torus-initial-cis-file = ""                    	# Cis filename
+
+################### PHAISTOS OPTIONS END ###################
