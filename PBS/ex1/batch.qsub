@@ -1,8 +1,11 @@
 #!/bin/sh
 
-##PBS -e /dev/null -o /dev/null
-#PBS -l walltime=00:10:00
+#PBS -e $HOME/JobIO/err -o $HOME/JobIO/out
+#PBS -N BatchJob
+#PBS -l walltime=00:10:00 -l nodes=1:ppn=2
+#PBS -l pmem=1000m
 #PBS -q hp
+#PBS -v MYVAR="Hello World"
 
 # print some status information
 echo "hostname=" $(hostname)
@@ -10,11 +13,13 @@ echo "username=" $(whoami)
 echo "pwd=" $(pwd)
 echo "PBS_O_WORKDIR" $PBS_O_WORKDIR
 echo PBS_O_PATH"" ${PBS_O_PATH}
+echo '$0' $0
+echo '$@' $@
 
 #Execute command
 cd $PBS_O_WORKDIR
-./sleep300.sh
-touch a.txt
+echo "MYVAR=$MYVAR"
+./sleep60.sh
 
 
 

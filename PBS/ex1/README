@@ -2,4 +2,4 @@ Batch script
 qsub batch.qsub
 
 Batch script with args from command line
-qsub batchcmdargs.qsub
+qsub -q hp -l walltime=00:10:00 -e $HOME/JobIO/err -o $HOME/JobIO/out -v MYVAR="Hello World" -N "BatchCmdargs" batchcmdargs.qsub
