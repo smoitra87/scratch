@@ -1,0 +1,22 @@
+#!/bin/sh
+
+##PBS -e /dev/null -o /dev/null
+#PBS -l walltime=00:10:00
+#PBS -q hp
+
+# print some status information
+echo "hostname=" $(hostname)
+echo "username=" $(whoami)
+echo "pwd=" $(pwd)
+echo "PBS_O_WORKDIR" $PBS_O_WORKDIR
+echo PBS_O_PATH"" ${PBS_O_PATH}
+
+#Execute command
+cd $PBS_O_WORKDIR
+./sleep300.sh
+
+
+
+
+
+

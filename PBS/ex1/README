@@ -1,0 +1,5 @@
+Batch script
+qsub batch.qsub
+
+Batch script with args from command line
+qsub batchcmdargs.qsub

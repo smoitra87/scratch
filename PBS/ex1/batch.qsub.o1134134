@@ -1,0 +1,9 @@
+hostname= compute-1-40.local
+username= subhodee
+pwd= /home/subhodee
+PBS_O_WORKDIR /home/subhodee/scratch/ex1
+PBS_O_PATH /opt/openmpi/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/ganglia/bin:/opt/ganglia/sbin:/usr/java/latest/bin:/opt/maui/bin:/opt/torque/bin:/opt/torque/sbin:/opt/pdsh/bin:/opt/python27/bin:/opt/rocks/bin:/opt/rocks/sbin:/opt/dell/srvadmin/bin:/home/subhodee/bin
+Going to sleep for 300 sec
+Mon Jul 29 14:14:41 EDT 2013
+Waking up from sleep
+Mon Jul 29 14:19:41 EDT 2013
