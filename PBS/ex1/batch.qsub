@@ -6,6 +6,7 @@
 #PBS -l pmem=1000m
 #PBS -q hp
 #PBS -v MYVAR="Hello World"
+#PBS -M subhodee@cs.cmu.edu -m abe
 
 # print some status information
 echo "hostname=" $(hostname)

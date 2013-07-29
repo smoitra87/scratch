@@ -1,0 +1,12 @@
+#!/bin/sh
+#PBS -e $HOME/JobIO/err -o $HOME/JobIO/out
+#PBS -l walltime=00:10:00 -N reservenode 
+#PBS -l nodes=2:ppn=4
+#PBS -v MYVAR="Hello World"
+#PBS -q hp
+cd $PBS_O_WORKDIR
+pbsdsh $PBS_O_WORKDIR/reservenode.sh
+
+
+
+
