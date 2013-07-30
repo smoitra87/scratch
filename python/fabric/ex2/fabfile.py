@@ -1,6 +1,6 @@
 from fabric.api import *
-
-env.hosts=["subhodee@linux.gp.cs.cmu.edu","pisa.lti.cs.cmu.edu"]
+env.use_ssh_config=True
+env.hosts=["work","lang"]
 env.user="subhodeep"
 
 def hostname_check() : 
