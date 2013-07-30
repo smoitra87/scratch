@@ -1,0 +1,16 @@
+#!/bin/sh
+#PBS -e  $HOME/JobIO/err -o $HOME/JobIO/out
+#PBS -v MYVAR=1,BASEDIR=/home/subhodee/JobIO/tmp
+#PBS -N ArrayJob
+#PBS -l walltime=00:10:00 -l nodes=1:ppn=1
+#PBS -t 1-10
+#PBS -q hp
+
+echo "BASEDIR=${BASEDIR}"
+
+echo "PBS_O_WORKDIR=$PBS_O_WORKDIR"
+cd $PBS_O_WORKDIR
+./sleep60.sh
+touch ${BASEDIR}/${PBS_ARRAYID}.tmp
+
+

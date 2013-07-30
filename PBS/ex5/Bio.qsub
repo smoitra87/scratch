@@ -1,0 +1,13 @@
+#!/bin/sh
+#PBS -q hp
+#PBS -o /home/subhodee/JobIO/out -e /home/subhodee/JobIO/err
+##PBS -j oe
+#PBS -N BioImportJob
+#PBS -l walltime=00:02:00
+#PBS -v PYTHONPATH=/home/subhodee/local/lib64/python2.6/site-packages
+
+cd $PBS_O_WORKDIR
+export PYTHONPATH
+python -c "import Bio" && echo "Successful import"
+sleep 60
+
