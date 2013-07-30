@@ -1,0 +1,12 @@
+#!/bin/sh
+#PBS -q hp
+#PBS -o /home/subhodee/JobIO/out
+#PBS -j oe
+#PBS -N DependJob
+#PBS -l walltime=00:02:00
+
+cd $PBS_O_WORKDIR
+python print_value.py ${VAL}
+sleep 60
+
+

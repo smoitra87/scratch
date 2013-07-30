@@ -1,0 +1,2 @@
+mpicc mpi-verify.c -o mpi-verify.openmpi.x
+qsub run-openmpi.sh
