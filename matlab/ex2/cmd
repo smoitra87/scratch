@@ -1,0 +1,2 @@
+ echo matlab -nodesktop -nojvm -nosplash -r "ex2(5,'hello')" 
+
