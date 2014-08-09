@@ -1,7 +1,6 @@
 import os, sys
 
-
-def permutations(l):
+def all_permutations(l):
 	def permut_sub(l1, l2) : 
 		if not l2 :
 			print(l1)	
@@ -30,9 +29,14 @@ def subsets_recursion(l):
 		subsets_sub(pre, post[1:])
 	subsets_sub([], l)
 
+""" Print all products of elements of iterables """
+def products(iterable) : 
+	def products_sub
+
+
 if __name__ == '__main__':
-	print("All permutations")
-	permutations(range(1,5))
+	print("All all_permutations")
+	all_permutations(range(1,5))
 	print("All subsets with iteration")
 	subsets_iteration(range(1,5))
 	print("All subsets with recursion")
