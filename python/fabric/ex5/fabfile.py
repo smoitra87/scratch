@@ -1,4 +1,4 @@
-""" Create a fabfile that uses context managers and conditional 
+""" Create a fabfile that uses context managers and conditional
 execution based on success of a job """
 
 
@@ -16,10 +16,13 @@ def file_send_mod(localpath,remotepath,mod) :
 	""" Send a file such that is has the following mode """
 	put(localpath,remotepath,mode=int(mod,8))
 
+def f():
+    print("hello")
+
 @serial # Force a function to be run in series
 def cmd(cmd) :
-	""" Run a command in sudo if it fails""" 
-	with settings(warn_only=True) : 
+	""" Run a command in sudo if it fails"""
+	with settings(warn_only=True) :
 		if run(cmd).failed :
 			sudo(cmd)
 
