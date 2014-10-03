@@ -1,0 +1,41 @@
+\documentclass{article}[12pt]
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\title{Derivation of Sigmoid using Tanh}
+\author{Subhodeep Moitra \\ \tt{subhodee@cs.cmu.edu}}
+
+\maketitle
+
+\section{Derivation of sigmoid in terms of tanh}
+Sigmoid functions are ubiquitous in neural network. Did you know that they can be calculated using tanh functions exactly ? Here's how
+
+
+\begin{align*}
+\sinh(x) &= e^x - e^{-x} \\
+\cosh(x) &= e^x + e^{-x} \\
+\tanh(x) &= \frac{e^x - e^{-x}}{e^x + e^{-x}}  \\
+	&= \frac{e^{2x} - 1}{e^{2x} + 1}  \\
+\end{align*}
+
+
+Using the above results we can represent the sigmoid function $\sigma(x)$ as a function of $\tanh(x)$
+
+\begin{align*}
+\sigma(x) &= \frac{1}{1 + e^{-x}} \\
+		&= \frac{e^x}{1 + e^{x}} \\
+		&= \frac{1}{2}\left(\frac{2e^x}{e^x + 1}\right) \\
+		&= \frac{1}{2}\left(\frac{e^{x} - 1}{e^{x} + 1} + 1\right) \\
+		&= \frac{1 + \tanh(x/2)}{2} 
+\end{align*}
+
+\end{document}
+
+
+
+
+
+
