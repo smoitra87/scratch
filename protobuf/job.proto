@@ -1,0 +1,15 @@
+message Job {
+
+    required string expid = 1;
+    required string description = 2;
+    required string binary = 3;
+    optional string args = 4;
+
+    extensions 100 to 199;
+}
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+import "job.proto";
+
+message Experiment {
+    enum OptionsMode {
+        PROTOBUF = 1;
+        CLI = 2;
+    }
+    optional OptionsMode opt = 1 [default = PROTOBUF];
+    optional double learningRate = 2;
+    repeated Layer layers = 3; 
+}
+
+message Layer {
+    optional int32 numNodes = 1;
+    optional bool isHidden = 2 [default = false];
+}
+
+
+extend Job { 
+    optional Experiment exp = 100;
+}
