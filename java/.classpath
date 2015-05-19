@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="packages/src/|libs/src/|guava/src/" kind="src" path=""/>
+	<classpathentry kind="src" path="guava/src"/>
+	<classpathentry kind="src" path="libs/src"/>
+	<classpathentry kind="src" path="packages/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="packages/target"/>
+</classpath>
