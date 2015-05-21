@@ -1,11 +1,11 @@
 CFLAGS=-Wall -g
 
-all: ex19
+all: newex19
 
-ex19: object.o
+newex19: object.o ex19.o
 
 clean:
-	rm -f ex19 object.o
+	rm -f ex19 object.o ex19.o
 
 test:
 	./test.sh && echo "##### Tests Pass #####" || echo "##### Tests fail #####"
