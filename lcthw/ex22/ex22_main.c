@@ -16,6 +16,12 @@ void scope_demo(int count)
 	log_info("count after assign: %d", count);
 }
 
+int *xptr;
+void test_func(){
+	int x = 10;
+	xptr = &x;
+	log_info("The value of x inside test_func is : %d", *xptr);
+}
 
 int main(int argc, char *argv[])
 {
@@ -42,6 +48,13 @@ int main(int argc, char *argv[])
 	scope_demo(count * 20);
 	
 	log_info("count after calling scope_demo: %d", count);
+	
+	log_info("The value of ratio is : %f", *RATIO_PTR);
+
+	test_func();
+	log_info("The value of x outside test_func is : %d", *xptr);
+	scope_demo(14);
+	log_info("The value of x outside test_func is : %d", *xptr);
 
 	return 0;
 }
