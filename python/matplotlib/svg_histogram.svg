@@ -1,0 +1,360 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" height="432pt" version="1.1" viewBox="0 0 576 432" width="576pt">
+ <script type="text/ecmascript">
+
+var container = {"hist_1": ["hist_1_patch_0", "hist_1_patch_1", "hist_1_patch_2", "hist_1_patch_3", "hist_1_patch_4", "hist_1_patch_5", "hist_1_patch_6", "hist_1_patch_7", "hist_1_patch_8", "hist_1_patch_9"], "hist_0": ["hist_0_patch_0", "hist_0_patch_1", "hist_0_patch_2", "hist_0_patch_3", "hist_0_patch_4", "hist_0_patch_5", "hist_0_patch_6", "hist_0_patch_7", "hist_0_patch_8", "hist_0_patch_9"]} 
+
+function toggle(oid, attribute, values) {
+    /* Toggle the style attribute of an object between two values. 
+    
+    Parameters
+    ----------
+    oid : str
+      Object identifier.
+    attribute : str
+      Name of syle attribute.
+    values : [on state, off state]
+      The two values that are switched between.
+    */
+    var obj = document.getElementById(oid);
+    var a = obj.style[attribute];
+    
+    a = (a == values[0] || a == "") ? values[1] : values[0];
+    obj.style[attribute] = a;
+    }
+
+function toggle_hist(obj) {
+    
+    var num = obj.id.slice(-1);
+    
+    toggle('leg_patch_' + num, 'opacity', [1, 0.3]);
+    toggle('leg_text_' + num, 'opacity', [1, 0.5]);
+    
+    var names = container['hist_'+num]
+    
+    for (var i=0; i &lt; names.length; i++) {
+        toggle(names[i], 'opacity', [1,0])
+    };
+    }
+
+</script><defs>
+  <style type="text/css">
+*{stroke-linecap:square;stroke-linejoin:round;}
+  g {-webkit-transition:opacity 0.4s ease-out;-moz-transition:opacity 0.4s ease-out;}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d=" M0 432 L576 432 L576 0 L0 0 z " style="fill:#ffffff;" />
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d=" M72 388.8 L518.4 388.8 L518.4 43.2 L72 43.2 z " style="fill:#ffffff;" />
+   </g>
+   <g id="hist_0_patch_0">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M82.0596 388.8 L98.3641 388.8 L98.3641 264.384 L82.0596 264.384 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_0_patch_1">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M122.821 388.8 L139.125 388.8 L139.125 126.144 L122.821 126.144 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_0_patch_2">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M163.582 388.8 L179.887 388.8 L179.887 167.616 L163.582 167.616 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_0_patch_3">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M204.343 388.8 L220.648 388.8 L220.648 57.024 L204.343 57.024 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_0_patch_4">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M245.105 388.8 L261.409 388.8 L261.409 153.792 L245.105 153.792 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_0_patch_5">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M285.866 388.8 L302.171 388.8 L302.171 292.032 L285.866 292.032 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_0_patch_6">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M326.627 388.8 L342.932 388.8 L342.932 305.856 L326.627 305.856 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_0_patch_7">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M367.389 388.8 L383.693 388.8 L383.693 374.976 L367.389 374.976 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_0_patch_8">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M408.15 388.8 L424.455 388.8 L424.455 374.976 L408.15 374.976 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_0_patch_9">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M448.911 388.8 L465.216 388.8 L465.216 388.8 L448.911 388.8 z " style="fill:#0000ff;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_0">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M98.3641 388.8 L114.669 388.8 L114.669 388.8 L98.3641 388.8 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_1">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M139.125 388.8 L155.43 388.8 L155.43 374.976 L139.125 374.976 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_2">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M179.887 388.8 L196.191 388.8 L196.191 264.384 L179.887 264.384 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_3">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M220.648 388.8 L236.953 388.8 L236.953 126.144 L220.648 126.144 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_4">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M261.409 388.8 L277.714 388.8 L277.714 70.848 L261.409 70.848 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_5">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M302.171 388.8 L318.475 388.8 L318.475 98.496 L302.171 98.496 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_6">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M342.932 388.8 L359.236 388.8 L359.236 195.264 L342.932 195.264 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_7">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M383.693 388.8 L399.998 388.8 L399.998 305.856 L383.693 305.856 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_8">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M424.455 388.8 L440.759 388.8 L440.759 319.68 L424.455 319.68 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="hist_1_patch_9">
+    <path clip-path="url(#p7ff5b81e1d)" d=" M465.216 388.8 L481.52 388.8 L481.52 361.152 L465.216 361.152 z " style="fill:#008000;stroke:#000000;" />
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path d=" M0 0 L0 -4" id="m0012dd4eef" style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" />
+      </defs>
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="72.0" y="388.8" ns1:href="#m0012dd4eef" />
+      </g>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path d=" M0 0 L0 4" id="m476344969c" style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" />
+      </defs>
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="72.0" y="43.2" ns1:href="#m476344969c" />
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(64.39125 401.70625)">&#8722;2</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="146.4" y="388.8" ns1:href="#m0012dd4eef" />
+      </g>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="146.4" y="43.2" ns1:href="#m476344969c" />
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(138.744375 401.54875)">&#8722;1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="220.8" y="388.8" ns1:href="#m0012dd4eef" />
+      </g>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="220.8" y="43.2" ns1:href="#m476344969c" />
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(217.7765625 401.705)">0</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="295.2" y="388.8" ns1:href="#m0012dd4eef" />
+      </g>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="295.2" y="43.2" ns1:href="#m476344969c" />
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(292.595625 401.54875)">1</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="369.6" y="388.8" ns1:href="#m0012dd4eef" />
+      </g>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="369.6" y="43.2" ns1:href="#m476344969c" />
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(366.823125 401.70625)">2</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="444.0" y="388.8" ns1:href="#m0012dd4eef" />
+      </g>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="444.0" y="43.2" ns1:href="#m476344969c" />
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(441.1209375 401.705)">3</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="518.4" y="388.8" ns1:href="#m0012dd4eef" />
+      </g>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="518.4" y="43.2" ns1:href="#m476344969c" />
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(515.2125 401.54875)">4</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_15">
+      <defs>
+       <path d=" M0 0 L4 0" id="me8a85f7bf6" style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" />
+      </defs>
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="72.0" y="388.8" ns1:href="#me8a85f7bf6" />
+      </g>
+     </g>
+     <g id="line2d_16">
+      <defs>
+       <path d=" M0 0 L-4 0" id="m1a32005dea" style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" />
+      </defs>
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="518.4" y="388.8" ns1:href="#m1a32005dea" />
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(61.953125 393.1665625)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_17">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="72.0" y="319.68" ns1:href="#me8a85f7bf6" />
+      </g>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="518.4" y="319.68" ns1:href="#m1a32005dea" />
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(62.339375 323.9678125)">5</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_19">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="72.0" y="250.56" ns1:href="#me8a85f7bf6" />
+      </g>
+     </g>
+     <g id="line2d_20">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="518.4" y="250.56" ns1:href="#m1a32005dea" />
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(54.845 254.9265625)">10</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_21">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="72.0" y="181.44" ns1:href="#me8a85f7bf6" />
+      </g>
+     </g>
+     <g id="line2d_22">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="518.4" y="181.44" ns1:href="#m1a32005dea" />
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(55.09625 185.7278125)">15</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_23">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="72.0" y="112.32" ns1:href="#me8a85f7bf6" />
+      </g>
+     </g>
+     <g id="line2d_24">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="518.4" y="112.32" ns1:href="#m1a32005dea" />
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(54.40625 116.6865625)">20</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_25">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="72.0" y="43.2" ns1:href="#me8a85f7bf6" />
+      </g>
+     </g>
+     <g id="line2d_26">
+      <g>
+       <use style="stroke:#000000;stroke-linecap:butt;stroke-width:0.5;" x="518.4" y="43.2" ns1:href="#m1a32005dea" />
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-family:DejaVu Sans;font-size:12.0px;font-style:normal;" transform="translate(54.6575 47.5665625)">25</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d=" M72 43.2 L518.4 43.2" style="fill:none;stroke:#000000;" />
+   </g>
+   <g id="patch_4">
+    <path d=" M518.4 388.8 L518.4 43.2" style="fill:none;stroke:#000000;" />
+   </g>
+   <g id="patch_5">
+    <path d=" M72 388.8 L518.4 388.8" style="fill:none;stroke:#000000;" />
+   </g>
+   <g id="patch_6">
+    <path d=" M72 388.8 L72 43.2" style="fill:none;stroke:#000000;" />
+   </g>
+   <g id="text_14">
+    <text style="font-family:DejaVu Sans;font-size:14.4px;font-style:normal;" transform="translate(150.170625 21.5647)">From a web browser, click on the legend </text>
+    <text style="font-family:DejaVu Sans;font-size:14.4px;font-style:normal;" transform="translate(126.79875 38.2885)">marker to toggle the corresponding histogram.</text>
+   </g>
+   <g id="legend_1">
+    <g cursor="pointer" id="leg_patch_0" onclick="toggle_hist(this)">
+     <path d=" M413.298 67.1017 L442.098 67.1017 L442.098 57.0217 L413.298 57.0217 z " style="fill:#0000ff;stroke:#000000;" />
+    </g>
+    <g cursor="pointer" id="leg_text_0" onclick="toggle_hist(this)">
+     <text style="font-family:DejaVu Sans;font-size:14.4px;font-style:normal;" transform="translate(453.618 67.103375)">Rabbits</text>
+    </g>
+    <g cursor="pointer" id="leg_patch_1" onclick="toggle_hist(this)">
+     <path d=" M413.298 88.2382 L442.098 88.2382 L442.098 78.1582 L413.298 78.1582 z " style="fill:#008000;stroke:#000000;" />
+    </g>
+    <g cursor="pointer" id="leg_text_1" onclick="toggle_hist(this)">
+     <text style="font-family:DejaVu Sans;font-size:14.4px;font-style:normal;" transform="translate(453.618 88.32675)">Frogs</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7ff5b81e1d">
+   <rect height="345.6" width="446.4" x="72.0" y="43.2" />
+  </clipPath>
+ </defs>
+</svg>
