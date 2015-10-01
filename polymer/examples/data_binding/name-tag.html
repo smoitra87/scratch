@@ -1,0 +1,20 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="name-tag">
+	<template>
+		<p> Hello my name is <span>{{name}}</span>. </p>
+		<p> But my name is {{name}} unknown otherwise </p>
+	</template>
+	<script>
+		Polymer({
+			is: "name-tag",
+			ready: function() {
+				console.log("Setting name to Gharraon");
+				this.name = "Gharraon";
+			}
+		});
+	</script>
+<dom-module>
+
+
+
