@@ -1,0 +1,25 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="name-tag">
+	<template>
+		<p> Hello my name is <span>{{name}}</span>. </p>
+		<p> Hello my name at ready is <span>{{readyname}}</span>. </p>
+	</template>
+	<script>
+		Polymer({
+			is: "name-tag",
+			ready: function() { 
+				this.readyname = "Marraoon";
+			},
+			properties: {
+				name: {
+					type: String, 
+					value: "Gharraon"
+				}
+			}
+		});
+	</script>
+<dom-module>
+
+
+
