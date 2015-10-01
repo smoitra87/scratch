@@ -1,0 +1,23 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="select-2">
+  <template>
+    <div>
+      <select>
+        <option value="{{val1}}">{{val1}}</option>
+        <option value="{{val2}}">{{val2}}</option>
+      </select>
+    </div>
+  </template>
+</dom-module>
+
+
+<script>
+Select2 = Polymer({
+  is: "select-2",
+  factoryImpl: function(val1, val2) {
+    this.val1 = val1;
+    this.val2 = val2;
+  }
+});
+</script>

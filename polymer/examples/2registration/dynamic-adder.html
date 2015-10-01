@@ -1,0 +1,55 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="dynamic-adder">
+  <template>
+    <div id="div1">
+      <p>This is my local dom<p>
+    </div>
+    <div id="div2">
+      <content></content>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "dynamic-adder",
+
+    created: function() {
+      console.log("### Created");
+      var name = this.adderName || "Not available";
+      console.log("my-adder-name attribute is " + name);
+    },
+
+    ready: function() {
+      console.log("### Ready");
+      var text = document.createElement("p");
+      text.textContent = "### Ready";
+      this.$.div1.appendChild(text);
+    },
+
+    attached: function() {
+      console.log("### Attached");
+      var text = document.createElement("p");
+      text.id = "attached-text";
+      text.textContent = "### Attached using $";
+      this.$.div1.appendChild(text);
+      var text = document.createElement("p");
+      text.textContent = "### Attached using $$";
+      this.$$("#attached-text").parentNode.appendChild(text);
+    },
+
+    attributeChanged: function(name, type) {
+        console.log(this.localName + '#' + this.id + ' attribute ' + name +
+          ' was changed to ' + this.getAttribute(name));
+    },
+
+    detached: function() {
+      console.log("### Detached");
+    },
+
+    hostAttributes :  {
+      'my-adder-name' : 'Gharraon'
+    }
+  });
+</script>
