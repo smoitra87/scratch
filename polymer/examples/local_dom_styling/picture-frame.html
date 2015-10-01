@@ -8,7 +8,12 @@
 			border-radius: 8px;
 			padding: 4px;
 		}
-
+		/* This CSS style has no effect since the img enclosed in the 
+<content> tags will be outside the shadow dom of this element. The local dom of 
+this element only knows a div element. */
+		img { 
+			border: 5px solid red;
+		}
 	</style>
 	<template>
 		<div>
