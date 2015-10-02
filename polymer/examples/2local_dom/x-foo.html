@@ -1,0 +1,39 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="x-foo">
+  <template>
+    <header>This is a header</header>
+    <content select=".show">
+    </content>
+    <footer>This is a footer</footer>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "x-foo",
+
+    ready: function() {
+      // Adds a light dom element
+      var lightDiv = document.createElement("div");
+      lightDiv.id = "light-div";
+      lightDiv.classList.add('show');
+      Polymer.dom(this).appendChild(lightDiv);
+
+      // adds a local dom element
+      var localDiv = document.createElement("div");
+      localDiv.id = "local-div";
+      var firstLocal = Polymer.dom(this.root).childNodes[0];
+      Polymer.dom(this.root).insertBefore(localDiv, firstLocal);
+
+      // Flushes any dynamically created nodes
+      Polymer.dom.flush();
+    },
+
+    appendToLocal: function(text) {
+      var p = document.createElement("p");
+      p.textContent = text;
+      Polymer.dom(this.root).appendChild(p);
+    }
+  });
+</script>

@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>This is an example of a local dom element </title>
+		<script src="bower_components/webcomponentsjs/webcomponents-lite.js">
+		</script>
+		<link rel="import" href="x-foo.html">
+	</head>
+	<body>
+		<x-foo id="foo">
+                  <div class=show>
+                    <span>My name is bar</span>
+                  </div>
+                  <div>
+                    <span>My name is baz</span>
+                  </div>
+                </x-foo>
+	</body>
+  <script>
+    var xfoo = document.querySelector("#foo")
+    xfoo.appendToLocal("I am appended from main");
+    var content = Polymer.dom(xfoo.root).querySelector('content');
+    var distributed = Polymer.dom(content).getDistributedNodes()[0];
+    var div = Polymer.dom(xfoo).querySelector('div.show');
+    console.log((div === distributed) ? '' : 'Assertion Failed');
+  </script>
+</html>
+
+
