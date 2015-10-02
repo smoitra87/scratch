@@ -1,0 +1,58 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="custom-element">
+  <template>
+    <content></content>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is : 'custom-element',
+
+    properties : {
+      isMale: Boolean,
+      places : {
+        type: Array,
+        value: function() {
+          return [];
+        }
+      },
+      interests : {
+        type: Object,
+        value: function() {
+          var objStr = '{ "sports": ["cricket", "soccer"], '
+            + '  "music": { "rock": ["ACDC", "Creed"]}} ';
+          return JSON.parse(objStr);
+        },
+        reflectToAttribute: true
+      }
+    },
+
+    observers: [
+      "placesChanged(places.splices)",
+      "interestsChanged(interests.*)"
+    ],
+
+    placesChanged: function(changeRecord) {
+      console.log("places changed");
+      changeRecord.indexSplices.forEach(function(s) {
+        console.log(s.addedCount + "places were added");
+      });
+    },
+
+    interestsChanged: function(changeRecord) {
+      console.log("interests changed" + JSON.stringify(changeRecord.value));
+    },
+
+    addToPlaces: function(place){
+      this.places.push(place);
+    },
+
+    attached: function() {
+      addToPlaces("Berlin");
+    }
+  });
+</script>
+
+
