@@ -1,0 +1,57 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="custom-element">
+  <style>
+    :host {
+      display: block;
+    }
+    :host(.highlighted) {
+      background: yellow;
+    }
+  </style>
+  <template>
+    <content></content>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is : 'custom-element',
+
+    properties: {
+      highlighted: {
+       observer: "_highlightedChanged",
+      },
+      lastClicked: {
+        type: String,
+        reflectToAttribute: true,
+        computed: 'timestampHighlighted(highlighted)'
+      }
+    },
+
+    timestampHighlighted: function(highlighted) {
+      console.log("recording time");
+      return String(Date.now());
+    },
+
+    _highlightedChanged: function() {
+      console.log("Adding highlight class");
+      this.classList.add("highlighted");
+      this.async(function() {
+        console.log("Executing async");
+        this.classList.remove("highlighted");
+        this.highlighted = false;
+      }, 100);
+    },
+
+    ready: function(){
+      this.addEventListener("click", function() {
+        this.highlighted = true;
+      })
+    }
+
+  });
+
+</script>
+
+
