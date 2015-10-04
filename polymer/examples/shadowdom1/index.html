@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Examples of manipulating shadow dom</title>
+		<style>
+			#foo { 
+				color: blue;
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="foo">
+			<div>Light DOM</div>
+		</div>
+		<!-- Make changes using shadow dom -->
+		<script>
+			var div = document.querySelector('#foo');
+			var divRoot = div.createShadowRoot();
+			divRoot.innerHTML = "<style>div{ color: red; }</style>"
+				+ "<style>:host { text-transform: uppercase; }</style>"
+				+ "<div>Shadow DOM</div>"
+				+ "<content></content>";
+/*
+The style of shadow dom is affected by:
+	* style of host
+	* <style> tags inside shadow root
+
+The style of the light dom is only affected by:
+	* style of host
+
+Style of host can be manipulated using:
+	* External CSS files
+	* <style> tags in <head>
+	* :host keywords
+	* style attribute of host
+*/
+
+		</script>
+	</body>
+</html>

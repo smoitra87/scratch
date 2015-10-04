@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>An example of using variables in CSS selectors</title>
+		<style>
+			#bar { 
+				--p-bg-color : magenta;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="foo">
+			<p>Light DOM level1</p>
+			<div id="bar">
+				<p>Light DOM level2</p>
+			</div>
+		</div>	 
+		<p> This does not work in both Firefox and Chrome</p>
+		<script>
+			var l1 = document.querySelector("#foo");
+			var l1root = l1.createShadowRoot();
+			l1root.innerHTML = "<style>p {color : red;}</style>"
+				 + "<style>:host {text-transform: uppercase;}</style>"
+				 + "<p>L1 local dom</p>"
+				 + "<content></content>";
+
+			// Create a shadowroot for bar
+			l2 = document.querySelector("#bar");
+			l2root = l2.createShadowRoot();
+			l2root.innerHTML = "<style>p {background-color: var(--p-bg-color);}</style>"
+				 + "<p>L2 local dom</p>"
+				 + "<content></content>";
+		</script>
+	</body>
+</html>

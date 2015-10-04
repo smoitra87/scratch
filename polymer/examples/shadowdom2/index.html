@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>An example of shadowroot for nested element</title>
+	</head>
+	<body>
+		<div id="foo">
+			<p>Light DOM level1</p>
+			<div id="bar">
+				<p>Light DOM level2</p>
+			</div>
+		</div>	
+		<script>
+			var l1 = document.querySelector("#foo");
+			var l1root = l1.createShadowRoot();
+			l1root.innerHTML = "<style>p {color : red;}</style>"
+				 + "<style>:host {text-transform: uppercase;}</style>"
+				 + "<p>L1 local dom</p>"
+				 + "<content></content>";
+
+			// Create a shadowroot for bar
+			l2 = document.querySelector("#bar");
+			l2root = l2.createShadowRoot();
+			l2root.innerHTML = "<style>p {background-color : green;}</style>"
+				 + "<p>L2 local dom</p>"
+				 + "<content></content>";
+		</script>
+	</body>
+</html>
