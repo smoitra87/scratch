@@ -1,0 +1,36 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="my-element">
+	<template>
+		<style>
+			:host { 
+				color: red;
+			}
+
+			#child-element { 
+				color: green;
+			} 
+			.content-wrapper ::content > .special { 
+				color: blue;
+			}
+		</style>
+		
+		<div id="child-element">
+			</p> I am part of local dom </p>
+		</div>	
+
+		<div>
+			</p> I am also part of local dom </p>
+		</div>	
+
+		<div class="content-wrapper">
+			<content></content>
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: "my-element"
+		});
+	</script>
+</dom-module>
+
