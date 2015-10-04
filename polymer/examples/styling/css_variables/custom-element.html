@@ -1,0 +1,32 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="custom-toolbar.html">
+
+<dom-module id="my-element">
+	<template>
+		<style>
+			my-toolbar {
+				--title-font: Impact, Charcoal, sans-serif;
+				--title-color: blue;
+			}
+
+			.warning { 
+				--title-color: red;
+			}
+		</style>
+		
+		<my-toolbar>I am a toolbar light dom</my-toolbar>
+		<my-toolbar>I am also a toolbar light dom</my-toolbar>
+		<my-toolbar class="warning">I am a warning toolbar light dom</my-toolbar>
+
+
+		<div class="content-wrapper">
+			<content></content>
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: "my-element"
+		});
+	</script>
+</dom-module>
+

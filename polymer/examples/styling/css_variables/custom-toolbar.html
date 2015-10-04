@@ -1,0 +1,35 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="my-toolbar">
+	<template>
+		<style>
+			:host { 
+				padding: 4px;
+			}
+
+			#title > h3 { 
+				color: var(--title-color);
+				font-family: var(--title-font);
+				background: var(--title-background), #ccc;
+			} 
+
+			.content-wrapper ::content > .special { 
+				color: grey;
+			}
+		</style>
+		
+		<div id="title">
+			<h3>Title of toolbar </h3>
+		</title>
+
+		<div class="content-wrapper">
+			<content></content>
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is: "my-toolbar"
+		});
+	</script>
+</dom-module>
+
