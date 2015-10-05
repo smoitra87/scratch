@@ -1,0 +1,28 @@
+{
+  "name": "foo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/smoitra87/scratch",
+  "authors": [
+    "Subhodeep Moitra <subhodeep.moitra@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "foo"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0",
+    "paper-input": "PolymerElements/paper-input#~1.0.15",
+    "paper-card": "PolymerElements/paper-card#~1.0.6"
+  }
+}
