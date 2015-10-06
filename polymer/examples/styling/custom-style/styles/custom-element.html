@@ -1,0 +1,44 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="custom-element">
+  <template>
+    <style>
+      .name-summary {
+        color: var(--name-summary-color);
+        font-family: var(--name-summary-font);
+      }
+
+      .bindValue {
+        font-family: var(--bind-value-font);
+      }
+    </style>
+    <div id="info" >
+      Enter <span class="name-summary">{{name}}</span> below
+    </div>
+    <div id="reflect" >
+      You entered <span class="bindValue">{{bindValue}}</span>
+    </div>
+    <paper-input bind-value="{{bindValue}}" label="{{name}}" type="text">
+    </paper-input>
+    <paper-card heading="Card heading">
+      <div class="content-wrapper">
+          <content></content>
+      <div>
+    </paper-card>
+  </template>
+  <script>
+    Polymer({
+      is: "custom-element",
+
+      properties: {
+        name: {
+          type: String
+        }
+      }
+
+    });
+  </script>
+</dom-module>
+
+
+

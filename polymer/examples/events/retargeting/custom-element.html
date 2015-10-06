@@ -1,0 +1,62 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="custom-element">
+  <template>
+    <style>
+      .name-summary {
+        color: var(--name-summary-color);
+        font-family: var(--name-summary-font);
+      }
+
+      .bindValue {
+        font-family: var(--bind-value-font);
+      }
+    </style>
+    <div id="info" >
+      Enter <span class="name-summary">{{name}}</span> below
+    </div>
+    <div id="reflect" >
+      You entered <span class="bindValue">{{bindValue}}</span>
+    </div>
+    <paper-input bind-value="{{bindValue}}" label="{{name}}" type="text">
+    </paper-input>
+    <paper-card heading="Card heading">
+      <div class="content-wrapper" on-tap="cardContentTap">
+          <content></content>
+      </div>
+      <div class="card-actions" on-tap="cardButtonTap">
+        <paper-button>Nay</paper-button>
+        <paper-button>Yay!</paper-button>
+      </div>
+    </paper-card>
+  </template>
+  <script>
+    Polymer({
+      is: "custom-element",
+
+      properties: {
+        name: {
+          type: String
+        }
+      },
+
+      cardContentTap: function(e) {
+        console.log("Card content was clicked");
+        normalizedEvent = Polymer.dom(e);
+        console.log("rootTarget: " + normalizedEvent.rootTarget)
+        console.log("localTarget: " + normalizedEvent.localTarget)
+        console.log("path: " + normalizedEvent.path)
+      },
+
+      cardButtonTap: function(e) {
+        console.log("card button clicked");
+        normalizedEvent = Polymer.dom(e);
+        console.log("currentTarget.localName: " + normalizedEvent.event.currentTarget.localName);
+        console.log("localTarget.localName: " + normalizedEvent.localTarget.localName);
+      }
+    });
+  </script>
+</dom-module>
+
+
+
