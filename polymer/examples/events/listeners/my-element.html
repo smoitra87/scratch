@@ -1,0 +1,67 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="my-element">
+  <template>
+    <style>
+      .container-wrapper {
+        color: red;
+      }
+
+      paper-button {
+        -webkit-align-items: center;
+        align-items: center;
+        background-color: rgba(66, 133, 244, 0.25);
+      }
+
+      iron-icon {
+        color: red;
+      }
+
+    </style>
+    <div id="local">
+      <p>This is my-element's local dom</p>
+    </div>
+    <div class="container-wrapper">
+      <content></content>
+    </div>
+    <div id="local2" on-click="localTap2">
+      <p>This is also  my-element's local dom</p>
+    </div>
+    <paper-button raised on-tap="handleButtonClick">
+      <iron-icon icon="favorite"></iron-icon>
+      Love me
+    </paper-button>
+  </template>
+  <script>
+    Polymer({
+      is: "my-element",
+
+      listeners : {
+        'tap': 'regularTap',
+        'local.tap': 'localTap'
+      },
+
+      regularTap: function(e) {
+        alert('A regular tap event occured');
+      },
+
+      localTap : function(e) {
+        alert('A tap event occured on a local dom element');
+      },
+
+      localTap2 : function(e) {
+        e.stopPropagation();
+        alert("A tap2 event occured and I don't propagate");
+      },
+
+      handleButtonClick: function(e) {
+        e.stopPropagation();
+        this.fire('love', {loved: "I am loved"});
+      }
+
+
+    });
+  </script>
+</dom-module>
