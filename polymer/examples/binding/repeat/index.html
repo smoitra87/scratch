@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>An example of using dom-repeat</title>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="bower_components/polymer/polymer.html">
+</head>
+<body unresolved>
+  <dom-module id="x-a">
+    <template>
+      <template is="dom-repeat" id="repeat" items="{{dataItems}}">
+        <div>
+          The <span>{{index}}</span>'th name is <span>{{item.name}}</span>
+        </div>
+      </template>
+    </template>
+    <script>
+      HTMLImports.whenReady(function() {
+        Polymer({
+          is: "x-a",
+          properties: {
+            dataItems: {
+              type: Array,
+              value: [
+                {name: "John"},
+                {name: "Doe"},
+              ],
+            }
+          }
+        });
+      });
+    </script>
+  </dom-module>
+  <x-a></x-a>
+</body>
+</html>
