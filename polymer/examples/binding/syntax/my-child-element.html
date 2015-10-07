@@ -1,0 +1,40 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="my-child-element">
+  <template>
+    <style>
+      div {
+        position: relative;
+        left: 10px;
+      }
+      span {
+        color: red;
+      }
+    </style>
+    <div id="child-local">
+      This is child's local dom. Received <span>{{childMessage}}</span> from parent.
+    </div>
+    <div id="child-light">
+      <content></content>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "my-child-element",
+
+      properties: {
+        childMessage: {
+          type: String,
+          notify: true
+        }
+      },
+
+      ready: function(){
+        setTimeout(function(){
+          this.childMessage = "I said Hello already!";
+        }.bind(this),3000);
+      }
+    });
+  </script>
+</dom-module>
+
