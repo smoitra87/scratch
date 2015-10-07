@@ -1,0 +1,52 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="my-element">
+  <template>
+    <style>
+      svg {
+        border: 5px solid black;
+      }
+      :host ::content .line {
+        fill: none;
+        stroke: #000;
+        stroke-width: 3px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+    </style>
+    <svg id="panel" width="960" height="500">
+      <rect style="fill:#fff;" width="100%" height="100%"></rect>
+    </svg>
+  </template>
+  <script>
+    Polymer({
+      is: "my-element",
+      ready: function(){
+        var activeLine;
+        var renderPath = d3.svg.line()
+            .x(function(d) { return d[0]; })
+            .y(function(d) { return d[1]; })
+            .interpolate("basis");
+
+        var svg = d3.select(this.$.panel)
+            .call(d3.behavior.drag()
+              .on("dragstart", dragstarted)
+              .on("drag", dragged)
+              .on("dragend", dragended));
+
+        function dragstarted() {
+          activeLine = svg.append("path").datum([]).attr("class", "line");
+        }
+
+        function dragged() {
+          activeLine.datum().push(d3.mouse(this));
+          activeLine.attr("d", renderPath);
+        }
+
+        function dragended() {
+          activeLine = null;
+        }
+      },
+    });
+  </script>
+</dom-module>
