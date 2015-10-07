@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>An example of native binding syntax.</title>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="my-element.html">
+  </head>
+
+  <body>
+    <my-element id="my-element" parent-message="Hello World">
+      This is parent's light dom.
+    </my-element>
+    <br>
+    <div id="addressBanner">
+      Address: <span class="banner"></span>
+    </div>
+  </body>
+
+  <script>
+    // Attach event listener
+    var addressChanged = function() {
+      var addressBanner = document.querySelector(".banner");
+      var myElement = document.querySelector("my-element");
+      addressBanner.textContent = myElement.address;
+    };
+
+    // Note addressChanged must be defined before this event listener is attached.
+    document.getElementById("my-element").addEventListener("address-changed", addressChanged);
+
+    setTimeout(function(){
+      var myElement = document.querySelector("my-element");
+      myElement.address = "Kilimanjaro";
+    }, 3000);
+
+    setTimeout(function(){
+      var myElement = document.querySelector("my-element");
+      myElement.changeArrayCals(150);
+    }, 2000);
+  </script>
+
+</html>

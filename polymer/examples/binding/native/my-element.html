@@ -1,0 +1,69 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="my-child-element.html">
+
+<dom-module id="my-element">
+  <template>
+    <style>
+      span {
+        color: blue;
+      }
+    </style>
+    <div id="local">
+      This is parent's local dom. MyMessage is <span>{{parentMessage}}</span>.
+      <br>
+      Ths is <strong>user.name: </strong> <span>{{user.name}}</span>.
+      <br>
+      <input type="text" id="myInput" value="{{hostValue::input}}">
+      <br>
+      Host value is <strong>{{hostValue}}</strong>
+      <br>
+      Host array value is <strong>{{foods.0.cals}}</strong>
+    </div>
+    <div id="localChild">
+      <my-child-element child-message="{{parentMessage}}">
+        This is child's light dom.
+      </my-child-element>
+    </div>
+    <div id="light">
+      <content></content>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "my-element",
+
+      properties: {
+        parentMessage: {
+          type: String
+        },
+
+        user: {
+          type: Object,
+          value : {
+            name: "John Doe",
+            age: 21
+          }
+        },
+
+        address:  {
+          type: String,
+          value: "Timbuktoo",
+          notify: true
+        },
+
+        hostValue: {
+          type: String,
+        },
+
+        foods: {
+          type: Array,
+          value: [{name: 'apple', cals: 100}, {name: 'burger', cals: 500}],
+        }
+      },
+
+      changeArrayCals: function(cals) {
+        this.set('foods.0.cals', cals);
+      }
+    });
+  </script>
+</dom-module>
